@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b11qp413qirim"]
+
+[ext_resource type="Texture2D" uid="uid://drtnnk7gkev2p" path="res://Assets/ArrowDark.png" id="1_b1fab"]
+[ext_resource type="Script" path="res://UpArrow.gd" id="2_0qbrq"]
+
+[node name="EscenaPrueba" type="Node2D"]
+
+[node name="Button" type="Button" parent="."]
+offset_left = 17.0
+offset_top = 36.0
+offset_right = 31.0
+offset_bottom = 51.0
+icon = ExtResource("1_b1fab")
+script = ExtResource("2_0qbrq")
