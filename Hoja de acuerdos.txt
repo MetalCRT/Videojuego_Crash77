@@ -1,0 +1,37 @@
+Equipo Crash77:
+Gustavo Medel
+Danny González
+Mario Jimenez
+
+Tareas:
+-Subir devlog (Danny)
+-Repartir roles:
+	-Ver assets.
+		-Ver flechitas (Medel) LISTO
+		-Hacer escenario
+		-Ver los musicos y enemigos (mismo estilo?) 
+			-musicos encima de cuadrito
+		-Ver la fuente de letra
+		-Ver diseño del menu
+		-Ver SFX
+			-Cuando atacas
+			-Cuando recibes daño
+			-Cuando aciertas una flecha
+		-Ver barrita de 
+	-Ver Musica. (Medel)
+		-por ahora musica random
+	-Hacer menu PRIORIDAD
+	-Hacer "torres" (musicos)/ tower defense
+		-Ver el cursor
+		-Ver la selección de torres
+		-Ver comportamiento de ataques
+	-Hacer "enemigos"/publico
+		-Ver movimiento
+		-Ver spawn 
+		-Ver daño recibido
+		-Ver ataque
+	-Hacer flechas/juego de ritmo (Medel)
+		-Diseño de las flechitas
+		-Diseño de los niveles/rangos de dificultad
+		-Hitbox de las flechas
+		-Sincronización con la música
