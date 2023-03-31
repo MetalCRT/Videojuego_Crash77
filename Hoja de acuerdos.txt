@@ -8,19 +8,19 @@ Tareas:
 -Repartir roles:
 	-Ver assets.
 		-Ver flechitas (Medel) LISTO
-		-Hacer escenario
-		-Ver los musicos y enemigos (mismo estilo?) 
+		-Hacer escenario (Danny)
+		-Ver los musicos y enemigos (Danny) 
 			-musicos encima de cuadrito
 		-Ver la fuente de letra
-		-Ver diseño del menu
+		-Ver diseño del menu 
 		-Ver SFX
 			-Cuando atacas
 			-Cuando recibes daño
 			-Cuando aciertas una flecha
-		-Ver barrita de 
+		-Ver barrita de vida
 	-Ver Musica. (Medel)
 		-por ahora musica random
-	-Hacer menu PRIORIDAD
+	-Hacer menu PRIORIDAD (Mario)
 	-Hacer "torres" (musicos)/ tower defense
 		-Ver el cursor
 		-Ver la selección de torres
