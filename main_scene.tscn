@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpm7arbpagoyd"]
+[gd_scene load_steps=3 format=3 uid="uid://cpm7arbpagoyd"]
 
+[ext_resource type="PackedScene" uid="uid://cc4n08ef4vcw4" path="res://Scenes/idle_arrow_up.tscn" id="1_22hfh"]
 [ext_resource type="PackedScene" uid="uid://ovufpx7ouc3q" path="res://Scenes/m_arrow_up.tscn" id="1_f5t6b"]
 
 [node name="MainScene" type="Node2D"]
 
 [node name="M_ArrowUp" parent="." instance=ExtResource("1_f5t6b")]
-position = Vector2(32, 615)
+position = Vector2(64, 520)
+
+[node name="Idle_Arrow_Up" parent="." instance=ExtResource("1_22hfh")]
+position = Vector2(64, 96)
