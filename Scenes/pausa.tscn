@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bqfwitvfx8bse"]
+
+[node name="MarginContainer" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2

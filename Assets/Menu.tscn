@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://ccyw7gdcvnfa3"]
+[gd_scene load_steps=5 format=3 uid="uid://ccyw7gdcvnfa3"]
 
 [ext_resource type="Theme" uid="uid://dykgfcqvxck4" path="res://Resources/theme.tres" id="1_s61c6"]
 [ext_resource type="FontFile" uid="uid://b80x4uelj58oq" path="res://Fonts/CoupeurBricoleur-DOWN.otf" id="2_j7ill"]
 [ext_resource type="Texture2D" uid="uid://34h83nfji2os" path="res://Resources/pexels-photo-167636.webp" id="2_tfo6g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pia17"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -37,6 +39,12 @@ theme_override_colors/font_color = Color(0.329412, 0.576471, 0.658824, 1)
 theme_override_fonts/font = ExtResource("2_j7ill")
 theme_override_font_sizes/font_size = 70
 text = "Crash 77"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_pia17")
 
 [node name="Inicio" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
