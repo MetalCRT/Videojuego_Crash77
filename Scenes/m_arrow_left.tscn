@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://di5b0owyqpj06"]
+
+[ext_resource type="Texture2D" uid="uid://cvw7glsoebve3" path="res://Assets/ArrowBlue.png" id="1_3ig6y"]
+[ext_resource type="Script" path="res://Scripts/m_arrow_left.gd" id="1_beprq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21hjb"]
+size = Vector2(74, 71)
+
+[node name="M_ArrowLeft" type="Area2D"]
+position = Vector2(44, 65)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_beprq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.500004, 0.833332)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_3ig6y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.500004, 1.33333)
+shape = SubResource("RectangleShape2D_21hjb")
+metadata/_edit_group_ = true
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="area_shape_exited" from="." to="." method="_on_area_shape_exited"]

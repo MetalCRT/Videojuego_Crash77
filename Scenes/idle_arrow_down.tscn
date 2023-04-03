@@ -1,0 +1,118 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfsvqaruftf4v"]
+
+[ext_resource type="Texture2D" uid="uid://86phdkig2a6" path="res://Assets/ArrowUpIdle.png" id="1_en2fc"]
+[ext_resource type="Script" path="res://Scripts/idle_arrow_down.gd" id="1_if8le"]
+[ext_resource type="Texture2D" uid="uid://cb8ei6hr1cdtk" path="res://Assets/ArrowDownGood.png" id="2_46aje"]
+[ext_resource type="Texture2D" uid="uid://yfcg4oap054b" path="res://Assets/ArrowUpBad.png" id="3_4k30c"]
+
+[sub_resource type="Animation" id="Animation_qwea7"]
+resource_name = "Hit"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteGood:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sm2tu"]
+length = 0.001
+step = 0.02
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteBad:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteGood:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteIdle:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lowns"]
+resource_name = "Miss"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteBad:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lrlpk"]
+_data = {
+"Hit": SubResource("Animation_qwea7"),
+"Miss": SubResource("Animation_lowns"),
+"RESET": SubResource("Animation_sm2tu")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6suq"]
+size = Vector2(72, 76)
+
+[node name="Idle_Arrow_down" type="Area2D"]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_if8le")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_lrlpk")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_h6suq")
+
+[node name="SpriteIdle" type="Sprite2D" parent="."]
+rotation = -3.14159
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_en2fc")
+
+[node name="SpriteGood" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_46aje")
+
+[node name="SpriteBad" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+rotation = -3.14159
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_4k30c")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="area_shape_exited" from="." to="." method="_on_area_shape_exited"]

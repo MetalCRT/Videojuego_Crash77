@@ -1,12 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpm7arbpagoyd"]
+[gd_scene load_steps=9 format=3 uid="uid://cpm7arbpagoyd"]
 
 [ext_resource type="PackedScene" uid="uid://cc4n08ef4vcw4" path="res://Scenes/idle_arrow_up.tscn" id="1_22hfh"]
 [ext_resource type="PackedScene" uid="uid://ovufpx7ouc3q" path="res://Scenes/m_arrow_up.tscn" id="1_f5t6b"]
+[ext_resource type="PackedScene" uid="uid://b2kbhsylbsd3e" path="res://Scenes/idle_arrow_left.tscn" id="3_kb333"]
+[ext_resource type="PackedScene" uid="uid://di5b0owyqpj06" path="res://Scenes/m_arrow_left.tscn" id="4_abcy5"]
+[ext_resource type="PackedScene" uid="uid://c6gv8h8w8l5nh" path="res://Scenes/m_arrow_down.tscn" id="5_udoh5"]
+[ext_resource type="PackedScene" uid="uid://cfsvqaruftf4v" path="res://Scenes/idle_arrow_down.tscn" id="6_c8pp8"]
+[ext_resource type="PackedScene" uid="uid://bh4s7i6qqmnry" path="res://Scenes/idle_arrow_right.tscn" id="7_28k6a"]
+[ext_resource type="PackedScene" uid="uid://bmuavein8bvc2" path="res://Scenes/m_arrow_right.tscn" id="8_4wa6g"]
 
 [node name="MainScene" type="Node2D"]
 
 [node name="M_ArrowUp" parent="." instance=ExtResource("1_f5t6b")]
-position = Vector2(64, 520)
+position = Vector2(276, 500)
 
 [node name="Idle_Arrow_Up" parent="." instance=ExtResource("1_22hfh")]
-position = Vector2(64, 96)
+position = Vector2(276, 96)
+
+[node name="M_ArrowLeft" parent="." instance=ExtResource("4_abcy5")]
+position = Vector2(54, 600)
+scale = Vector2(1, 1)
+metadata/_edit_group_ = true
+
+[node name="Idle_arrow_left" parent="." instance=ExtResource("3_kb333")]
+position = Vector2(54, 96)
+
+[node name="m_arrow_down" parent="." instance=ExtResource("5_udoh5")]
+position = Vector2(165, 310)
+
+[node name="Idle_Arrow_down" parent="." instance=ExtResource("6_c8pp8")]
+position = Vector2(165, 96)
+scale = Vector2(1, 1)
+
+[node name="Idle_arrow_right" parent="." instance=ExtResource("7_28k6a")]
+position = Vector2(387, 96)
+scale = Vector2(1, 1)
+
+[node name="M_Arrow_Right" parent="." instance=ExtResource("8_4wa6g")]
+position = Vector2(387, 700)
