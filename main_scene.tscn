@@ -37,4 +37,4 @@ position = Vector2(387, 96)
 scale = Vector2(1, 1)
 
 [node name="M_Arrow_Right" parent="." instance=ExtResource("8_4wa6g")]
-position = Vector2(387, 700)
+position = Vector2(386, 700)
