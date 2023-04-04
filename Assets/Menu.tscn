@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dq05v3d516hrs"]
+[gd_scene load_steps=5 format=3 uid="uid://ccyw7gdcvnfa3"]
 
-[ext_resource type="Theme" uid="uid://dy5csnajfq6f3" path="res://Resources/theme.tres" id="1_ysv6b"]
+[ext_resource type="Theme" uid="uid://dykgfcqvxck4" path="res://Resources/theme.tres" id="1_s61c6"]
 [ext_resource type="FontFile" uid="uid://b80x4uelj58oq" path="res://Fonts/CoupeurBricoleur-DOWN.otf" id="2_j7ill"]
+[ext_resource type="Texture2D" uid="uid://34h83nfji2os" path="res://Resources/pexels-photo-167636.webp" id="2_tfo6g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pia17"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -9,15 +12,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_ysv6b")
+theme = ExtResource("1_s61c6")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_tfo6g")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
@@ -32,18 +38,22 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.329412, 0.576471, 0.658824, 1)
 theme_override_fonts/font = ExtResource("2_j7ill")
 theme_override_font_sizes/font_size = 70
-text = "Titulo Juego"
+text = "Crash 77"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_pia17")
 
 [node name="Inicio" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_j7ill")
-theme_override_font_sizes/font_size = 50
 text = "Inicio"
 
 [node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_j7ill")
-theme_override_font_sizes/font_size = 50
 text = "Salir
 "
 
