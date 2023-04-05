@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpm7arbpagoyd"]
+[gd_scene load_steps=10 format=3 uid="uid://cpm7arbpagoyd"]
 
+[ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_6xsk1"]
 [ext_resource type="PackedScene" uid="uid://cc4n08ef4vcw4" path="res://Scenes/idle_arrow_up.tscn" id="1_22hfh"]
 [ext_resource type="PackedScene" uid="uid://ovufpx7ouc3q" path="res://Scenes/m_arrow_up.tscn" id="1_f5t6b"]
 [ext_resource type="PackedScene" uid="uid://b2kbhsylbsd3e" path="res://Scenes/idle_arrow_left.tscn" id="3_kb333"]
@@ -10,23 +11,13 @@
 [ext_resource type="PackedScene" uid="uid://bmuavein8bvc2" path="res://Scenes/m_arrow_right.tscn" id="8_4wa6g"]
 
 [node name="MainScene" type="Node2D"]
-
-[node name="M_ArrowUp" parent="." instance=ExtResource("1_f5t6b")]
-position = Vector2(276, 500)
+script = ExtResource("1_6xsk1")
 
 [node name="Idle_Arrow_Up" parent="." instance=ExtResource("1_22hfh")]
 position = Vector2(276, 96)
 
-[node name="M_ArrowLeft" parent="." instance=ExtResource("4_abcy5")]
-position = Vector2(54, 600)
-scale = Vector2(1, 1)
-metadata/_edit_group_ = true
-
 [node name="Idle_arrow_left" parent="." instance=ExtResource("3_kb333")]
 position = Vector2(54, 96)
-
-[node name="m_arrow_down" parent="." instance=ExtResource("5_udoh5")]
-position = Vector2(165, 310)
 
 [node name="Idle_Arrow_down" parent="." instance=ExtResource("6_c8pp8")]
 position = Vector2(165, 96)
@@ -36,5 +27,33 @@ scale = Vector2(1, 1)
 position = Vector2(387, 96)
 scale = Vector2(1, 1)
 
+[node name="m_arrow_down" parent="." instance=ExtResource("5_udoh5")]
+position = Vector2(165, 310)
+
+[node name="M_ArrowLeft" parent="." instance=ExtResource("4_abcy5")]
+position = Vector2(54, 600)
+scale = Vector2(1, 1)
+metadata/_edit_group_ = true
+
+[node name="M_ArrowUp" parent="." instance=ExtResource("1_f5t6b")]
+position = Vector2(276, 500)
+
 [node name="M_Arrow_Right" parent="." instance=ExtResource("8_4wa6g")]
 position = Vector2(386, 700)
+
+[node name="Creator" type="Node2D" parent="."]
+
+[node name="Marker2D_AL" type="Marker2D" parent="Creator"]
+position = Vector2(54, 700)
+
+[node name="Marker2D_AD" type="Marker2D" parent="Creator"]
+position = Vector2(165, 700)
+
+[node name="Marker2D_AU" type="Marker2D" parent="Creator"]
+position = Vector2(276, 700)
+
+[node name="Marker2D_AR" type="Marker2D" parent="Creator"]
+position = Vector2(387, 700)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
