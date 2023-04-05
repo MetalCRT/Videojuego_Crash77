@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bncf7eex6ohbj"
-path="res://.godot/imported/guitarrista1DemoDigital.png-cda2a36deebdb3560c07a8ab92f9bb61.ctex"
+uid="uid://vw5wleh6rl55"
+path="res://.godot/imported/PlayerWalk 48x48.png-98c76c35567ad377207aae1d66e81055.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/guitarrista1DemoDigital.png"
-dest_files=["res://.godot/imported/guitarrista1DemoDigital.png-cda2a36deebdb3560c07a8ab92f9bb61.ctex"]
+source_file="res://Assets/Personajes/monosMoviendose/PlayerWalk/PlayerWalk 48x48.png"
+dest_files=["res://.godot/imported/PlayerWalk 48x48.png-98c76c35567ad377207aae1d66e81055.ctex"]
 
 [params]
 
