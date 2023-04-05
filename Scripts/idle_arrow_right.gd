@@ -8,11 +8,13 @@ func _process(delta):
 	if sensor == 1:
 		if Input.is_action_just_pressed("ui_right"):
 			anim.play("Hit")
+			anim.animation_set_next("Miss","RESET")
 	
 	#Miss Note
 	if sensor == 0:
 		if Input.is_action_just_pressed("ui_right"):
 			anim.play("Miss")
+			anim.animation_set_next("Hit","RESET")
 			
 
 
