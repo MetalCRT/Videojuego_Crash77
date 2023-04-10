@@ -1,4 +1,9 @@
-[gd_scene format=3 uid="uid://bqfwitvfx8bse"]
+[gd_scene load_steps=4 format=3 uid="uid://bqfwitvfx8bse"]
+
+[ext_resource type="FontFile" uid="uid://b80x4uelj58oq" path="res://Fonts/CoupeurBricoleur-DOWN.otf" id="1_5mrnc"]
+[ext_resource type="Theme" uid="uid://dykgfcqvxck4" path="res://Resources/theme.tres" id="1_vhqv2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_amtcp"]
 
 [node name="MarginContainer" type="MarginContainer"]
 anchors_preset = 15
@@ -9,4 +14,52 @@ grow_vertical = 2
 size_flags_horizontal = 0
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme = ExtResource("1_vhqv2")
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.329412, 0.576471, 0.658824, 1)
+theme_override_fonts/font = ExtResource("1_5mrnc")
+theme_override_font_sizes/font_size = 70
+text = "Pausa "
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+theme_override_styles/separator = SubResource("StyleBoxEmpty_amtcp")
+
+[node name="Reanudar" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_5mrnc")
+text = "Reanudar 
+"
+
+[node name="Reiniciar" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reiniciar"
+
+[node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_5mrnc")
+text = "Salir 
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
