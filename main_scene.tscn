@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpm7arbpagoyd"]
+[gd_scene load_steps=10 format=3 uid="uid://cpm7arbpagoyd"]
 
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_6xsk1"]
 [ext_resource type="PackedScene" uid="uid://cc4n08ef4vcw4" path="res://Scenes/idle_arrow_up.tscn" id="1_22hfh"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://s2nquirsr28x" path="res://tablero.tscn" id="6_fxs38"]
 [ext_resource type="PackedScene" uid="uid://bh4s7i6qqmnry" path="res://Scenes/idle_arrow_right.tscn" id="7_28k6a"]
 [ext_resource type="PackedScene" uid="uid://q531sotadec" path="res://enemigo.tscn" id="7_sfegs"]
+[ext_resource type="PackedScene" uid="uid://bqfwitvfx8bse" path="res://Scenes/pausa.tscn" id="9_0qvrh"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6xsk1")
@@ -58,5 +59,9 @@ layer_0/tile_data = PackedInt32Array(131069, 0, 0, 196606, 0, 0, 65534, 0, 0, -1
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("7_sfegs")]
 position = Vector2(1076, 372)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Menu de pausa" parent="CanvasLayer" instance=ExtResource("9_0qvrh")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
