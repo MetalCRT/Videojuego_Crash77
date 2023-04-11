@@ -1,13 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpm7arbpagoyd"]
+[gd_scene load_steps=9 format=3 uid="uid://cpm7arbpagoyd"]
 
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_6xsk1"]
 [ext_resource type="PackedScene" uid="uid://cc4n08ef4vcw4" path="res://Scenes/idle_arrow_up.tscn" id="1_22hfh"]
+[ext_resource type="Texture2D" uid="uid://cpam4pecovy77" path="res://Assets/istockphoto-1330424071-612x612.jpg" id="2_rbhw8"]
 [ext_resource type="PackedScene" uid="uid://b2kbhsylbsd3e" path="res://Scenes/idle_arrow_left.tscn" id="3_kb333"]
 [ext_resource type="PackedScene" uid="uid://cfsvqaruftf4v" path="res://Scenes/idle_arrow_down.tscn" id="6_c8pp8"]
+[ext_resource type="PackedScene" uid="uid://s2nquirsr28x" path="res://tablero.tscn" id="6_fxs38"]
 [ext_resource type="PackedScene" uid="uid://bh4s7i6qqmnry" path="res://Scenes/idle_arrow_right.tscn" id="7_28k6a"]
+[ext_resource type="PackedScene" uid="uid://q531sotadec" path="res://enemigo.tscn" id="7_sfegs"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6xsk1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.309804, 0.309804, 0.309804, 1)
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_rbhw8")
 
 [node name="Idle_Arrow_Up" parent="." instance=ExtResource("1_22hfh")]
 position = Vector2(276, 96)
@@ -39,5 +48,15 @@ position = Vector2(387, 700)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="tablero" parent="." instance=ExtResource("6_fxs38")]
+position = Vector2(791, 325)
+scale = Vector2(1, 1)
+layer_0/tile_data = PackedInt32Array(131069, 0, 0, 196606, 0, 0, 65534, 0, 0, -1, 0, 0, 131071, 0, 0, 131072, 0, 0, 0, 0, 0, -65535, 0, 0, 65537, 0, 0, 131074, 0, 0, 2, 0, 0, -65533, 0, 0, 65539, 0, 0, 65533, 65536, 0, 196605, 65536, 0, 131070, 65536, 0, -2, 65536, 0, 65535, 65536, 0, 196607, 65536, 0, 65536, 65536, 0, -65536, 65536, 0, 1, 65536, 0, 131073, 65536, 0, 65538, 65536, 0, -65534, 65536, 0, 3, 65536, 0, 131075, 65536, 0, -3, 0, 0)
+
+[node name="characters" type="Node2D" parent="."]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("7_sfegs")]
+position = Vector2(1076, 372)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
