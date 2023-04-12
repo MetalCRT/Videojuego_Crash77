@@ -33,7 +33,11 @@ func _on_body_entered(body):
 func _on_hit_detected():
 	# Crea  proyectil y lo agrega como un hijo del personaje
 	var nota = preload("res://characters/nota.tscn").instantiate()
-	nota.position = posicion
 	get_parent().add_child(nota)
+	nota.position = posicion
+	print("Dispara")
 
-
+#func _process(delta):
+#	if Global.shootqueue > 0:
+#		_on_hit_detected()
+#		Global.shootqueue -= 1

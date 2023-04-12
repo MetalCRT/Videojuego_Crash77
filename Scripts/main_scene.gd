@@ -5,11 +5,17 @@ const AD = preload("res://Scenes/m_arrow_down.tscn")
 const AU = preload("res://Scenes/m_arrow_up.tscn")
 const AR = preload("res://Scenes/m_arrow_right.tscn")
 
+@onready var contenedor = $characters
 var random = 0
 var RNG = RandomNumberGenerator.new()
 
 func _process(delta):
-	pass
+	$Score/Label.text = str(Global.score)
+	if Global.shootqueue>0:
+		for character in contenedor.get_children():
+			if character.has_method("_on_hit_detected"):
+				character._on_hit_detected()
+		Global.shootqueue -= 1
 
 
 func _on_timer_timeout():
@@ -67,7 +73,6 @@ func _input(event):
 		if tile_map.get_cell_source_id(0,cell_pos) == -1 and is_inside_area(cell_pos,p1,p2,p3,p4):
 			# Crear un nuevo personaje y añadirlo a la escena
 			var character = preload("res://characters/guitarrista1.tscn").instantiate()
-			var contenedor = $characters
 			character.position = tile_map.map_to_local(cell_pos)
 			contenedor.add_child(character)
 			# Establecer el índice de la celda en el mapa de baldosas para indicar que está ocupada por el personaje

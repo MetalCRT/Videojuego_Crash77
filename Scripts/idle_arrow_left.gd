@@ -10,6 +10,8 @@ func _process(delta):
 			#emit_signal("hit_detected")
 			anim.play("Hit")
 			anim.animation_set_next("Miss","RESET")
+			Global.score += 10
+			Global.shootqueue += 1
 	
 	#Miss Note
 	if sensor == 0:

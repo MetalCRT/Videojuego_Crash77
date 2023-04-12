@@ -7,4 +7,6 @@ var sensor_ArrowLeft = 0
 var sensor_ArrowDown = 0
 var sensor_ArrowRight = 0
 
-#Arrow Queues
+#Contenedor
+var score = 0
+var shootqueue = 0

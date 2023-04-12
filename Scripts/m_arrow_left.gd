@@ -16,6 +16,7 @@ func _process(delta):
 		if Global.sensor_ArrowLeft == 1:
 			if Input.is_action_just_pressed("ui_left"):
 				queue_free()
+				
 
 
 func _on_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
