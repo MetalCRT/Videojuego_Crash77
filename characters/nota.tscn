@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://df1dmrkdnggkk"]
+
+[ext_resource type="Texture2D" uid="uid://cxyejv5ujbdrj" path="res://Assets/notaMusical.png" id="1_2clml"]
+[ext_resource type="Script" path="res://characters/nota.gd" id="1_fqd02"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qp7os"]
+
+[node name="Area2D" type="Area2D" groups=["proyectiles"]]
+script = ExtResource("1_fqd02")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["proyectiles"]]
+scale = Vector2(1, 2)
+shape = SubResource("RectangleShape2D_qp7os")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["proyectiles"]]
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_2clml")

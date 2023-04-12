@@ -7,6 +7,7 @@ func _process(delta):
 	#Hit Note
 	if sensor == 1:
 		if Input.is_action_just_pressed("ui_down"):
+			#emit_signal("hit_detected")
 			anim.play("Hit")
 			anim.animation_set_next("Miss","RESET")
 	
