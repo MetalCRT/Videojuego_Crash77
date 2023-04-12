@@ -58,11 +58,20 @@ layer_0/tile_data = PackedInt32Array(131069, 0, 0, 196606, 0, 0, 65534, 0, 0, -1
 [node name="characters" type="Node2D" parent="."]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("7_sfegs")]
-position = Vector2(1076, 372)
+position = Vector2(1076, 381)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Menu de pausa" parent="CanvasLayer" instance=ExtResource("9_0qvrh")]
 visible = false
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("7_sfegs")]
+position = Vector2(1311, 496)
+
+[node name="CharacterBody2D3" parent="." instance=ExtResource("7_sfegs")]
+position = Vector2(1196, 265)
+
+[node name="CharacterBody2D4" parent="." instance=ExtResource("7_sfegs")]
+position = Vector2(1447, 617)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

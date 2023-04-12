@@ -70,6 +70,5 @@ func _input(event):
 			var contenedor = $characters
 			character.position = tile_map.map_to_local(cell_pos)
 			contenedor.add_child(character)
-			print(cell_pos)
 			# Establecer el índice de la celda en el mapa de baldosas para indicar que está ocupada por el personaje
 			tile_map.set_cell(0,cell_pos)

@@ -11,8 +11,10 @@ script/source = "extends CharacterBody2D
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get(\"parameters/playback\")
 @onready var pivot = $Pivot
-var velocityInt = -15
+var velocityInt = -30
 var velocityVect = Vector2(velocityInt,0)
+const HEALTH = 3
+var health = HEALTH
 
 func _ready():
 	animation_tree.active = true
@@ -25,9 +27,11 @@ func _physics_process(delta):
 	else:
 		playback.travel(\"idle\")
 
-	
-
-	
+func _on_area_entered(area):
+	if area.is_in_group(\"proyectiles\"):
+		health -= 1 # reduce la salud del enemigo en 1
+		if health <= 0:
+			queue_free() # destruye el enemigo si su salud es igual o menor que 0
 "
 
 [sub_resource type="Animation" id="Animation_2yvt3"]
@@ -322,28 +326,29 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_5eo5c"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 2
 script = SubResource("GDScript_cwxhu")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["enemies"]]
 libraries = {
 "": SubResource("AnimationLibrary_bsuet")
 }
 
-[node name="maloCaminando" type="Sprite2D" parent="."]
+[node name="maloCaminando" type="Sprite2D" parent="." groups=["enemies"]]
 scale = Vector2(3.5, 3.5)
-texture = ExtResource("3_umgds")
+texture = ExtResource("2_vd4ru")
 flip_h = true
-hframes = 8
-frame = 7
+hframes = 10
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(7, 7)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemies"]]
+scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_tay4w")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="." groups=["enemies"]]
 
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="." groups=["enemies"]]
 tree_root = SubResource("AnimationNodeStateMachine_rnly8")
 anim_player = NodePath("../AnimationPlayer")
 active = true
