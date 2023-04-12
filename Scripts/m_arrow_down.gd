@@ -12,7 +12,7 @@ func _process(delta):
 		queue_free()
 	
 	#Hit detection
-	if sensor == 1:
+	if sensor == 1 && position.y<167 && position.y>18:
 		if Global.sensor_ArrowDown == 1:
 			if Input.is_action_just_pressed("ui_down"):
 				queue_free()

@@ -10,13 +10,11 @@ var RNG = RandomNumberGenerator.new()
 var deltaTime = 0
 
 func _process(delta):
-	deltaTime = delta
-	print(deltaTime)
+	pass
 
 
 func _on_timer_timeout():
 	$Timer.start()
-	$Timer.set_wait_time(1000/9*deltaTime)
 	RNG.randomize()
 	var random_int = RNG.randi_range(0,4)
 	random = random_int
