@@ -4,9 +4,11 @@ const AL = preload("res://Scenes/m_arrow_left.tscn")
 const AD = preload("res://Scenes/m_arrow_down.tscn")
 const AU = preload("res://Scenes/m_arrow_up.tscn")
 const AR = preload("res://Scenes/m_arrow_right.tscn")
+const enemy = preload("res://enemigo.tscn")
 
 @onready var contenedor = $characters
 var random = 0
+#var random2 = 0
 var RNG = RandomNumberGenerator.new()
 
 func _process(delta):
@@ -22,26 +24,35 @@ func _on_timer_timeout():
 	$Timer.start()
 	RNG.randomize()
 	var random_int = RNG.randi_range(0,4)
+	#var random_int2 = RNG.randi_range(0,8)
 	random = random_int
+	#random2 = random_int2
 	
 	match random :
 		1:
 			var al = AL.instantiate()
 			get_parent().add_child(al)
 			al.position = $Creator/Marker2D_AL.global_position
+			
 		2:
 			var ad = AD.instantiate()
 			get_parent().add_child(ad)
 			ad.position = $Creator/Marker2D_AD.global_position
+			
+
 		3:
 			var au = AU.instantiate()
 			get_parent().add_child(au)
 			au.position = $Creator/Marker2D_AU.global_position
+			
 		4:
 			var ar = AR.instantiate()
 			get_parent().add_child(ar)
 			ar.position = $Creator/Marker2D_AR.global_position
 			
+
+
+
 
 #chequea si vector está dentro del area
 func is_inside_area(p: Vector2, p1: Vector2, p2: Vector2, p3: Vector2, p4: Vector2) -> bool:
@@ -77,3 +88,30 @@ func _input(event):
 			contenedor.add_child(character)
 			# Establecer el índice de la celda en el mapa de baldosas para indicar que está ocupada por el personaje
 			tile_map.set_cell(0,cell_pos)
+
+
+func _on_timer_2_timeout():
+	$Timer2.start()
+	RNG.randomize()
+	var random_int = RNG.randi_range(0,4)
+	#var random_int2 = RNG.randi_range(0,8)
+	random = random_int
+	#random2 = random_int2
+	
+	match random :
+		1:
+			var en1 = enemy.instantiate()
+			get_parent().add_child(en1)
+			en1.position = $Creator/Marker2D_en1.global_position
+		2:
+			var en2 = enemy.instantiate()
+			get_parent().add_child(en2)
+			en2.position = $Creator/Marker2D_en2.global_position
+		3:
+			var en3 = enemy.instantiate()
+			get_parent().add_child(en3)
+			en3.position = $Creator/Marker2D_en3.global_position
+		4:
+			var en4 = enemy.instantiate()
+			get_parent().add_child(en4)
+			en4.position = $Creator/Marker2D_en4.global_position
