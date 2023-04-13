@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://characters/guitarrista1.gd" id="1_3u3pd"]
 [ext_resource type="Texture2D" uid="uid://b25jnrljwu71i" path="res://Assets/explosion.png" id="2_ghc4e"]
-[ext_resource type="Texture2D" uid="uid://cqmylwk33m7ik" path="res://Assets/Personajes/guitarrista1/guitarrista1Pixel.png" id="2_tmrby"]
+[ext_resource type="Texture2D" uid="uid://cwuji37sxox2d" path="res://Assets/Personajes/guitarrista2/guitarrista2.png" id="2_hscng"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30sdb"]
 size = Vector2(16, 16)
@@ -121,7 +121,7 @@ shape = SubResource("RectangleShape2D_30sdb")
 [node name="personaje" type="Sprite2D" parent="."]
 position = Vector2(0, -1.57143)
 scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_tmrby")
+texture = ExtResource("2_hscng")
 
 [node name="explosion" type="Sprite2D" parent="."]
 visible = false
