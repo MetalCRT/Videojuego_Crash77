@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://ctj13bl34o05t"]
 
 [ext_resource type="Script" path="res://characters/guitarrista1.gd" id="1_3u3pd"]
-[ext_resource type="Texture2D" uid="uid://bncf7eex6ohbj" path="res://Assets/Personajes/guitarrista1/guitarrista1DemoDigital.png" id="1_jqryf"]
 [ext_resource type="Texture2D" uid="uid://b25jnrljwu71i" path="res://Assets/explosion.png" id="2_ghc4e"]
+[ext_resource type="Texture2D" uid="uid://cwuji37sxox2d" path="res://Assets/Personajes/guitarrista2/guitarrista2.png" id="2_hscng"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30sdb"]
 size = Vector2(16, 16)
@@ -12,34 +12,22 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("personaje:texture")
+tracks/0/path = NodePath("personaje:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_jqryf")]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("personaje:visible")
+tracks/1/enabled = false
+tracks/1/path = NodePath("explosion:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("explosion:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -92,34 +80,22 @@ resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("personaje:texture")
+tracks/0/path = NodePath("personaje:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_jqryf")]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("personaje:visible")
+tracks/1/path = NodePath("explosion:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("explosion:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -143,9 +119,9 @@ script = ExtResource("1_3u3pd")
 shape = SubResource("RectangleShape2D_30sdb")
 
 [node name="personaje" type="Sprite2D" parent="."]
-position = Vector2(0, -1.71429)
-scale = Vector2(0.013, 0.013)
-texture = ExtResource("1_jqryf")
+position = Vector2(0, -1.57143)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_hscng")
 
 [node name="explosion" type="Sprite2D" parent="."]
 visible = false
