@@ -5,12 +5,13 @@ const AD = preload("res://Scenes/m_arrow_down.tscn")
 const AU = preload("res://Scenes/m_arrow_up.tscn")
 const AR = preload("res://Scenes/m_arrow_right.tscn")
 const enemy = preload("res://enemigo.tscn")
+#Global.score = 0
+#Global.shootqueue = 0
 
 @onready var contenedor = $characters
 var random = 0
 #var random2 = 0
 var RNG = RandomNumberGenerator.new()
-
 func _process(delta):
 	$Score/Label.text = str(Global.score)
 	if Global.shootqueue>0:
@@ -31,23 +32,23 @@ func _on_timer_timeout():
 	match random :
 		1:
 			var al = AL.instantiate()
-			get_parent().add_child(al)
+			get_tree().get_current_scene().add_child(al)
 			al.position = $Creator/Marker2D_AL.global_position
 			
 		2:
 			var ad = AD.instantiate()
-			get_parent().add_child(ad)
+			get_tree().get_current_scene().add_child(ad)
 			ad.position = $Creator/Marker2D_AD.global_position
 			
 
 		3:
 			var au = AU.instantiate()
-			get_parent().add_child(au)
+			get_tree().get_current_scene().add_child(au)
 			au.position = $Creator/Marker2D_AU.global_position
 			
 		4:
 			var ar = AR.instantiate()
-			get_parent().add_child(ar)
+			get_tree().get_current_scene().add_child(ar)
 			ar.position = $Creator/Marker2D_AR.global_position
 			
 
@@ -101,17 +102,17 @@ func _on_timer_2_timeout():
 	match random :
 		1:
 			var en1 = enemy.instantiate()
-			get_parent().add_child(en1)
+			get_tree().get_current_scene().add_child(en1)
 			en1.position = $Creator/Marker2D_en1.global_position
 		2:
 			var en2 = enemy.instantiate()
-			get_parent().add_child(en2)
+			get_tree().get_current_scene().add_child(en2)
 			en2.position = $Creator/Marker2D_en2.global_position
 		3:
 			var en3 = enemy.instantiate()
-			get_parent().add_child(en3)
+			get_tree().get_current_scene().add_child(en3)
 			en3.position = $Creator/Marker2D_en3.global_position
 		4:
 			var en4 = enemy.instantiate()
-			get_parent().add_child(en4)
+			get_tree().get_current_scene().add_child(en4)
 			en4.position = $Creator/Marker2D_en4.global_position
