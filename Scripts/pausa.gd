@@ -29,6 +29,7 @@ func _on_reanudar_pressed():
 func _on_reiniciar_pressed():
 	get_tree().reload_current_scene()
 	get_tree().paused = false
+	Global.score = 0
 	
 	
 func _on_menu_principal_pressed():

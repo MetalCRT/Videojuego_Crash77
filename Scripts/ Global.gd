@@ -10,3 +10,5 @@ var sensor_ArrowRight = 0
 #Contenedor
 var score = 0
 var shootqueue = 0
+
+

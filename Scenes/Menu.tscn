@@ -10,6 +10,8 @@ script/source = "extends MarginContainer
 
 @onready var inicio = %Inicio
 @onready var exit = %Exit
+@onready var configuracion = %Configuracion
+
 
 @export var main_scene: PackedScene 
 
@@ -17,16 +19,23 @@ func _ready():
 	# Se ejecuta al inicio de la escena
 	inicio.pressed.connect(_on_inicio_pressed)
 	exit.pressed.connect(_on_exit_pressed)
+	configuracion.pressed.connect(_on_configuracion_pressed)
 	
 
 func _on_inicio_pressed():
 	# Se ejecuta cuando se presiona el botón \"Iniciar\"
 	# get_tree().change_scene_to_file(\"res://main_scene.tscn\")
 	get_tree().change_scene_to_packed(main_scene)
+	
+func _on_configuracion_pressed():
+	get_tree().change_scene_to_file(\"res://Scenes/configuracion.tscn\")
 
 func _on_exit_pressed():
 	# Se ejecuta cuando se presiona el botón \"Salir\"
 	get_tree().quit()
+
+
+
 "
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pia17"]
@@ -65,7 +74,7 @@ horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 60
+theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxEmpty_pia17")
 
 [node name="Inicio" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
@@ -73,6 +82,12 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_j7ill")
 text = "Inicio"
+
+[node name="Configuracion" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Configuración
+"
 
 [node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
