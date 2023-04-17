@@ -1,52 +1,69 @@
 extends MarginContainer
 
-
-const LANGUAGE_FILE_PATH = "res://Resources/Lenguajes.csv"
-const DEFAULT_LANGUAGE = "es"
-var currentLanguage = DEFAULT_LANGUAGE
+var language_file = "res://Resources/language.csv"
+var current_language = "es"
 
 func _ready():
-	# Configura los textos iniciales del juego
-	set_language(currentLanguage)
-	
-	# Conecta la señal de pulsación de los botones a los métodos correspondientes
-	$Lenguajes/Espanol.connect("pressed", self, "set_language", [ "es" ])
-	$Lenguajes/Ingles.connect("pressed", self, "set_language", [ "en" ])
-	$Lenguajes/Volver.connect("pressed", self, "go_to_configuracion")
+	load_language()
 
-func set_language(language: String) -> void:
-	# Carga el archivo CSV y obtiene las traducciones correspondientes al idioma elegido
-	var translations = {}
+func load_language():
 	var file = File.new()
-	if file.open(LANGUAGE_FILE_PATH, File.READ) == OK:
-		var line = file.get_line()
-		while line != "":
-			var keys = line.split(",")
-			var values = file.get_line().split(",")
-			translations[keys[0]] = values
-			line = file.get_line()
+	if file.file_exists(language_file):
+		file.open(language_file, File.READ)
+		while !file.eof_reached():
+			var line = file.get_line().strip_edges()
+			if line.empty() or line.begins_with("#"):
+				continue
+			var parts = line.split(",")
+			if parts.size() < 2:
+				continue
+			var key = parts[0].strip_edges()
+			var value = parts[1].strip_edges()
+			if key.empty() or value.empty():
+				continue
+			translation[key] = value
 		file.close()
-	else:
-		print_error("Error al cargar el archivo de idiomas")
-		return
-	
-	# Actualiza los textos del juego con las traducciones correspondientes
-	var nodes = get_tree().get_nodes_in_group("localized")
+
+func save_language():
+	var file = File.new()
+	file.open(language_file, File.WRITE)
+	for key in translation.keys():
+		var value = translation[key]
+		file.put_line(key + "," + value)
+	file.close()
+
+func set_language(lang):
+	current_language = lang
+	load_language()
+	save_language()
+
+func _on_Espanol_pressed():
+	set_language("es")
+	translate_scene()
+
+func _on_Ingles_pressed():
+	set_language("en")
+	translate_scene()
+
+func _on_Atras_pressed():
+	get_tree().change_scene("res://Scenes/Configuracion.tscn")
+
+func translate_scene():
+	var nodes = get_tree().get_nodes_in_group("Translatable")
 	for node in nodes:
-		if node.has_method("set_translation"):
-			node.set_translation(translations[node.get_name()][language])
-	
-	# Guarda el idioma actual en el archivo de configuración
-	currentLanguage = language
-	var config = ConfigFile.new()
-	config.load("user://config.cfg")
-	config.set_value("language", currentLanguage)
-	config.save("user://config.cfg")
-	
-func go_to_configuracion() -> void:
-	# Carga la escena de configuración y cambia a ella
-	var configuracion = load("res://Scenes/configuracion.tscn")
-	get_tree().change_scene_to(configuracion)
+		translate_node(node)
+
+func translate_node(node):
+	if node.has_method("set_text"):
+		var key = node.get_name()
+		if translation.has(key):
+			node.set_text(translation[key])
+
+
+
+
+
+
 
 
 

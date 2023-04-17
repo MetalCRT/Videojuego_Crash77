@@ -49,20 +49,20 @@ layout_mode = 2
 theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxEmpty_73upq")
 
-[node name="Espanol" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Espanol" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer" groups=["localized"]]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_j1tro")
 text = "Español
 "
 
-[node name="Ingles" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Ingles" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer" groups=["localized"]]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_j1tro")
 text = "Inglés"
 
-[node name="Volver" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Volver" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer" groups=["localized"]]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Volver
