@@ -1,58 +1,53 @@
 extends MarginContainer
 
-var translation = {}
-var current_language = ""
 
-@onready var espanol = $Espanol
-@onready var ingles = $Ingles
-@onready var volver = $Volver
+const LANGUAGE_FILE_PATH = "res://Resources/Lenguajes.csv"
+const DEFAULT_LANGUAGE = "es"
+var currentLanguage = DEFAULT_LANGUAGE
 
 func _ready():
-	# Cargamos la traducción por defecto, que es en inglés
-	load_translation("en")
+	# Configura los textos iniciales del juego
+	set_language(currentLanguage)
+	
+	# Conecta la señal de pulsación de los botones a los métodos correspondientes
+	$Lenguajes/Espanol.connect("pressed", self, "set_language", [ "es" ])
+	$Lenguajes/Ingles.connect("pressed", self, "set_language", [ "en" ])
+	$Lenguajes/Volver.connect("pressed", self, "go_to_configuracion")
 
-	# Conectamos las señales de los botones
-	espanol.pressed.connect(_on_espanol_pressed)
-	ingles.pressed.connect(_on_ingles_pressed)
-	volver.pressed.connect(_on_volver_pressed)
-
-func _on_espanol_pressed():
-	# Cargamos la traducción en español
-	load_translation("es")
-
-func _on_ingles_pressed():
-	# Cargamos la traducción en inglés
-	load_translation("en")
-
-func _on_volver_pressed():
-	# Vamos a la escena de configuración
-	get_tree().change_scene("res://Scenes/configuracion.tscn")
-
-func load_translation(lang_code):
-	# Comprobamos si ya se ha cargado la traducción para el idioma seleccionado
-	if lang_code == current_language:
-		return
-
-	# Cargamos el archivo .json correspondiente
-	var translation_file = "res://Resources/" + lang_code + ".json"
+func set_language(language: String) -> void:
+	# Carga el archivo CSV y obtiene las traducciones correspondientes al idioma elegido
+	var translations = {}
 	var file = File.new()
-	if file.file_exists(translation_file):
-		file.open(translation_file, File.READ)
-		translation = JSON.parse(file.get_as_text())
+	if file.open(LANGUAGE_FILE_PATH, File.READ) == OK:
+		var line = file.get_line()
+		while line != "":
+			var keys = line.split(",")
+			var values = file.get_line().split(",")
+			translations[keys[0]] = values
+			line = file.get_line()
 		file.close()
+	else:
+		print_error("Error al cargar el archivo de idiomas")
+		return
+	
+	# Actualiza los textos del juego con las traducciones correspondientes
+	var nodes = get_tree().get_nodes_in_group("localized")
+	for node in nodes:
+		if node.has_method("set_translation"):
+			node.set_translation(translations[node.get_name()][language])
+	
+	# Guarda el idioma actual en el archivo de configuración
+	currentLanguage = language
+	var config = ConfigFile.new()
+	config.load("user://config.cfg")
+	config.set_value("language", currentLanguage)
+	config.save("user://config.cfg")
+	
+func go_to_configuracion() -> void:
+	# Carga la escena de configuración y cambia a ella
+	var configuracion = load("res://Scenes/configuracion.tscn")
+	get_tree().change_scene_to(configuracion)
 
-		# Aplicamos la traducción a todos los nodos de la escena
-		apply_translation(translation)
 
-		# Guardamos el idioma actual
-		current_language = lang_code
 
-func apply_translation(translation_dict):
-	# Recorremos todos los nodos de la escena
-	for node in get_tree().get_nodes_in_group("Translation"):
-		# Obtenemos el nombre del texto a traducir
-		var text_name = node.get_name().split("_")[1]
-		if text_name in translation_dict:
-			# Si existe una traducción para ese texto, la aplicamos
-			node.set_text(translation_dict[text_name])
 
