@@ -11,7 +11,7 @@ script/source = "extends CharacterBody2D
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get(\"parameters/playback\")
 @onready var pivot = $Pivot
-var velocityInt = -25
+var velocityInt = -30
 var velocityVect = Vector2(velocityInt,0)
 const HEALTH = 5
 var health = HEALTH
@@ -33,6 +33,9 @@ func _physics_process(delta):
 func _on_area_2d_area_entered(area):
 	if area.is_in_group(\"proyectiles\"):
 		health -= 1 # reduce la salud del enemigo en 1
+		modulate = Color(1,0,0)
+		await get_tree().create_timer(0.1).timeout
+		modulate = Color(1,1,1)
 	if health <= 0:
 		velocityInt=0
 		velocityVect = Vector2(0,0)
@@ -90,6 +93,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("maloCaminando:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_bkho6"]
@@ -337,6 +352,7 @@ states/idle/position = Vector2(301.333, 71.3333)
 states/rip/node = SubResource("AnimationNodeAnimation_b1eie")
 states/rip/position = Vector2(466.667, 146)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_7hi4x"), "caminando", "rip", SubResource("AnimationNodeStateMachineTransition_erxes"), "idle", "caminando", SubResource("AnimationNodeStateMachineTransition_bkv4y"), "caminando", "idle", SubResource("AnimationNodeStateMachineTransition_g6bed"), "rip", "End", SubResource("AnimationNodeStateMachineTransition_nwk7w")]
+graph_offset = Vector2(51.8325, -14.7732)
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_5eo5c"]
 
@@ -358,6 +374,7 @@ scale = Vector2(3.5, 3.5)
 texture = ExtResource("2_vd4ru")
 flip_h = true
 hframes = 10
+frame = 6
 
 [node name="RayCast2D" type="RayCast2D" parent="." groups=["enemies"]]
 

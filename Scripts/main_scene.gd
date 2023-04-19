@@ -5,8 +5,7 @@ const AD = preload("res://Scenes/m_arrow_down.tscn")
 const AU = preload("res://Scenes/m_arrow_up.tscn")
 const AR = preload("res://Scenes/m_arrow_right.tscn")
 const enemy = preload("res://enemigo.tscn")
-#Global.score = 0
-#Global.shootqueue = 0
+
 
 @onready var contenedor = $characters
 var random = 0
