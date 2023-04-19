@@ -7,7 +7,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_73upq"]
 
-[node name="MarginContainer" type="MarginContainer"]
+[node name="Lenguaje" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -36,7 +36,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 50
 
-[node name="Label" type="Label" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Seleccionar" type="Label" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.901961, 0.101961, 0.898039, 1)
 theme_override_fonts/font = ExtResource("3_j1tro")
@@ -49,20 +49,20 @@ layout_mode = 2
 theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxEmpty_73upq")
 
-[node name="Espanol" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Espanol" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer" groups=["localized"]]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_j1tro")
 text = "Español
 "
 
-[node name="Ingles" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Ingles" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer" groups=["localized"]]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_j1tro")
 text = "Inglés"
 
-[node name="Volver" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Volver" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer" groups=["localized"]]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Volver

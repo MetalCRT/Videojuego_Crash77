@@ -1,58 +1,70 @@
 extends MarginContainer
 
-var translation = {}
-var current_language = ""
-
-@onready var espanol = $Espanol
-@onready var ingles = $Ingles
-@onready var volver = $Volver
+var language_file = "res://Resources/language.csv"
+var current_language = "es"
 
 func _ready():
-	# Cargamos la traducción por defecto, que es en inglés
-	load_translation("en")
+	load_language()
 
-	# Conectamos las señales de los botones
-	espanol.pressed.connect(_on_espanol_pressed)
-	ingles.pressed.connect(_on_ingles_pressed)
-	volver.pressed.connect(_on_volver_pressed)
-
-func _on_espanol_pressed():
-	# Cargamos la traducción en español
-	load_translation("es")
-
-func _on_ingles_pressed():
-	# Cargamos la traducción en inglés
-	load_translation("en")
-
-func _on_volver_pressed():
-	# Vamos a la escena de configuración
-	get_tree().change_scene("res://Scenes/configuracion.tscn")
-
-func load_translation(lang_code):
-	# Comprobamos si ya se ha cargado la traducción para el idioma seleccionado
-	if lang_code == current_language:
-		return
-
-	# Cargamos el archivo .json correspondiente
-	var translation_file = "res://Resources/" + lang_code + ".json"
+func load_language():
 	var file = File.new()
-	if file.file_exists(translation_file):
-		file.open(translation_file, File.READ)
-		translation = JSON.parse(file.get_as_text())
+	if file.file_exists(language_file):
+		file.open(language_file, File.READ)
+		while !file.eof_reached():
+			var line = file.get_line().strip_edges()
+			if line.empty() or line.begins_with("#"):
+				continue
+			var parts = line.split(",")
+			if parts.size() < 2:
+				continue
+			var key = parts[0].strip_edges()
+			var value = parts[1].strip_edges()
+			if key.empty() or value.empty():
+				continue
+			translation[key] = value
 		file.close()
 
-		# Aplicamos la traducción a todos los nodos de la escena
-		apply_translation(translation)
+func save_language():
+	var file = File.new()
+	file.open(language_file, File.WRITE)
+	for key in translation.keys():
+		var value = translation[key]
+		file.put_line(key + "," + value)
+	file.close()
 
-		# Guardamos el idioma actual
-		current_language = lang_code
+func set_language(lang):
+	current_language = lang
+	load_language()
+	save_language()
 
-func apply_translation(translation_dict):
-	# Recorremos todos los nodos de la escena
-	for node in get_tree().get_nodes_in_group("Translation"):
-		# Obtenemos el nombre del texto a traducir
-		var text_name = node.get_name().split("_")[1]
-		if text_name in translation_dict:
-			# Si existe una traducción para ese texto, la aplicamos
-			node.set_text(translation_dict[text_name])
+func _on_Espanol_pressed():
+	set_language("es")
+	translate_scene()
+
+func _on_Ingles_pressed():
+	set_language("en")
+	translate_scene()
+
+func _on_Atras_pressed():
+	get_tree().change_scene("res://Scenes/Configuracion.tscn")
+
+func translate_scene():
+	var nodes = get_tree().get_nodes_in_group("Translatable")
+	for node in nodes:
+		translate_node(node)
+
+func translate_node(node):
+	if node.has_method("set_text"):
+		var key = node.get_name()
+		if translation.has(key):
+			node.set_text(translation[key])
+
+
+
+
+
+
+
+
+
 
