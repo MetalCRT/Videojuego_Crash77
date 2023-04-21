@@ -1,70 +1,31 @@
 extends MarginContainer
 
-var language_file = "res://Resources/language.csv"
-var current_language = "es"
+# Creamos la variable que almacenará el idioma seleccionado
+var idioma_actual = ""
 
-func _ready():
-	load_language()
+# Conectamos la señal "pressed" al script
+func _on_Boton_Espanol_pressed():
+	# Guardamos el idioma seleccionado en la variable "idioma_actual"
+	idioma_actual = "en"
+	# Cambiamos el idioma del juego
+	cambiar_idioma()
 
-func load_language():
-	var file = File.new()
-	if file.file_exists(language_file):
-		file.open(language_file, File.READ)
-		while !file.eof_reached():
-			var line = file.get_line().strip_edges()
-			if line.empty() or line.begins_with("#"):
-				continue
-			var parts = line.split(",")
-			if parts.size() < 2:
-				continue
-			var key = parts[0].strip_edges()
-			var value = parts[1].strip_edges()
-			if key.empty() or value.empty():
-				continue
-			translation[key] = value
-		file.close()
+# Función para cambiar el idioma del juego
+func cambiar_idioma():
+	# Cargamos el archivo con las traducciones correspondientes al idioma seleccionado
+	var traducciones = load("res://translations/" + idioma_actual + ".csv")
+	# Recorremos todos los nodos del juego
+	for nodo in get_tree().get_nodes_in_group("localizable"):
+		# Si el nodo tiene un atributo "texto" lo traducimos
+		if nodo.has_attribute("texto"):
+			nodo.set("texto", traducciones[nodo.get("texto")])
 
-func save_language():
-	var file = File.new()
-	file.open(language_file, File.WRITE)
-	for key in translation.keys():
-		var value = translation[key]
-		file.put_line(key + "," + value)
-	file.close()
+	# Guardamos el idioma seleccionado en las variables de configuración
+	var configuracion = get_node("/root/Configuracion")
+	configuracion.set("idioma_actual", idioma_actual)
+	configuracion.save()
 
-func set_language(lang):
-	current_language = lang
-	load_language()
-	save_language()
-
-func _on_Espanol_pressed():
-	set_language("es")
-	translate_scene()
-
-func _on_Ingles_pressed():
-	set_language("en")
-	translate_scene()
-
-func _on_Atras_pressed():
-	get_tree().change_scene("res://Scenes/Configuracion.tscn")
-
-func translate_scene():
-	var nodes = get_tree().get_nodes_in_group("Translatable")
-	for node in nodes:
-		translate_node(node)
-
-func translate_node(node):
-	if node.has_method("set_text"):
-		var key = node.get_name()
-		if translation.has(key):
-			node.set_text(translation[key])
-
-
-
-
-
-
-
-
-
-
+	# Mostramos un mensaje de confirmación
+	var mensaje = get_node("/root/Mensaje")
+	mensaje.set("texto", "Idioma cambiado a " + idioma_actual)
+	mensaje.show()
