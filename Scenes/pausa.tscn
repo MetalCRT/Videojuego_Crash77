@@ -34,7 +34,8 @@ theme_override_constants/margin_bottom = 50
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Pausa" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_color = Color(0.329412, 0.576471, 0.658824, 1)
 theme_override_fonts/font = ExtResource("1_5mrnc")
@@ -47,7 +48,7 @@ layout_mode = 2
 theme_override_constants/separation = 60
 theme_override_styles/separator = SubResource("StyleBoxEmpty_amtcp")
 
-[node name="Reanudar" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Reanudar" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" groups=["localized"]]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 4

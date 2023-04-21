@@ -4,6 +4,9 @@ extends MarginContainer
 @onready var reiniciar = %Reiniciar
 @onready var menu_principal = %"Menu Principal"
 @onready var salir = %Salir
+@onready var pausa = %Pausa
+
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -13,6 +16,11 @@ func _ready():
 	menu_principal.pressed.connect(_on_menu_principal_pressed)
 	salir.pressed.connect(_on_salir_pressed)
 	hide()
+	pausa.text = tr("PA")
+	reanudar.text = tr("REANU")
+	reiniciar.text = tr("REINI")
+	menu_principal.text = tr("MENU")
+	salir.text = tr("SALI")
 	
 func _input(event):
 	if  event.is_action_pressed("pausa"):
