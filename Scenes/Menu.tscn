@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://y6q2b4qrobb2"]
+[gd_scene load_steps=6 format=3 uid="uid://y6q2b4qrobb2"]
 
 [ext_resource type="Theme" uid="uid://dykgfcqvxck4" path="res://Resources/theme.tres" id="1_ysv6b"]
-[ext_resource type="PackedScene" uid="uid://cpm7arbpagoyd" path="res://main_scene.tscn" id="2_hb1et"]
 [ext_resource type="Texture2D" uid="uid://34h83nfji2os" path="res://Resources/pexels-photo-167636.webp" id="2_ilaga"]
 [ext_resource type="FontFile" uid="uid://b80x4uelj58oq" path="res://Fonts/CoupeurBricoleur-DOWN.otf" id="2_j7ill"]
 
@@ -13,19 +12,20 @@ script/source = "extends MarginContainer
 @onready var configuracion = %Configuracion
 
 
-@export var main_scene: PackedScene 
+#@export var main_scene: PackedScene 
 
 func _ready():
 	# Se ejecuta al inicio de la escena
 	inicio.pressed.connect(_on_inicio_pressed)
 	exit.pressed.connect(_on_exit_pressed)
 	configuracion.pressed.connect(_on_configuracion_pressed)
-	
+	TranslationServer.set_locale(\"en\")
+	tr(\"REANU\")
 
 func _on_inicio_pressed():
 	# Se ejecuta cuando se presiona el botón \"Iniciar\"
 	# get_tree().change_scene_to_file(\"res://main_scene.tscn\")
-	get_tree().change_scene_to_packed(main_scene)
+	get_tree().change_scene_to_file(\"res://Scenes/Niveles.tscn\")
 	
 func _on_configuracion_pressed():
 	get_tree().change_scene_to_file(\"res://Scenes/configuracion.tscn\")
@@ -48,7 +48,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ysv6b")
 script = SubResource("GDScript_liecr")
-main_scene = ExtResource("2_hb1et")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2

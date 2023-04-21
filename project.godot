@@ -38,6 +38,10 @@ pausa={
 ]
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://Resources/Lenguajes.en.translation", "res://Resources/Lenguajes.es.translation")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

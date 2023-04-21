@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://wb6r8gnglwfy"]
+[gd_scene load_steps=6 format=3 uid="uid://wb6r8gnglwfy"]
 
 [ext_resource type="Theme" uid="uid://c71ofdsw78ulc" path="res://Resources/theme_niveles.tres" id="1_wt52r"]
+[ext_resource type="Script" path="res://Scripts/Niveles.gd" id="2_ou2ok"]
 [ext_resource type="Texture2D" uid="uid://bp50rpphvla01" path="res://Resources/Selector.webp" id="2_t43pj"]
 [ext_resource type="FontFile" uid="uid://b80x4uelj58oq" path="res://Fonts/CoupeurBricoleur-DOWN.otf" id="3_5tjce"]
 
@@ -10,26 +11,33 @@
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -51.0
+offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_wt52r")
+script = ExtResource("2_ou2ok")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 self_modulate = Color(1, 1, 1, 0.596078)
 layout_mode = 2
-size_flags_vertical = 0
 texture = ExtResource("2_t43pj")
 
 [node name="PanelContainer" type="PanelContainer" parent="TextureRect"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 14
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.5
+offset_top = -327.5
+offset_bottom = 327.5
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="CenterContainer" parent="TextureRect/PanelContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/PanelContainer/MarginContainer"]
 layout_mode = 2
@@ -52,9 +60,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_d0kse")
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_5tjce")
-text = "Practicar
-
-"
+text = "Practicar"
 
 [node name="Nivel1" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer" groups=["localized"]]
 unique_name_in_owner = true
@@ -65,9 +71,8 @@ text = "Nivel 1"
 [node name="Nivel2" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer" groups=["localized"]]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Nivel 2
-
-"
+theme_override_fonts/font = ExtResource("3_5tjce")
+text = "Nivel 2"
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
