@@ -16,6 +16,8 @@ script/source = "extends MarginContainer
 
 func _ready():
 	# Se ejecuta al inicio de la escena
+	var config = preload(\"res://Scripts/Lenguajes.gd\").new()
+	config.load_config()
 	inicio.pressed.connect(_on_inicio_pressed)
 	exit.pressed.connect(_on_exit_pressed)
 	configuracion.pressed.connect(_on_configuracion_pressed)

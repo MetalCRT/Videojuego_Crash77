@@ -1,7 +1,6 @@
 extends MarginContainer
 var selected_language = "en"
 
-
 @onready var espanol = %Espanol
 @onready var ingles = %Ingles
 @onready var volver = %Volver
@@ -60,3 +59,9 @@ func save_config():
 	var error = config.save("user://config.cfg")
 	if error != OK:
 		print("Failed to save config file: " + str(error))
+		
+func load_config():
+	var config = ConfigFile.new()
+	if config.load("user://config.cfg") == OK:
+		selected_language = config.get_value("settings", "selected_language", selected_language)
+	TranslationServer.set_locale(selected_language)
