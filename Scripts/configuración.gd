@@ -9,6 +9,7 @@ func _ready():
 	configuracion.text = tr ("CON")
 	lenguajes.pressed.connect(_on_lenguajes_pressed)
 	atras.pressed.connect(_on_atras_pressed)
+	lenguajes.text = tr("LEN")
 	atras.text = ("VOL")
 	
 
