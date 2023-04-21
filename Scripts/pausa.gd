@@ -16,7 +16,7 @@ func _ready():
 	pausa.text = tr("PA")
 	reanudar.text = tr("REANU")
 	reiniciar.text = tr("REINI")
-	menu_principal.text = tr("MENU")
+	menu_principal.text = tr("MENU ")
 	salir.text = tr("SALI")
 	
 func _input(event):
