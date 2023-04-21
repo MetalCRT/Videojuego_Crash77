@@ -6,9 +6,6 @@ extends MarginContainer
 @onready var salir = %Salir
 @onready var pausa = %Pausa
 
-
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	reanudar.pressed.connect(_on_reanudar_pressed)
