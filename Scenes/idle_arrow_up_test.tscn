@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://yfcg4oap054b" path="res://Assets/ArrowUpBad.png" id="3_tiyij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xaoq4"]
-size = Vector2(70, 76)
+size = Vector2(70, 80)
 
 [sub_resource type="Animation" id="Animation_qwea7"]
 resource_name = "Hit"
@@ -93,7 +93,7 @@ script = ExtResource("1_lsdef")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
+position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_xaoq4")
 
 [node name="SpriteIdle" type="Sprite2D" parent="."]

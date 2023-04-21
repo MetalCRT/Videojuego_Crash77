@@ -1,27 +1,34 @@
 extends Area2D
 
-var speed = 1
-var sensor = 0
+const TARGET_Y = 96
+const SPAWN_Y = 700
+const DISTANCE_TO_TARGET = TARGET_Y-SPAWN_Y
+
+const UP_SPAWN = Vector2(276,SPAWN_Y)
+
+var speed = 0
+var hit = false
 
 func _physics_process(delta):
 	#Movement
-	position.y -= speed
+	if !hit:
+		position.y -= speed*delta
+		if position.y <= -50: #Screen exit
+			queue_free()
+			Global.score -=10
+	else:
+		$Node2D.position.y += speed*delta
 	
-	#Screen exit
-	if position.y <= -50:
-		queue_free()
-	
-	#Hit detection
-	if sensor == 1 && position.y<167 && position.y>18:
-		if Global.sensor_ArrowUp == 1:
-			if Input.is_action_just_pressed("ui_up"):
-				queue_free()
+func initialize():
+	position = Vector2(276,700)
+	speed = -DISTANCE_TO_TARGET/2.0
+
+func destroy():
+	$Timer.start()
+	hit = true
 
 
 
-func _on_area_shape_entered(area_rid, idle_arrow_up, area_shape_index, local_shape_index):
-	sensor = 1
 
-
-func _on_area_shape_exited(area_rid, idle_arrow_up, area_shape_index, local_shape_index):
-	sensor = 0
+func _on_timer_timeout():
+	queue_free()
