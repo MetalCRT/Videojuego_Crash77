@@ -114,5 +114,5 @@ texture_pressed = ExtResource("12_v8e6s")
 layout_mode = 2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
