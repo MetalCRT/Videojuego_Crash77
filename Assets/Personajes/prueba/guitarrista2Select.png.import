@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4vj7wqw6i0ob"
-path="res://.godot/imported/guitarrista2Select.png-c27889d63999383aebb0f4d1be81888a.ctex"
+uid="uid://dmurjryjmj3iq"
+path="res://.godot/imported/guitarrista2Select.png-70be364bc557bbef21d1a18b3e0b9160.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/guitarrista2Select.png"
-dest_files=["res://.godot/imported/guitarrista2Select.png-c27889d63999383aebb0f4d1be81888a.ctex"]
+source_file="res://Assets/Personajes/prueba/guitarrista2Select.png"
+dest_files=["res://.godot/imported/guitarrista2Select.png-70be364bc557bbef21d1a18b3e0b9160.ctex"]
 
 [params]
 
