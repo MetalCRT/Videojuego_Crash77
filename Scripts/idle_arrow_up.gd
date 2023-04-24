@@ -12,7 +12,6 @@ func _process(delta):
 		sec_note = null
 	if current_note != null:
 		if Input.is_action_just_pressed("ui_up"):
-			#emit_signal("hit_detected")
 			anim.play("Hit")
 			anim.animation_set_next("Miss","RESET")
 			Global.score += 10

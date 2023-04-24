@@ -92,5 +92,5 @@ vertical_alignment = 1
 visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
