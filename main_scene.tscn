@@ -76,10 +76,10 @@ layer_0/tile_data = PackedInt32Array(131069, 0, 0, 196606, 0, 0, 65534, 0, 0, -1
 [node name="Score" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="Score"]
-offset_left = 504.0
-offset_top = 56.0
-offset_right = 1120.0
-offset_bottom = 144.0
+offset_left = 456.0
+offset_top = 34.0
+offset_right = 576.0
+offset_bottom = 157.0
 theme_override_fonts/font = ExtResource("10_jh6d5")
 theme_override_font_sizes/font_size = 100
 text = "00"
@@ -92,5 +92,5 @@ vertical_alignment = 1
 visible = false
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
