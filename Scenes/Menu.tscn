@@ -16,11 +16,14 @@ script/source = "extends MarginContainer
 
 func _ready():
 	# Se ejecuta al inicio de la escena
+	var config = preload(\"res://Scripts/Lenguajes.gd\").new()
+	config.load_config()
 	inicio.pressed.connect(_on_inicio_pressed)
 	exit.pressed.connect(_on_exit_pressed)
 	configuracion.pressed.connect(_on_configuracion_pressed)
-	TranslationServer.set_locale(\"en\")
-	tr(\"REANU\")
+	inicio.text= tr(\"IN\")
+	configuracion.text = tr(\"CONFIG\")
+	exit.text = tr(\"SALI\")
 
 func _on_inicio_pressed():
 	# Se ejecuta cuando se presiona el botón \"Iniciar\"
@@ -76,7 +79,7 @@ layout_mode = 2
 theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxEmpty_pia17")
 
-[node name="Inicio" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Inicio" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" groups=["localized"]]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_j7ill")

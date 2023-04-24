@@ -2,12 +2,16 @@ extends MarginContainer
 
 @onready var lenguajes = %Lenguajes
 @onready var atras = %Atras
+@onready var configuracion = %Configuracion
 
 func _ready():
-	# Se ejecuta al inicio de la escena
+	
+	configuracion.text = tr ("CON")
 	lenguajes.pressed.connect(_on_lenguajes_pressed)
 	atras.pressed.connect(_on_atras_pressed)
-
+	lenguajes.text = tr("LEN")
+	atras.text = ("VOL")
+	
 
 func _on_lenguajes_pressed():
 	# Se ejecuta cuando se presiona el botón "Iniciar"
