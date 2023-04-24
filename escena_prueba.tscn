@@ -1,17 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b11qp413qirim"]
+[gd_scene load_steps=2 format=3 uid="uid://b11qp413qirim"]
 
 [ext_resource type="Script" path="res://Scripts/escena_prueba.gd" id="1_t0ci8"]
-[ext_resource type="PackedScene" uid="uid://iveb3on1rbq6" path="res://Scenes/m_arrow_up_test.tscn" id="2_y4b0t"]
-[ext_resource type="PackedScene" uid="uid://dllj3uxikki5r" path="res://Scenes/idle_arrow_up_test.tscn" id="3_2ncvk"]
 
 [node name="EscenaPrueba" type="Node2D"]
 script = ExtResource("1_t0ci8")
-
-[node name="Idle_Arrow_Up" parent="." instance=ExtResource("3_2ncvk")]
-position = Vector2(276, 94)
-
-[node name="M_ArrowUp" parent="." instance=ExtResource("2_y4b0t")]
-position = Vector2(-64, 152)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

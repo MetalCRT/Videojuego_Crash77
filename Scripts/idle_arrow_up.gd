@@ -1,18 +1,15 @@
 extends Area2D
 
 @onready var anim = $AnimationPlayer
-var sensor = 0
 var current_note = null
-var sec_note = null
+var sec_note = []
 
 func _process(delta):
 	#Hit Note
-	if current_note == null && sec_note != null:
-		current_note = sec_note 
-		sec_note = null
+	if current_note == null && len(sec_note) != 0:
+		current_note = sec_note.pop_front()
 	if current_note != null:
 		if Input.is_action_just_pressed("ui_up"):
-			#emit_signal("hit_detected")
 			anim.play("Hit")
 			anim.animation_set_next("Miss","RESET")
 			Global.score += 10
@@ -29,9 +26,8 @@ func _on_area_shape_entered(area_rid, area, area_shape_index, local_shape_index)
 	if current_note == null:
 		current_note = area
 	else:
-		sec_note = area
+		sec_note.push_back(area)
 		
-
 
 func _on_area_shape_exited(area_rid, area, area_shape_index, local_shape_index):
 	current_note = null
