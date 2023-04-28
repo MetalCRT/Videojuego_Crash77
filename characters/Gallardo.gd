@@ -6,8 +6,23 @@ signal hit
 #@onready var pivot = $Pivot
 @onready var posicion = position
 # Añade esta línea en el método _ready() para conectar la señal con el método correspondiente
+var enemies= []
+var max_timer = 1
+var current_timer = 1
 	
-func _on_body_entered(body):
+
+func _ready():
+	$Area2D.body_entered.connect(_on_body_entered)
+	$Area2D.body_exited.connect(_on_body_exited)
+	body_entered.connect(_on_enemy_body_entered)
+	
+func _physics_process(delta):
+	if enemies.size()>0 and current_timer >= max_timer:
+		fire()
+		current_timer=0
+	current_timer += delta
+
+func _on_enemy_body_entered(body):
 	if body.is_in_group("enemies"):
 		$AnimationPlayer.play("explosion")
 		await $AnimationPlayer.animation_finished
@@ -16,25 +31,18 @@ func _on_body_entered(body):
 		$AnimationPlayer.play("idle")
 
 
-func _on_hit_detected():
-	# Crea  proyectil y lo agrega como un hermano del personaje
-	var nota = preload("res://characters/nota.tscn").instantiate()
-	get_parent().add_child(nota)
-	nota.position = posicion
-	#print("Dispara")
+func _on_body_entered(body):
+	enemies.append(body)
+
 	
-
-
-#func _process(delta):
-#	if Global.shootqueue > 0:
-#		_on_hit_detected()
-#		Global.shootqueue -= 1
-
-
-func _on_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
-		# Crea  proyectil y lo agrega como un hermano del personaje
+func _on_body_exited(body):
+	if body in enemies:
+		enemies.erase(body)
+		
+func fire():
+			# Crea  proyectil y lo agrega como un hermano del personaje
 	var nota = preload("res://characters/nota.tscn").instantiate()
-	await get_tree().create_timer(3).timeout
 	get_parent().add_child(nota)
 	nota.position = posicion
+	
 

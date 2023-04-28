@@ -83,7 +83,7 @@ func _input(event):
 		# Comprobar si la celda está vacía
 		if tile_map.get_cell_source_id(0,cell_pos) == -1 and is_inside_area(cell_pos,p1,p2,p3,p4):
 			# Crear un nuevo personaje y añadirlo a la escena
-			var character = preload("res://characters/Tynic.tscn").instantiate()
+			var character = preload("res://characters/Gallardo.tscn").instantiate()
 			character.position = tile_map.map_to_local(cell_pos)
 			contenedor.add_child(character)
 			# Establecer el índice de la celda en el mapa de baldosas para indicar que está ocupada por el personaje
