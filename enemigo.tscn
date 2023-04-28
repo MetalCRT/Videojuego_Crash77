@@ -28,14 +28,13 @@ func _physics_process(delta):
 #		playback.travel(\"idle\")
 
 
-
-
 func _on_area_2d_area_entered(area):
 	if area.is_in_group(\"proyectiles\"):
 		health -= 1 # reduce la salud del enemigo en 1
 		modulate = Color(1,0,0)
 		await get_tree().create_timer(0.1).timeout
 		modulate = Color(1,1,1)
+	
 	if health <= 0:
 		velocityInt=0
 		velocityVect = Vector2(0,0)
@@ -374,7 +373,6 @@ scale = Vector2(3.5, 3.5)
 texture = ExtResource("2_vd4ru")
 flip_h = true
 hframes = 10
-frame = 6
 
 [node name="RayCast2D" type="RayCast2D" parent="." groups=["enemies"]]
 

@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c60rik1tqs20x"]
+[gd_scene load_steps=9 format=3 uid="uid://celnndx66tmd4"]
 
-[ext_resource type="Script" path="res://characters/guitarrista2.gd" id="1_lujc7"]
-[ext_resource type="Texture2D" uid="uid://cqmylwk33m7ik" path="res://Assets/Personajes/guitarrista1/guitarrista1Pixel.png" id="2_5t11v"]
-[ext_resource type="Texture2D" uid="uid://b25jnrljwu71i" path="res://Assets/explosion.png" id="3_sex2r"]
+[ext_resource type="Script" path="res://characters/Tynic.gd" id="1_6orew"]
+[ext_resource type="Texture2D" uid="uid://cwuji37sxox2d" path="res://Assets/Personajes/guitarrista2/guitarrista2.png" id="2_tii6q"]
+[ext_resource type="Texture2D" uid="uid://b25jnrljwu71i" path="res://Assets/explosion.png" id="3_g3bhe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30sdb"]
 size = Vector2(16, 16)
@@ -32,6 +32,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("personaje:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_tii6q")]
 }
 
 [sub_resource type="Animation" id="Animation_57iof"]
@@ -101,6 +113,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("personaje:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_tii6q")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cvjug"]
 _data = {
@@ -113,23 +137,22 @@ _data = {
 scale = Vector2(7, 7)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_lujc7")
+script = ExtResource("1_6orew")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_30sdb")
 
 [node name="personaje" type="Sprite2D" parent="."]
-position = Vector2(0, -1.57143)
-scale = Vector2(0.6, 0.6)
-texture = ExtResource("2_5t11v")
+position = Vector2(0, -1.71429)
+scale = Vector2(0.55, 0.55)
+texture = ExtResource("2_tii6q")
 
 [node name="explosion" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_sex2r")
+texture = ExtResource("3_g3bhe")
 hframes = 5
 vframes = 5
-frame = 24
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

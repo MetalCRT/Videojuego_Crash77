@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctj13bl34o05t"]
+[gd_scene load_steps=9 format=3 uid="uid://cfkfxy83hcqgr"]
 
-[ext_resource type="Script" path="res://characters/guitarrista1.gd" id="1_3u3pd"]
-[ext_resource type="Texture2D" uid="uid://bncf7eex6ohbj" path="res://Assets/Personajes/guitarrista1/guitarrista1DemoDigital.png" id="1_jqryf"]
-[ext_resource type="Texture2D" uid="uid://b25jnrljwu71i" path="res://Assets/explosion.png" id="2_ghc4e"]
+[ext_resource type="Script" path="res://characters/Gallardo.gd" id="1_kuuyf"]
+[ext_resource type="Texture2D" uid="uid://cqmylwk33m7ik" path="res://Assets/Personajes/guitarrista1/guitarrista1Pixel.png" id="2_li6x4"]
+[ext_resource type="Texture2D" uid="uid://b25jnrljwu71i" path="res://Assets/explosion.png" id="3_b2qt6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30sdb"]
 size = Vector2(16, 16)
@@ -12,34 +12,22 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("personaje:texture")
+tracks/0/path = NodePath("personaje:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_jqryf")]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("personaje:visible")
+tracks/1/enabled = false
+tracks/1/path = NodePath("explosion:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("explosion:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -92,34 +80,22 @@ resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("personaje:texture")
+tracks/0/path = NodePath("personaje:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_jqryf")]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("personaje:visible")
+tracks/1/path = NodePath("explosion:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("explosion:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0.8),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -137,20 +113,20 @@ _data = {
 scale = Vector2(7, 7)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("1_3u3pd")
+script = ExtResource("1_kuuyf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_30sdb")
 
 [node name="personaje" type="Sprite2D" parent="."]
-position = Vector2(0, -1.71429)
-scale = Vector2(0.013, 0.013)
-texture = ExtResource("1_jqryf")
+position = Vector2(0, -1.57143)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_li6x4")
 
 [node name="explosion" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_ghc4e")
+texture = ExtResource("3_b2qt6")
 hframes = 5
 vframes = 5
 frame = 24
@@ -160,5 +136,12 @@ libraries = {
 "": SubResource("AnimationLibrary_cvjug")
 }
 
+[node name="deteccionEnemigo" type="CollisionShape2D" parent="."]
+position = Vector2(32, 0)
+scale = Vector2(5, 1)
+shape = SubResource("RectangleShape2D_30sdb")
+debug_color = Color(0.921569, 0.192157, 0.521569, 0.419608)
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

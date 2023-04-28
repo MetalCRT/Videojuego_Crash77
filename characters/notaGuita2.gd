@@ -1,5 +1,5 @@
 extends Area2D
-const PROJECTILE_SPEED = 50
+const PROJECTILE_SPEED = 30
 var projectile_count = 0
 var velocityVect = Vector2(PROJECTILE_SPEED, 0)
 
