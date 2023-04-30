@@ -5,6 +5,7 @@ const AD = preload("res://Scenes/m_arrow_down.tscn")
 const AU = preload("res://Scenes/m_arrow_up.tscn")
 const AR = preload("res://Scenes/m_arrow_right.tscn")
 const enemy = preload("res://enemigo.tscn")
+var character
 
 
 @onready var contenedor = $characters
@@ -83,7 +84,10 @@ func _input(event):
 		# Comprobar si la celda está vacía
 		if tile_map.get_cell_source_id(0,cell_pos) == -1 and is_inside_area(cell_pos,p1,p2,p3,p4):
 			# Crear un nuevo personaje y añadirlo a la escena
-			var character = preload("res://characters/Gallardo.tscn").instantiate()
+			if Global.focus_char == 'Gallardo':
+				character = preload("res://characters/Gallardo.tscn").instantiate()
+			elif Global.focus_char == 'Tynic':
+				character = preload("res://characters/Tynic.tscn").instantiate()
 			character.position = tile_map.map_to_local(cell_pos)
 			contenedor.add_child(character)
 			# Establecer el índice de la celda en el mapa de baldosas para indicar que está ocupada por el personaje
@@ -115,3 +119,14 @@ func _on_timer_2_timeout():
 			var en4 = enemy.instantiate()
 			get_tree().get_current_scene().add_child(en4)
 			en4.position = $Creator/Marker2D_en4.global_position
+
+
+
+func _on_texture_button_2_pressed():
+	Global.focus_char = 'Gallardo'
+	
+
+
+
+func _on_texture_button_pressed():
+	Global.focus_char = 'Tynic'
