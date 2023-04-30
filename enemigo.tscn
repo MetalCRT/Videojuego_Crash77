@@ -26,6 +26,12 @@ func _physics_process(delta):
 		playback.travel(\"caminando\")
 #	else:
 #		playback.travel(\"idle\")
+	if health <= 0:
+		velocityInt=0
+		velocityVect = Vector2(0,0)
+		playback.travel(\"rip\")
+		await $AnimationTree.animation_finished
+		queue_free() # destruye el enemigo si su salud es igual o menor que 0
 
 
 func _on_area_2d_area_entered(area):
@@ -35,12 +41,23 @@ func _on_area_2d_area_entered(area):
 		await get_tree().create_timer(0.1).timeout
 		modulate = Color(1,1,1)
 	
-	if health <= 0:
-		velocityInt=0
+
+
+func _damage(node):
+	if(health>0):
+		playback.travel(\"idle\")
 		velocityVect = Vector2(0,0)
-		playback.travel(\"rip\")
-		await $AnimationTree.animation_finished
-		queue_free() # destruye el enemigo si su salud es igual o menor que 0
+		modulate = Color(1,0,0.3)
+		await get_tree().create_timer(0.25).timeout
+		modulate = Color(0.4,0,0.6)
+		await get_tree().create_timer(0.25).timeout
+		modulate = Color(0.1,0,1)
+		await get_tree().create_timer(0.25).timeout
+		modulate = Color(1,1,1)
+		velocityVect = Vector2(velocityInt,0)
+		playback.travel(\"caminando\")
+		if(health>0):
+			node.death()
 "
 
 [sub_resource type="Animation" id="Animation_2yvt3"]

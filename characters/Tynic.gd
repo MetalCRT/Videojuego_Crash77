@@ -9,9 +9,7 @@ signal hit
 	
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
-		$AnimationPlayer.play("explosion")
-		await $AnimationPlayer.animation_finished
-		queue_free() 
+		body._damage(self)
 	else:
 		$AnimationPlayer.play("idle")
 
@@ -21,3 +19,8 @@ func _on_hit_detected():
 	var nota = preload("res://characters/notaGuita2.tscn").instantiate()
 	get_parent().add_child(nota)
 	nota.position = posicion
+
+func death():
+		$AnimationPlayer.play("explosion")
+		await $AnimationPlayer.animation_finished
+		queue_free() 
