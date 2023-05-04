@@ -72,15 +72,16 @@ func is_inside_area(p: Vector2, p1: Vector2, p2: Vector2, p3: Vector2, p4: Vecto
 func _input(event):
 	if event.is_action_pressed("click"):
 		# Definimos los puntos del rectangulo/tablero
-		var p1 = Vector2(3,1)
-		var p2 = Vector2(3,6)
-		var p3 = Vector2(10,6)
-		var p4 = Vector2(10,1)
+		var p1 = Vector2(4,2)
+		var p2 = Vector2(4,7)
+		var p3 = Vector2(12,7)
+		var p4 = Vector2(12,2)
 		
 		# Obtener la posición del mouse en la pantalla
 		var mouse_pos = get_local_mouse_position()
 		# Convertir la posición del mouse a la posición de la celda en la cuadrícula
 		var cell_pos = tile_map.local_to_map(mouse_pos)
+		print(cell_pos)
 		# Comprobar si la celda está vacía
 		if tile_map.get_cell_source_id(0,cell_pos) == -1 and is_inside_area(cell_pos,p1,p2,p3,p4):
 			# Crear un nuevo personaje y añadirlo a la escena

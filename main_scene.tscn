@@ -18,49 +18,48 @@ script = ExtResource("1_6xsk1")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.309804, 0.309804, 0.309804, 1)
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 413.0
+offset_bottom = 232.0
 texture = ExtResource("2_rbhw8")
+expand_mode = 1
 
 [node name="Idle_Arrow_Up" parent="." instance=ExtResource("1_22hfh")]
-position = Vector2(276, 96)
+position = Vector2(96, 24)
 
 [node name="Idle_arrow_left" parent="." instance=ExtResource("3_kb333")]
-position = Vector2(54, 96)
+position = Vector2(16, 24)
 
 [node name="Idle_Arrow_down" parent="." instance=ExtResource("6_c8pp8")]
-position = Vector2(165, 96)
-scale = Vector2(1, 1)
+position = Vector2(56, 24)
 
 [node name="Idle_arrow_right" parent="." instance=ExtResource("7_28k6a")]
-position = Vector2(387, 96)
-scale = Vector2(1, 1)
+position = Vector2(136, 24)
 
 [node name="Creator" type="Node2D" parent="."]
 
 [node name="Marker2D_AL" type="Marker2D" parent="Creator"]
-position = Vector2(54, 700)
+position = Vector2(16, 232)
 
 [node name="Marker2D_AD" type="Marker2D" parent="Creator"]
-position = Vector2(165, 700)
+position = Vector2(56, 232)
 
 [node name="Marker2D_AU" type="Marker2D" parent="Creator"]
-position = Vector2(276, 700)
+position = Vector2(96, 232)
 
 [node name="Marker2D_AR" type="Marker2D" parent="Creator"]
-position = Vector2(387, 700)
+position = Vector2(136, 232)
 
 [node name="Marker2D_en1" type="Marker2D" parent="Creator"]
-position = Vector2(1300, 268)
+position = Vector2(424, 112)
 
 [node name="Marker2D_en2" type="Marker2D" parent="Creator"]
-position = Vector2(1300, 388)
+position = Vector2(424, 144)
 
 [node name="Marker2D_en3" type="Marker2D" parent="Creator"]
-position = Vector2(1300, 506)
+position = Vector2(424, 176)
 
 [node name="Marker2D_en4" type="Marker2D" parent="Creator"]
-position = Vector2(1300, 620)
+position = Vector2(424, 208)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.9
@@ -71,19 +70,21 @@ wait_time = 1.7
 autostart = true
 
 [node name="tablero" parent="." instance=ExtResource("6_fxs38")]
-position = Vector2(791, 325)
+position = Vector2(288, 128)
 scale = Vector2(1, 1)
-layer_0/tile_data = PackedInt32Array(131069, 0, 0, 196606, 0, 0, 65534, 0, 0, -1, 0, 0, 131071, 0, 0, 131072, 0, 0, 0, 0, 0, -65535, 0, 0, 65537, 0, 0, 131074, 0, 0, 2, 0, 0, -65533, 0, 0, 65539, 0, 0, 65533, 65536, 0, 196605, 65536, 0, 131070, 65536, 0, -2, 65536, 0, 65535, 65536, 0, 196607, 65536, 0, 65536, 65536, 0, -65536, 65536, 0, 1, 65536, 0, 131073, 65536, 0, 65538, 65536, 0, -65534, 65536, 0, 3, 65536, 0, 131075, 65536, 0, -3, 0, 0)
+cell_quadrant_size = 32
+layer_0/tile_data = PackedInt32Array(196606, 3, 0, -1, 3, 0, 131071, 3, 0, 131072, 3, 0, -65535, 3, 0, 65537, 3, 0, 131074, 3, 0, 2, 3, 0, -65533, 3, 0, 65539, 3, 0, 131070, 65539, 0, -2, 65539, 0, 196607, 65539, 0, 65536, 65539, 0, -65536, 65539, 0, 1, 65539, 0, 131073, 65539, 0, 65538, 65539, 0, -65534, 65539, 0, 3, 65539, 0, 131075, 65539, 0, 65535, 65539, 0, 65534, 3, 0, 0, 3, 0, 196605, 65539, 0, 131068, 65539, 0, 65533, 65539, 0, -4, 65539, 0, 65532, 3, 0, 131069, 3, 0, 196604, 3, 0, -3, 3, 0)
 
 [node name="characters" type="Node2D" parent="."]
 
 [node name="Score" type="Node2D" parent="."]
 
 [node name="Label" type="Label" parent="Score"]
-offset_left = 1031.0
-offset_top = -17.0
-offset_right = 1151.0
-offset_bottom = 106.0
+offset_left = 344.0
+offset_top = 8.0
+offset_right = 464.0
+offset_bottom = 131.0
+scale = Vector2(0.25, 0.25)
 theme_override_fonts/font = ExtResource("10_jh6d5")
 theme_override_font_sizes/font_size = 100
 text = "00"
@@ -93,13 +94,16 @@ vertical_alignment = 1
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Menu de pausa" parent="CanvasLayer" instance=ExtResource("9_0qvrh")]
-visible = false
+offset_left = 360.0
+offset_top = 8.0
+offset_right = -335.0
+offset_bottom = -21.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-offset_left = 461.0
-offset_top = 41.0
-offset_right = 1033.0
-offset_bottom = 163.0
+offset_left = 162.0
+offset_top = 31.547
+offset_right = 318.0
+offset_bottom = 63.547
 theme_override_constants/separation = 30
 
 [node name="TextureButton2" parent="CanvasLayer/HBoxContainer" instance=ExtResource("10_xrfm4")]
@@ -112,6 +116,10 @@ texture_pressed = ExtResource("12_v8e6s")
 
 [node name="CharacterButton" parent="CanvasLayer/HBoxContainer" instance=ExtResource("10_xrfm4")]
 layout_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+zoom = Vector2(2.8, 2.8)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]

@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://b2kbhsylbsd3e"]
 
-[ext_resource type="Texture2D" uid="uid://86phdkig2a6" path="res://Assets/ArrowUpIdle.png" id="1_q57ae"]
 [ext_resource type="Script" path="res://Scripts/idle_arrow_left.gd" id="1_tnjow"]
-[ext_resource type="Texture2D" uid="uid://bc62umg2jtrom" path="res://Assets/ArrowLeftGood.png" id="2_vu4i5"]
-[ext_resource type="Texture2D" uid="uid://yfcg4oap054b" path="res://Assets/ArrowUpBad.png" id="3_45m8o"]
+[ext_resource type="Texture2D" uid="uid://ciuqnqed24opx" path="res://Assets/flechasRescaladas/ArrowUpIdle.png" id="2_8vqsl"]
+[ext_resource type="Texture2D" uid="uid://dunmyrkv04mve" path="res://Assets/flechasRescaladas/ArrowLeftGood.png" id="3_qjr52"]
+[ext_resource type="Texture2D" uid="uid://cddmyx4sxc4lp" path="res://Assets/flechasRescaladas/ArrowUpBad.png" id="4_5uceh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i1r3s"]
-size = Vector2(47, 50)
+size = Vector2(32, 32)
 
 [sub_resource type="Animation" id="Animation_qwea7"]
 resource_name = "Hit"
@@ -90,7 +90,6 @@ _data = {
 [node name="Idle_arrow_left" type="Area2D"]
 position = Vector2(47, 42)
 rotation = 4.71239
-scale = Vector2(1.5, 1.5)
 script = ExtResource("1_tnjow")
 metadata/_edit_group_ = true
 
@@ -99,16 +98,16 @@ position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_i1r3s")
 
 [node name="SpriteIdle" type="Sprite2D" parent="."]
-texture = ExtResource("1_q57ae")
+texture = ExtResource("2_8vqsl")
 
 [node name="SpriteGood" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
 rotation = 1.5708
-texture = ExtResource("2_vu4i5")
+texture = ExtResource("3_qjr52")
 
 [node name="SpriteBad" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-texture = ExtResource("3_45m8o")
+texture = ExtResource("4_5uceh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 speed_scale = 1.8
