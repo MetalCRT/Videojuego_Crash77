@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cujs3aew75hdb"]
+[gd_scene load_steps=8 format=3 uid="uid://cujs3aew75hdb"]
 
 [ext_resource type="Texture2D" uid="uid://6o81be5qwyg7" path="res://Assets/Personajes/prueba/guitarrista1Select.png" id="1_2wc00"]
 [ext_resource type="Shader" path="res://Resources/blur.gdshader" id="1_hj0sh"]
@@ -7,6 +7,11 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mx8rm"]
 shader = ExtResource("1_hj0sh")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgwhh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ih02"]
+bg_color = Color(1, 1, 1, 1)
 
 [node name="CharacterButton" type="TextureButton"]
 material = SubResource("ShaderMaterial_mx8rm")
@@ -17,3 +22,20 @@ pivot_offset = Vector2(58, 75)
 texture_normal = ExtResource("1_2wc00")
 texture_pressed = ExtResource("2_ne6xx")
 script = ExtResource("3_2wayn")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_bgwhh")
+theme_override_styles/fill = SubResource("StyleBoxFlat_4ih02")
+value = 54.55
+fill_mode = 3
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

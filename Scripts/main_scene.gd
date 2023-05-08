@@ -126,8 +126,7 @@ func _on_timer_2_timeout():
 func _on_texture_button_2_pressed():
 	Global.focus_char = 'Gallardo'
 	
-
-
+	
 
 func _on_texture_button_pressed():
 	Global.focus_char = 'Tynic'

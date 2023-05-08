@@ -91,38 +91,49 @@ text = "00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 161.0
+offset_top = 39.0
+offset_right = 345.0
+offset_bottom = 89.0
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="TextureButton2" parent="HBoxContainer" instance=ExtResource("10_xrfm4")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+stretch_mode = 0
+color = Color(0, 0.466667, 0, 1)
+
+[node name="TextureButton" parent="HBoxContainer" instance=ExtResource("10_xrfm4")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture_normal = ExtResource("11_tb3lx")
+texture_pressed = ExtResource("12_v8e6s")
+stretch_mode = 0
+color = Color(0, 0, 0.792157, 1)
+
+[node name="CharacterButton" parent="HBoxContainer" instance=ExtResource("10_xrfm4")]
+custom_minimum_size = Vector2(45, 48)
+layout_mode = 2
+stretch_mode = 0
+color = Color(0, 0.294118, 0, 1)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Menu de pausa" parent="CanvasLayer" instance=ExtResource("9_0qvrh")]
+visible = false
 offset_left = 360.0
 offset_top = 8.0
 offset_right = -335.0
 offset_bottom = -21.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-offset_left = 162.0
-offset_top = 31.547
-offset_right = 318.0
-offset_bottom = 63.547
-theme_override_constants/separation = 30
-
-[node name="TextureButton2" parent="CanvasLayer/HBoxContainer" instance=ExtResource("10_xrfm4")]
-layout_mode = 2
-
-[node name="TextureButton" parent="CanvasLayer/HBoxContainer" instance=ExtResource("10_xrfm4")]
-layout_mode = 2
-texture_normal = ExtResource("11_tb3lx")
-texture_pressed = ExtResource("12_v8e6s")
-
-[node name="CharacterButton" parent="CanvasLayer/HBoxContainer" instance=ExtResource("10_xrfm4")]
-layout_mode = 2
-
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
 anchor_mode = 0
 zoom = Vector2(2.8, 2.8)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
-[connection signal="pressed" from="CanvasLayer/HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
