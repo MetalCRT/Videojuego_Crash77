@@ -4,7 +4,7 @@ var projectile_count = 0
 var velocityVect = Vector2(PROJECTILE_SPEED, 0)
 
 func _ready():
-	get_tree().create_timer(16).timeout.connect(queue_free)
+	get_tree().create_timer(4).timeout.connect(queue_free)
 
 func _physics_process(delta):
 	position += velocityVect*delta

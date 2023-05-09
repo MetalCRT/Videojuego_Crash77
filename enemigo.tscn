@@ -11,7 +11,7 @@ script/source = "extends CharacterBody2D
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get(\"parameters/playback\")
 @onready var pivot = $Pivot
-var velocityInt = -30
+var velocityInt = -15
 var velocityVect = Vector2(velocityInt,0)
 const HEALTH = 5
 var health = HEALTH
@@ -22,7 +22,7 @@ func _ready():
 func _physics_process(delta):
 	position += velocityVect*delta
 	move_and_slide()
-	if abs(velocityInt) > 20:
+	if abs(velocityInt) > 5:
 		playback.travel(\"caminando\")
 #	else:
 #		playback.travel(\"idle\")
