@@ -91,8 +91,9 @@ func _input(event):
 				character = preload("res://characters/Tynic.tscn").instantiate()
 			character.position = tile_map.map_to_local(cell_pos)
 			contenedor.add_child(character)
-			# Establecer el índice de la celda en el mapa de baldosas para indicar que está ocupada por el personaje
 			tile_map.set_cell(0,cell_pos)
+			print(tile_map.get_cell_source_id(0,cell_pos))
+			
 
 
 func _on_timer_2_timeout():

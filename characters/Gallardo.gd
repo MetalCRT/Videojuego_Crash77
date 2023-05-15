@@ -15,6 +15,7 @@ func _ready():
 	$Area2D.body_entered.connect(_on_body_entered)
 	$Area2D.body_exited.connect(_on_body_exited)
 	body_entered.connect(_on_enemy_body_entered)
+	$AnimationPlayer.play("idle")
 	
 func _physics_process(delta):
 	if enemies.size()>0 and current_timer >= max_timer:
@@ -24,7 +25,7 @@ func _physics_process(delta):
 
 func _on_enemy_body_entered(body):
 	if body.is_in_group("enemies"):
-		$AnimationPlayer.play("explosion")
+		$AnimationPlayer.play("muerte")
 		await $AnimationPlayer.animation_finished
 		queue_free() 
 	else:
