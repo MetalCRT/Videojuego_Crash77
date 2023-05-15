@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cujs3aew75hdb"]
 
-[ext_resource type="Texture2D" uid="uid://6o81be5qwyg7" path="res://Assets/Personajes/prueba/guitarrista1Select.png" id="1_2wc00"]
 [ext_resource type="Shader" path="res://Resources/blur.gdshader" id="1_hj0sh"]
 [ext_resource type="Texture2D" uid="uid://n7baiao1f6do" path="res://Assets/Personajes/prueba/mmm.png" id="2_ne6xx"]
+[ext_resource type="Texture2D" uid="uid://cwuji37sxox2d" path="res://Assets/Personajes/guitarrista2/guitarrista2.png" id="2_s5r16"]
 [ext_resource type="Script" path="res://Scripts/character_button.gd" id="3_2wayn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mx8rm"]
@@ -19,7 +19,7 @@ custom_minimum_size = Vector2(32, 32)
 offset_right = 32.0
 offset_bottom = 32.0
 pivot_offset = Vector2(58, 75)
-texture_normal = ExtResource("1_2wc00")
+texture_normal = ExtResource("2_s5r16")
 texture_pressed = ExtResource("2_ne6xx")
 script = ExtResource("3_2wayn")
 
