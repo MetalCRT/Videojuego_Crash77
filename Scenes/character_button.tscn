@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://cujs3aew75hdb"]
 
 [ext_resource type="Shader" path="res://Resources/blur.gdshader" id="1_hj0sh"]
-[ext_resource type="Texture2D" uid="uid://n7baiao1f6do" path="res://Assets/Personajes/prueba/mmm.png" id="2_ne6xx"]
-[ext_resource type="Texture2D" uid="uid://cwuji37sxox2d" path="res://Assets/Personajes/guitarrista2/guitarrista2.png" id="2_s5r16"]
+[ext_resource type="Texture2D" uid="uid://cjvrm7pmj61xk" path="res://Assets/Personajes/guitarrista1/SelecciónTransparente.png" id="2_wbjap"]
 [ext_resource type="Script" path="res://Scripts/character_button.gd" id="3_2wayn"]
+[ext_resource type="Texture2D" uid="uid://2it71yq7um7u" path="res://Assets/Personajes/guitarrista1/SelecciónTransparentepress.png" id="3_60sh7"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mx8rm"]
 shader = ExtResource("1_hj0sh")
@@ -11,7 +11,7 @@ shader = ExtResource("1_hj0sh")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgwhh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ih02"]
-bg_color = Color(1, 1, 1, 1)
+bg_color = Color(0.141176, 0.615686, 0, 1)
 
 [node name="CharacterButton" type="TextureButton"]
 material = SubResource("ShaderMaterial_mx8rm")
@@ -19,18 +19,20 @@ custom_minimum_size = Vector2(32, 32)
 offset_right = 32.0
 offset_bottom = 32.0
 pivot_offset = Vector2(58, 75)
-texture_normal = ExtResource("2_s5r16")
-texture_pressed = ExtResource("2_ne6xx")
+texture_normal = ExtResource("2_wbjap")
+texture_pressed = ExtResource("3_60sh7")
 script = ExtResource("3_2wayn")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-z_index = 1
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_vertical = 1
+mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxEmpty_bgwhh")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4ih02")
 value = 54.55
