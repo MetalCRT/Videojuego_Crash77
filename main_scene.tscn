@@ -8,10 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://s2nquirsr28x" path="res://tablero.tscn" id="6_fxs38"]
 [ext_resource type="PackedScene" uid="uid://bh4s7i6qqmnry" path="res://Scenes/idle_arrow_right.tscn" id="7_28k6a"]
 [ext_resource type="PackedScene" uid="uid://bqfwitvfx8bse" path="res://Scenes/pausa.tscn" id="9_0qvrh"]
-[ext_resource type="Texture2D" uid="uid://buackxqpf0x3t" path="res://Assets/Personajes/guitarrista2/guitarrista2SeleccionTransparente.png" id="10_7l2yg"]
+[ext_resource type="Texture2D" uid="uid://dckxne1a0dgu8" path="res://Assets/Personajes/guitarrista2/of_guitarrista_marcoazul.png" id="10_7ksll"]
 [ext_resource type="FontFile" uid="uid://boha1a2q027fo" path="res://Fonts/CoupeurBricoleur-UP.otf" id="10_jh6d5"]
 [ext_resource type="PackedScene" uid="uid://cujs3aew75hdb" path="res://Scenes/character_button.tscn" id="10_xrfm4"]
-[ext_resource type="Texture2D" uid="uid://cvbiu57o5v6ss" path="res://Assets/Personajes/guitarrista2/guitarrista2SeleccionTransparentpresss.png" id="11_ehgx5"]
+[ext_resource type="Texture2D" uid="uid://dxtt6wfmx1lms" path="res://Assets/Personajes/guitarrista2/of_guitarrista_marcoazul_borroso.png" id="11_7knxh"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6xsk1")
@@ -103,22 +103,16 @@ theme_override_constants/separation = 20
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 stretch_mode = 0
-color = Color(0, 0.466667, 0, 1)
+color = Color(0.00366188, 0.711646, 0.294919, 0.705882)
 
 [node name="TextureButton" parent="HBoxContainer" instance=ExtResource("10_xrfm4")]
 custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
-texture_normal = ExtResource("10_7l2yg")
-texture_pressed = ExtResource("11_ehgx5")
+texture_normal = ExtResource("10_7ksll")
+texture_pressed = ExtResource("11_7knxh")
 stretch_mode = 0
-color = Color(0, 0, 0.792157, 1)
+color = Color(0, 0.12549, 1, 0.705882)
 cooldown = 3
-
-[node name="CharacterButton" parent="HBoxContainer" instance=ExtResource("10_xrfm4")]
-custom_minimum_size = Vector2(45, 48)
-layout_mode = 2
-stretch_mode = 0
-color = Color(0, 0.294118, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://cujs3aew75hdb"]
 
 [ext_resource type="Shader" path="res://Resources/blur.gdshader" id="1_hj0sh"]
-[ext_resource type="Texture2D" uid="uid://cjvrm7pmj61xk" path="res://Assets/Personajes/guitarrista1/SelecciónTransparente.png" id="2_wbjap"]
+[ext_resource type="Texture2D" uid="uid://drmu2cbl2cge2" path="res://Assets/Personajes/guitarrista1/of_guitarrista_marcoverde.png" id="2_b2qvx"]
 [ext_resource type="Script" path="res://Scripts/character_button.gd" id="3_2wayn"]
-[ext_resource type="Texture2D" uid="uid://2it71yq7um7u" path="res://Assets/Personajes/guitarrista1/SelecciónTransparentepress.png" id="3_60sh7"]
+[ext_resource type="Texture2D" uid="uid://dgbukvj81xu7y" path="res://Assets/Personajes/guitarrista1/of_guitarrista_marcoverde_borroso.png" id="3_lgb2m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mx8rm"]
 shader = ExtResource("1_hj0sh")
@@ -11,7 +11,6 @@ shader = ExtResource("1_hj0sh")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bgwhh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ih02"]
-bg_color = Color(0.141176, 0.615686, 0, 1)
 
 [node name="CharacterButton" type="TextureButton"]
 material = SubResource("ShaderMaterial_mx8rm")
@@ -19,8 +18,8 @@ custom_minimum_size = Vector2(32, 32)
 offset_right = 32.0
 offset_bottom = 32.0
 pivot_offset = Vector2(58, 75)
-texture_normal = ExtResource("2_wbjap")
-texture_pressed = ExtResource("3_60sh7")
+texture_normal = ExtResource("2_b2qvx")
+texture_pressed = ExtResource("3_lgb2m")
 script = ExtResource("3_2wayn")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
