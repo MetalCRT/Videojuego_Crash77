@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfkfxy83hcqgr"]
+[gd_scene load_steps=13 format=3 uid="uid://cfkfxy83hcqgr"]
 
 [ext_resource type="Script" path="res://characters/Gallardo.gd" id="1_kuuyf"]
+[ext_resource type="Texture2D" uid="uid://b107qbfr1wxrk" path="res://Assets/Personajes/guitarrista1/monitomoviendoseDaño.png" id="2_2gdcm"]
 [ext_resource type="Texture2D" uid="uid://cxhubt8pdc2ay" path="res://Assets/Personajes/guitarrista1/monitomoviendose.png" id="2_gaht2"]
 [ext_resource type="Texture2D" uid="uid://c6pyroly45rno" path="res://Assets/Personajes/guitarrista1/monitodaÃ±ofinaldos.png" id="3_1gtjo"]
 
@@ -58,6 +59,84 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("personaje:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2gdcm")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("personaje:vframes")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_j0bva"]
+resource_name = "daño"
+length = 1.2
+loop_mode = 1
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("personaje:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_2gdcm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("personaje:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("personaje:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("personaje:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
 [sub_resource type="Animation" id="Animation_57iof"]
@@ -121,6 +200,30 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("personaje:vframes")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("personaje:hframes")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
 
 [sub_resource type="Animation" id="Animation_fkj7l"]
 resource_name = "muerte"
@@ -132,7 +235,7 @@ tracks/0/path = NodePath("personaje:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.8),
+"times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -185,10 +288,23 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -5), Vector2(0, 7)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("personaje:vframes")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cvjug"]
 _data = {
 "RESET": SubResource("Animation_yyr0m"),
+"daño": SubResource("Animation_j0bva"),
 "explosion": SubResource("Animation_57iof"),
 "faint": SubResource("Animation_xuu82"),
 "idle": SubResource("Animation_7y82o"),
@@ -204,7 +320,8 @@ script = ExtResource("1_kuuyf")
 shape = SubResource("RectangleShape2D_30sdb")
 
 [node name="personaje" type="Sprite2D" parent="."]
-texture = ExtResource("2_gaht2")
+position = Vector2(0, 7)
+texture = ExtResource("2_2gdcm")
 hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

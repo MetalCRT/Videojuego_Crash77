@@ -6,10 +6,13 @@ signal hit
 #@onready var pivot = $Pivot
 @onready var posicion = position
 # Añade esta línea en el método _ready() para conectar la señal con el método correspondiente
+func _ready():
+	$AnimationPlayer.play("idle")
 	
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
 		body._damage(self)
+		$AnimationPlayer.play("daño")
 	else:
 		$AnimationPlayer.play("idle")
 

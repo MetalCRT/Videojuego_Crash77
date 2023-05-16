@@ -16,7 +16,7 @@ scale = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_qp7os")
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["proyectiles"]]
-modulate = Color(0.239216, 0, 0.14902, 1)
+modulate = Color(0.101961, 0.101961, 0.101961, 1)
 texture = ExtResource("2_gwneg")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

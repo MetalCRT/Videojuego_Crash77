@@ -81,18 +81,18 @@ func _input(event):
 		var mouse_pos = get_local_mouse_position()
 		# Convertir la posición del mouse a la posición de la celda en la cuadrícula
 		var cell_pos = tile_map.local_to_map(mouse_pos)
-		print(cell_pos)
 		# Comprobar si la celda está vacía
-		if tile_map.get_cell_source_id(0,cell_pos) == -1 and is_inside_area(cell_pos,p1,p2,p3,p4):
+		if tile_map.get_cell_source_id(0,cell_pos) == -1 and is_inside_area(cell_pos,p1,p2,p3,p4) and Global.can_select == 1:
 			# Crear un nuevo personaje y añadirlo a la escena
-			if Global.focus_char == 'Gallardo':
-				character = preload("res://characters/Gallardo.tscn").instantiate()
-			elif Global.focus_char == 'Tynic':
-				character = preload("res://characters/Tynic.tscn").instantiate()
+			#if Global.focus_char == 'Gallardo':
+			#	character = preload("res://characters/Gallardo.tscn").instantiate()
+			#elif Global.focus_char == 'Tynic':
+			#	character = preload("res://characters/Tynic.tscn").instantiate()
+			character = preload("res://characters/Gallardo.tscn").instantiate()
 			character.position = tile_map.map_to_local(cell_pos)
 			contenedor.add_child(character)
-			tile_map.set_cell(0,cell_pos)
-			print(tile_map.get_cell_source_id(0,cell_pos))
+			tile_map.set_cell(0,cell_pos,0,Vector2i(0, 0))
+			Global.can_select = 0
 			
 
 
@@ -126,8 +126,10 @@ func _on_timer_2_timeout():
 
 func _on_texture_button_2_pressed():
 	Global.focus_char = 'Gallardo'
+	Global.can_select = 1
 	
 	
 
 func _on_texture_button_pressed():
 	Global.focus_char = 'Tynic'
+	Global.can_select = 1
