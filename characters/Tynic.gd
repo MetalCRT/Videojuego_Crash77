@@ -26,4 +26,7 @@ func _on_hit_detected():
 func death():
 		$AnimationPlayer.play("explosion")
 		await $AnimationPlayer.animation_finished
+		Global.posicion_libre = Vector2(posicion)
+		print(Global.posicion_libre)
+		#emit_signal("character_died")
 		queue_free() 
