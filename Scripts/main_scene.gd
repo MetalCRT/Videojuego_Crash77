@@ -12,6 +12,13 @@ var character
 var random = 0
 #var random2 = 0
 var RNG = RandomNumberGenerator.new()
+
+#func _ready() -> void:
+#	for character in contenedor.get_children():
+#		$character.character_died.connect(_on_character_died)
+
+	
+
 func _process(delta):
 	$Score/Label.text = str(Global.score)
 	if Global.shootqueue>0:
@@ -19,6 +26,14 @@ func _process(delta):
 			if character.has_method("_on_hit_detected"):
 				character._on_hit_detected()
 		Global.shootqueue -= 1
+	#print(Global.posicion_libre)
+	if Global.posicion_libre != null:
+		# Obtener la posición de la celda ocupada por el personaje que murió
+		var current_cell_pos = tile_map.local_to_map(Global.posicion_libre)
+			# Restablecer la celda como desocupada (-1)
+		tile_map.set_cell(0, current_cell_pos, -1)
+		Global.posicion_libre = null
+	
 
 
 func _on_timer_timeout():
@@ -81,9 +96,8 @@ func _input(event):
 		var mouse_pos = get_local_mouse_position()
 		# Convertir la posición del mouse a la posición de la celda en la cuadrícula
 		var cell_pos = tile_map.local_to_map(mouse_pos)
-		print(cell_pos)
 		# Comprobar si la celda está vacía
-		if tile_map.get_cell_source_id(0,cell_pos) == -1 and is_inside_area(cell_pos,p1,p2,p3,p4):
+		if tile_map.get_cell_source_id(0,cell_pos) == -1 and is_inside_area(cell_pos,p1,p2,p3,p4) and Global.can_select == 1:
 			# Crear un nuevo personaje y añadirlo a la escena
 			if Global.focus_char == 'Gallardo':
 				character = preload("res://characters/Gallardo.tscn").instantiate()
@@ -91,9 +105,12 @@ func _input(event):
 				character = preload("res://characters/Tynic.tscn").instantiate()
 			character.position = tile_map.map_to_local(cell_pos)
 			contenedor.add_child(character)
-			tile_map.set_cell(0,cell_pos)
-			print(tile_map.get_cell_source_id(0,cell_pos))
-			
+			tile_map.set_cell(0,cell_pos,0,Vector2i(0, 0))
+			Global.can_select = 0
+			Global.posicion_libre= null
+
+#func _on_character_died():
+
 
 
 func _on_timer_2_timeout():
@@ -126,8 +143,10 @@ func _on_timer_2_timeout():
 
 func _on_texture_button_2_pressed():
 	Global.focus_char = 'Gallardo'
+	Global.can_select = 1
 	
 	
 
 func _on_texture_button_pressed():
 	Global.focus_char = 'Tynic'
+	Global.can_select = 1

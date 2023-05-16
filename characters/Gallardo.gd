@@ -25,9 +25,8 @@ func _physics_process(delta):
 
 func _on_enemy_body_entered(body):
 	if body.is_in_group("enemies"):
-		$AnimationPlayer.play("muerte")
-		await $AnimationPlayer.animation_finished
-		queue_free() 
+		body._damage(self)
+		$AnimationPlayer.play("daño")
 	else:
 		$AnimationPlayer.play("idle")
 
@@ -45,5 +44,12 @@ func fire():
 	var nota = preload("res://characters/nota.tscn").instantiate()
 	get_parent().add_child(nota)
 	nota.position = posicion
+	
+func death():
+		$AnimationPlayer.play("muerte")
+		await $AnimationPlayer.animation_finished
+		#emit_signal("character_died")
+		Global.posicion_libre=posicion
+		queue_free() 
 	
 
