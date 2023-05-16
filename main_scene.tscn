@@ -104,6 +104,7 @@ custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 stretch_mode = 0
 color = Color(0.00366188, 0.711646, 0.294919, 0.705882)
+cooldown = 3
 
 [node name="TextureButton" parent="HBoxContainer" instance=ExtResource("10_xrfm4")]
 custom_minimum_size = Vector2(45, 45)
@@ -112,7 +113,6 @@ texture_normal = ExtResource("10_7ksll")
 texture_pressed = ExtResource("11_7knxh")
 stretch_mode = 0
 color = Color(0, 0.12549, 1, 0.705882)
-cooldown = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -128,7 +128,7 @@ anchor_mode = 0
 zoom = Vector2(2.8, 2.8)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="pressed" from="HBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
