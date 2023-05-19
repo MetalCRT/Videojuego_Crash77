@@ -105,7 +105,6 @@ custom_minimum_size = Vector2(45, 45)
 layout_mode = 2
 stretch_mode = 0
 color = Color(0.00366188, 0.711646, 0.294919, 0.705882)
-cooldown = 3
 
 [node name="TextureButton" parent="HBoxContainer" instance=ExtResource("10_xrfm4")]
 custom_minimum_size = Vector2(45, 45)
