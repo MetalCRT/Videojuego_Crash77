@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bieqs0s3rlivn"]
+
+[ext_resource type="Script" path="res://characters/ataqueParlante.gd" id="1_746c5"]
+[ext_resource type="Texture2D" uid="uid://dlely1hcaix53" path="res://Assets/doblenota16x16.png" id="2_vnlxt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qp7os"]
+size = Vector2(16, 16)
+
+[node name="Area2D" type="Area2D" groups=["muerteSegura"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_746c5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["muerteSegura"]]
+scale = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_qp7os")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["muerteSegura"]]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("2_vnlxt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

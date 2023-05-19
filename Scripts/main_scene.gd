@@ -6,7 +6,8 @@ const AU = preload("res://Scenes/m_arrow_up.tscn")
 const AR = preload("res://Scenes/m_arrow_right.tscn")
 const enemy = preload("res://enemigo.tscn")
 var character
-
+var chart_level_1 = ["left",1.0,"down",1.0,"up",1.0,"right"]
+var chart_read = false
 
 @onready var contenedor = $characters
 var random = 0
@@ -21,12 +22,15 @@ var RNG = RandomNumberGenerator.new()
 
 func _process(delta):
 	$Score/Label.text = str(Global.score)
+	if !chart_read:
+		read_chart(chart_level_1)
+		chart_read = true
 	if Global.shootqueue>0:
 		for character in contenedor.get_children():
 			if character.has_method("_on_hit_detected"):
 				character._on_hit_detected()
 		Global.shootqueue -= 1
-	#print(Global.posicion_libre)
+	
 	if Global.posicion_libre != null:
 		# Obtener la posición de la celda ocupada por el personaje que murió
 		var current_cell_pos = tile_map.local_to_map(Global.posicion_libre)
@@ -109,7 +113,7 @@ func _input(event):
 			Global.can_select = 0
 			Global.posicion_libre= null
 
-#func _on_character_died():
+
 
 
 
@@ -150,3 +154,34 @@ func _on_texture_button_2_pressed():
 func _on_texture_button_pressed():
 	Global.focus_char = 'Tynic'
 	Global.can_select = 1
+
+#Funcion para crear notas automaticamente
+func create_note(lane):
+	match lane:
+		"left":
+			var al = AL.instantiate()
+			get_tree().get_current_scene().add_child(al)
+			al.position = $Creator/Marker2D_AL.global_position
+		"down":
+			var ad = AD.instantiate()
+			get_tree().get_current_scene().add_child(ad)
+			ad.position = $Creator/Marker2D_AD.global_position
+		"up":
+			var au = AU.instantiate()
+			get_tree().get_current_scene().add_child(au)
+			au.position = $Creator/Marker2D_AU.global_position
+		"right":
+			var ar = AR.instantiate()
+			get_tree().get_current_scene().add_child(ar)
+			ar.position = $Creator/Marker2D_AR.global_position
+
+#Funcion para meter delay entre notas
+
+#Funcion lectora de sheets
+func read_chart(chart):
+	var delay = false
+	for i in chart:
+		if i is String:
+			create_note(i)
+		else:
+			await get_tree().create_timer(i).timeout
