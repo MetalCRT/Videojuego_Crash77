@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cpm7arbpagoyd"]
+[gd_scene load_steps=15 format=3 uid="uid://cpm7arbpagoyd"]
 
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_6xsk1"]
 [ext_resource type="PackedScene" uid="uid://cc4n08ef4vcw4" path="res://Scenes/idle_arrow_up.tscn" id="1_22hfh"]
@@ -12,7 +12,8 @@
 [ext_resource type="FontFile" uid="uid://boha1a2q027fo" path="res://Fonts/CoupeurBricoleur-UP.otf" id="10_jh6d5"]
 [ext_resource type="PackedScene" uid="uid://cujs3aew75hdb" path="res://Scenes/character_button.tscn" id="10_xrfm4"]
 [ext_resource type="Texture2D" uid="uid://dxtt6wfmx1lms" path="res://Assets/Personajes/guitarrista2/of_guitarrista_marcoazul_borroso.png" id="11_7knxh"]
-[ext_resource type="Texture2D" uid="uid://b11tcyxtcm3xx" path="res://Assets/Personajes/parlante/parlantePixel.png" id="13_r5th5"]
+[ext_resource type="PackedScene" uid="uid://c3kylrkppt68q" path="res://characters/Parlante.tscn" id="13_dor7m"]
+[ext_resource type="PackedScene" uid="uid://ipbifc8eirvi" path="res://Scenes/OverNode.tscn" id="14_y5enm"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6xsk1")
@@ -128,21 +129,29 @@ offset_bottom = -21.0
 anchor_mode = 0
 zoom = Vector2(2.8, 2.8)
 
-[node name="ParlantePixel" type="Sprite2D" parent="."]
+[node name="Parlante" parent="." instance=ExtResource("13_dor7m")]
 position = Vector2(144, 112)
-texture = ExtResource("13_r5th5")
 
-[node name="ParlantePixel2" type="Sprite2D" parent="."]
+[node name="Parlante2" parent="." instance=ExtResource("13_dor7m")]
 position = Vector2(144, 144)
-texture = ExtResource("13_r5th5")
 
-[node name="ParlantePixel3" type="Sprite2D" parent="."]
+[node name="Parlante3" parent="." instance=ExtResource("13_dor7m")]
 position = Vector2(144, 176)
-texture = ExtResource("13_r5th5")
 
-[node name="ParlantePixel4" type="Sprite2D" parent="."]
+[node name="Parlante4" parent="." instance=ExtResource("13_dor7m")]
 position = Vector2(144, 208)
-texture = ExtResource("13_r5th5")
+
+[node name="puntoFinal" parent="." instance=ExtResource("14_y5enm")]
+position = Vector2(144, 112)
+
+[node name="puntoFinal2" parent="." instance=ExtResource("14_y5enm")]
+position = Vector2(144, 144)
+
+[node name="puntoFinal3" parent="." instance=ExtResource("14_y5enm")]
+position = Vector2(144, 176)
+
+[node name="puntoFinal4" parent="." instance=ExtResource("14_y5enm")]
+position = Vector2(144, 208)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]

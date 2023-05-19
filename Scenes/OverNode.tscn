@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ipbifc8eirvi"]
+
+[ext_resource type="Script" path="res://Scenes/OverNode.gd" id="1_dsbrp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkhxm"]
+size = Vector2(16, 32)
+
+[node name="puntoFinal" type="Area2D"]
+script = ExtResource("1_dsbrp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-8, 0)
+shape = SubResource("RectangleShape2D_vkhxm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

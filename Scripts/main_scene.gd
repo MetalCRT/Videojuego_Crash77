@@ -26,7 +26,7 @@ func _process(delta):
 			if character.has_method("_on_hit_detected"):
 				character._on_hit_detected()
 		Global.shootqueue -= 1
-	#print(Global.posicion_libre)
+	
 	if Global.posicion_libre != null:
 		# Obtener la posición de la celda ocupada por el personaje que murió
 		var current_cell_pos = tile_map.local_to_map(Global.posicion_libre)
@@ -109,7 +109,7 @@ func _input(event):
 			Global.can_select = 0
 			Global.posicion_libre= null
 
-#func _on_character_died():
+
 
 
 
