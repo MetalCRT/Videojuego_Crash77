@@ -9,7 +9,7 @@ func _ready():
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
 		# Realizar acciones de game over aquí
-		get_tree().change_scene("res://Scenes/Gameover.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Gameover.tscn")
 
 
 
