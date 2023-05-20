@@ -11,7 +11,7 @@ script/source = "extends CharacterBody2D
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get(\"parameters/playback\")
 @onready var pivot = $Pivot
-var velocityInt = -10
+var velocityInt = -100
 var velocityVect = Vector2(velocityInt,0)
 const HEALTH = 5
 var health = HEALTH
@@ -64,6 +64,8 @@ func _damage(node):
 		playback.travel(\"caminando\")
 		if(health>0):
 			node.death()
+			
+			
 "
 
 [sub_resource type="Animation" id="Animation_2yvt3"]
@@ -392,9 +394,10 @@ libraries = {
 }
 
 [node name="maloCaminando" type="Sprite2D" parent="." groups=["enemies"]]
-texture = ExtResource("2_vd4ru")
+texture = ExtResource("4_q67as")
 flip_h = true
 hframes = 10
+frame = 9
 
 [node name="RayCast2D" type="RayCast2D" parent="." groups=["enemies"]]
 
@@ -408,11 +411,11 @@ parameters/playback = SubResource("AnimationNodeStateMachinePlayback_5eo5c")
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["enemies"]]
+[node name="colision" type="CollisionShape2D" parent="Area2D" groups=["enemies"]]
 position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_tay4w")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemies"]]
+[node name="colision" type="CollisionShape2D" parent="." groups=["enemies"]]
 position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_tay4w")
 

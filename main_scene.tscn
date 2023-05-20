@@ -141,19 +141,19 @@ position = Vector2(144, 176)
 position = Vector2(144, 208)
 
 [node name="puntoFinal" parent="." instance=ExtResource("14_y5enm")]
-position = Vector2(144, 112)
+position = Vector2(373, 113)
 
 [node name="puntoFinal2" parent="." instance=ExtResource("14_y5enm")]
-position = Vector2(144, 144)
+position = Vector2(368, 144)
 
 [node name="puntoFinal3" parent="." instance=ExtResource("14_y5enm")]
-position = Vector2(144, 176)
+position = Vector2(374, 176)
 
 [node name="puntoFinal4" parent="." instance=ExtResource("14_y5enm")]
-position = Vector2(144, 208)
+position = Vector2(379, 209)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="pressed" from="HBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
