@@ -394,10 +394,9 @@ libraries = {
 }
 
 [node name="maloCaminando" type="Sprite2D" parent="." groups=["enemies"]]
-texture = ExtResource("4_q67as")
+texture = ExtResource("2_vd4ru")
 flip_h = true
 hframes = 10
-frame = 9
 
 [node name="RayCast2D" type="RayCast2D" parent="." groups=["enemies"]]
 
