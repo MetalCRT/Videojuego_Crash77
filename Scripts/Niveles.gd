@@ -21,7 +21,7 @@ func _on_practicar_pressed():
 	get_tree().change_scene_to_file("res://main_scene.tscn")
 	
 func _on_nivel_1_pressed():
-	pass
+	get_tree().change_scene_to_file("res://Scenes/main_scene_level1.tscn")
 	
 func _on_nivel_2_pressed():
 	pass
