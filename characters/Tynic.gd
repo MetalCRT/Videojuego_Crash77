@@ -28,5 +28,5 @@ func death():
 		await $AnimationPlayer.animation_finished
 		Global.posicion_libre = Vector2(posicion)
 		print(Global.posicion_libre)
-		#emit_signal("character_died")
-		queue_free() 
+		if is_instance_valid(self): 
+			queue_free() 

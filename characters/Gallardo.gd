@@ -50,6 +50,7 @@ func death():
 		await $AnimationPlayer.animation_finished
 		#emit_signal("character_died")
 		Global.posicion_libre=posicion
-		queue_free() 
+		if is_instance_valid(self): 
+			queue_free() 
 	
 
