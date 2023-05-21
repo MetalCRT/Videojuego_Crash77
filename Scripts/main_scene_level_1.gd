@@ -6,7 +6,6 @@ const AU = preload("res://Scenes/m_arrow_up.tscn")
 const AR = preload("res://Scenes/m_arrow_right.tscn")
 const enemy = preload("res://enemigo.tscn")
 var character
-var chart_level_1 = ["left",1.0,"down",1.0,"up",1.0,"right"]
 var chart_read = false
 
 @onready var contenedor = $characters
@@ -14,16 +13,17 @@ var random = 0
 #var random2 = 0
 var RNG = RandomNumberGenerator.new()
 
-#func _ready() -> void:
-#	for character in contenedor.get_children():
-#		$character.character_died.connect(_on_character_died)
+func _ready():
+	await get_tree().create_timer(3.8).timeout
+	$"../RockingNight".play()
 
 	
 
 func _process(delta):
 	$Score/Label.text = str(Global.score)
 	if !chart_read:
-		read_chart(chart_level_1)
+		read_chart(Global.chart_level_1)
+		read_enemy_spawn(Global.enemy_chart_level_1)
 		chart_read = true
 	if Global.shootqueue>0:
 		for character in contenedor.get_children():
@@ -37,7 +37,6 @@ func _process(delta):
 			# Restablecer la celda como desocupada (-1)
 		tile_map.set_cell(0, current_cell_pos, -1)
 		Global.posicion_libre = null
-	
 
 
 #chequea si vector está dentro del area
@@ -80,37 +79,6 @@ func _input(event):
 			Global.posicion_libre= null
 
 
-
-
-
-func _on_timer_2_timeout():
-	$Timer2.start()
-	RNG.randomize()
-	var random_int = RNG.randi_range(0,4)
-	#var random_int2 = RNG.randi_range(0,8)
-	random = random_int
-	#random2 = random_int2
-	
-	match random :
-		1:
-			var en1 = enemy.instantiate()
-			get_tree().get_current_scene().add_child(en1)
-			en1.position = $Creator/Marker2D_en1.global_position
-		2:
-			var en2 = enemy.instantiate()
-			get_tree().get_current_scene().add_child(en2)
-			en2.position = $Creator/Marker2D_en2.global_position
-		3:
-			var en3 = enemy.instantiate()
-			get_tree().get_current_scene().add_child(en3)
-			en3.position = $Creator/Marker2D_en3.global_position
-		4:
-			var en4 = enemy.instantiate()
-			get_tree().get_current_scene().add_child(en4)
-			en4.position = $Creator/Marker2D_en4.global_position
-
-
-
 func _on_texture_button_2_pressed():
 	Global.focus_char = 'Gallardo'
 	Global.can_select = 1
@@ -145,9 +113,34 @@ func create_note(lane):
 
 #Funcion lectora de sheets
 func read_chart(chart):
-	var delay = false
 	for i in chart:
 		if i is String:
 			create_note(i)
+		else:
+			await get_tree().create_timer(i).timeout
+
+func create_enemy(lane):
+	match lane:
+		"a":
+			var en1 = enemy.instantiate()
+			get_tree().get_current_scene().add_child(en1)
+			en1.position = $Creator/Marker2D_en1.global_position
+		"b":
+			var en2 = enemy.instantiate()
+			get_tree().get_current_scene().add_child(en2)
+			en2.position = $Creator/Marker2D_en2.global_position
+		"c":
+			var en3 = enemy.instantiate()
+			get_tree().get_current_scene().add_child(en3)
+			en3.position = $Creator/Marker2D_en3.global_position
+		"d":
+			var en4 = enemy.instantiate()
+			get_tree().get_current_scene().add_child(en4)
+			en4.position = $Creator/Marker2D_en4.global_position
+
+func read_enemy_spawn(enemy_chart):
+	for i in enemy_chart:
+		if i is String:
+			create_enemy(i)
 		else:
 			await get_tree().create_timer(i).timeout

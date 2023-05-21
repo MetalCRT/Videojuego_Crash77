@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5ybyi2e1yq1j"]
+[gd_scene load_steps=4 format=3 uid="uid://c5ybyi2e1yq1j"]
 
 [ext_resource type="PackedScene" uid="uid://cpm7arbpagoyd" path="res://main_scene.tscn" id="1_jonvh"]
 [ext_resource type="Script" path="res://Scripts/main_scene_level_1.gd" id="2_yst1i"]
+[ext_resource type="AudioStream" uid="uid://ddvxtg0xgvxx3" path="res://Assets/Songs/Rocking Night.mp3" id="3_nyy03"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="MainScene" parent="." instance=ExtResource("1_jonvh")]
 script = ExtResource("2_yst1i")
+
+[node name="RockingNight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_nyy03")
+volume_db = -10.0
