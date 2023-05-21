@@ -16,3 +16,5 @@ var can_select = 0
 var posicion_libre = null
 
 var chart_level_1 = ["left",0.5,"down",0.5,"up",0.5,"right"]
+
+var level = 0

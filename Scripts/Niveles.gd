@@ -19,9 +19,10 @@ func _ready():
 func _on_practicar_pressed():
 	#get_tree().change_scene_to_packed(main_scene)
 	get_tree().change_scene_to_file("res://main_scene.tscn")
+	Global.level=0
 	
 func _on_nivel_1_pressed():
 	get_tree().change_scene_to_file("res://Scenes/main_scene_level1.tscn")
-	
+	Global.level=1
 func _on_nivel_2_pressed():
 	pass
