@@ -18,6 +18,3 @@ texture = ExtResource("2_ynnlt")
 position = Vector2(-0.500004, 1.33333)
 shape = SubResource("RectangleShape2D_21hjb")
 metadata/_edit_group_ = true
-
-[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
-[connection signal="area_shape_exited" from="." to="." method="_on_area_shape_exited"]

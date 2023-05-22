@@ -19,5 +19,4 @@ shape = SubResource("RectangleShape2D_qp7os")
 modulate = Color(0.596078, 0.105882, 0, 1)
 texture = ExtResource("2_nuje8")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

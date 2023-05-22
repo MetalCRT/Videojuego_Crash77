@@ -2,9 +2,9 @@
 
 [ext_resource type="Theme" uid="uid://dykgfcqvxck4" path="res://Resources/theme.tres" id="1_3uxbj"]
 [ext_resource type="Script" path="res://Scripts/GameOver.gd" id="1_skaiq"]
+[ext_resource type="Texture2D" uid="uid://cg3qvltnfprfe" path="res://Resources/Derrota.jpg" id="2_81gyb"]
 [ext_resource type="FontFile" uid="uid://b80x4uelj58oq" path="res://Fonts/CoupeurBricoleur-DOWN.otf" id="2_frrgk"]
 [ext_resource type="Theme" uid="uid://b1r0cnshj80gu" path="res://Resources/theme_gameover.tres" id="3_kmdrg"]
-[ext_resource type="Texture2D" uid="uid://cg3qvltnfprfe" path="res://Resources/Derrota.jpg" id="5_gmm4o"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ecrb4"]
 
@@ -18,7 +18,7 @@ script = ExtResource("1_skaiq")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-texture = ExtResource("5_gmm4o")
+texture = ExtResource("2_81gyb")
 expand_mode = 4
 
 [node name="PanelContainer" type="PanelContainer" parent="."]

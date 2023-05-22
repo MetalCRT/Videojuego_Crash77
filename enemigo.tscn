@@ -10,7 +10,6 @@ script/source = "extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get(\"parameters/playback\")
-@onready var pivot = $Pivot
 var velocityInt = -20
 var velocityVect = Vector2(velocityInt,0)
 const HEALTH = 5
@@ -42,6 +41,11 @@ func _on_area_2d_area_entered(area):
 		modulate = Color(1,1,1)
 		
 	elif area.is_in_group(\"muerteSegura\"):
+		health -= 5 # reduce la salud del enemigo en 1
+		modulate = Color(1,0,0)
+		await get_tree().create_timer(0.1).timeout
+		modulate = Color(1,1,1)
+	elif area.is_in_group(\"proyectiles2\"):
 		health -= 5 # reduce la salud del enemigo en 1
 		modulate = Color(1,0,0)
 		await get_tree().create_timer(0.1).timeout
