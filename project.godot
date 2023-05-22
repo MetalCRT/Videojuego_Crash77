@@ -40,7 +40,7 @@ pausa={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://translations/Lenguajes.csv", "res://translations/Lenguajes.es.translation", "res://translations/Lenguajes.en.translation")
+locale/translations=PackedStringArray("res://translations/Lenguajes.csv", "res://translations/Lenguajes.en.translation", "res://translations/Lenguajes.es.translation")
 
 [rendering]
 

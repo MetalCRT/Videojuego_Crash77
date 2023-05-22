@@ -17,7 +17,7 @@ func _ready():
 	ingles.pressed.connect(_on_ingles_pressed)
 	buttonback.pressed.connect(_on_buttonback_pressed)
 
-	seleccionar.text = tr("SEL")
+	seleccionar.text = tr("SELIDI")
 	espanol.text = tr("ES")
 	ingles.text = tr("EN")
 
@@ -36,8 +36,7 @@ func _on_espanol_pressed():
 	save_config()
 	espanol.text = tr("ES")
 	ingles.text = tr("EN")
-	volver.text = tr("VOL")
-	seleccionar.text = tr("SEL")
+	seleccionar.text = tr("SELIDI")
 	
 	
 func _on_ingles_pressed():
@@ -46,8 +45,7 @@ func _on_ingles_pressed():
 	save_config()
 	espanol.text = tr("ES")
 	ingles.text = tr("EN")
-	volver.text = tr("VOL")
-	seleccionar.text = tr("SEL")
+	seleccionar.text = tr("SELIDI")
 	
 func _on_buttonback_pressed():
 	get_tree().change_scene_to_file("res://Scenes/configuracion.tscn")

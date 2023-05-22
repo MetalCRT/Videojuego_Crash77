@@ -46,7 +46,7 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.901961, 0.101961, 0.898039, 1)
 theme_override_fonts/font = ExtResource("3_j1tro")
 theme_override_font_sizes/font_size = 70
-text = "Seleccione lenguaje"
+text = "Seleccione Idioma"
 horizontal_alignment = 1
 
 [node name="Espanol" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer" groups=["localized"]]
