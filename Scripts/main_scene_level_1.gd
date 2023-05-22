@@ -144,3 +144,5 @@ func read_enemy_spawn(enemy_chart):
 			create_enemy(i)
 		else:
 			await get_tree().create_timer(i).timeout
+	await get_tree().create_timer(20).timeout
+	get_tree().change_scene_to_file("res://Scenes/WinLv1.tscn")
