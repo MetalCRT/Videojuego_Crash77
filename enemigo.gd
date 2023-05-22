@@ -5,7 +5,7 @@ extends Area2D
 @onready var pivot = $Pivot
 var velocityInt = -30
 var velocityVect = Vector2(velocityInt,0)
-const HEALTH = 3
+const HEALTH = 4
 var health = HEALTH
 
 func _ready():
