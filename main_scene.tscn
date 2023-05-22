@@ -12,8 +12,8 @@
 [ext_resource type="FontFile" uid="uid://boha1a2q027fo" path="res://Fonts/CoupeurBricoleur-UP.otf" id="10_jh6d5"]
 [ext_resource type="PackedScene" uid="uid://cujs3aew75hdb" path="res://Scenes/character_button.tscn" id="10_xrfm4"]
 [ext_resource type="Texture2D" uid="uid://dxtt6wfmx1lms" path="res://Assets/Personajes/guitarrista2/of_guitarrista_marcoazul_borroso.png" id="11_7knxh"]
-[ext_resource type="PackedScene" path="res://characters/Parlante.tscn" id="13_dor7m"]
-[ext_resource type="PackedScene" path="res://Scenes/OverNode.tscn" id="14_y5enm"]
+[ext_resource type="PackedScene" uid="uid://c3kylrkppt68q" path="res://characters/Parlante.tscn" id="13_dor7m"]
+[ext_resource type="PackedScene" uid="uid://ipbifc8eirvi" path="res://Scenes/OverNode.tscn" id="14_y5enm"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6xsk1")
