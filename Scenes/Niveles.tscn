@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://wb6r8gnglwfy"]
+[gd_scene load_steps=7 format=3 uid="uid://wb6r8gnglwfy"]
 
 [ext_resource type="Theme" uid="uid://c71ofdsw78ulc" path="res://Resources/theme_niveles.tres" id="1_wt52r"]
 [ext_resource type="Script" path="res://Scripts/Niveles.gd" id="2_ou2ok"]
 [ext_resource type="Texture2D" uid="uid://bp50rpphvla01" path="res://Resources/Selector.webp" id="2_t43pj"]
 [ext_resource type="FontFile" uid="uid://b80x4uelj58oq" path="res://Fonts/CoupeurBricoleur-DOWN.otf" id="3_5tjce"]
+[ext_resource type="PackedScene" uid="uid://cd5klpm2it0hh" path="res://Assets/Botones/buttonback.tscn" id="5_jwcsl"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0kse"]
 
@@ -77,3 +78,14 @@ text = "Nivel 2"
 
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TextureRect/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="buttonback" parent="TextureRect/PanelContainer/MarginContainer2" instance=ExtResource("5_jwcsl")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0

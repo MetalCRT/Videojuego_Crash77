@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://cd5klpm2it0hh"]
 
-[ext_resource type="Texture2D" uid="uid://dy2f7p8padhmd" path="res://Resources/atras.png" id="1_jhqoy"]
-[ext_resource type="Texture2D" uid="uid://dcpc3i3axlp43" path="res://Resources/atras_borroso.png" id="2_m4n15"]
+[ext_resource type="Texture2D" uid="uid://bge4iwei5siu4" path="res://Resources/atras_color.png" id="1_fdsp8"]
+[ext_resource type="Texture2D" uid="uid://l517jefjog24" path="res://Resources/atras_borrocolor.png" id="2_1mt00"]
 [ext_resource type="Script" path="res://Scripts/buttonbackk.gd" id="3_ioytk"]
 
 [node name="buttonback" type="TextureButton"]
 offset_right = 40.0
 offset_bottom = 40.0
 size_flags_horizontal = 4
-texture_normal = ExtResource("1_jhqoy")
-texture_pressed = ExtResource("2_m4n15")
+texture_normal = ExtResource("1_fdsp8")
+texture_pressed = ExtResource("2_1mt00")
 flip_v = true
 script = ExtResource("3_ioytk")

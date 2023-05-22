@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc8sq0cbd5c6a"]
+[gd_scene load_steps=7 format=3 uid="uid://bc8sq0cbd5c6a"]
 
 [ext_resource type="Theme" uid="uid://dykgfcqvxck4" path="res://Resources/theme.tres" id="1_e5m22"]
 [ext_resource type="Texture2D" uid="uid://cxjwnp2s72ohj" path="res://Resources/Captura.PNG" id="1_prfxd"]
 [ext_resource type="Script" path="res://Scripts/configuración.gd" id="2_uirmv"]
 [ext_resource type="FontFile" uid="uid://b80x4uelj58oq" path="res://Fonts/CoupeurBricoleur-DOWN.otf" id="3_585xl"]
+[ext_resource type="PackedScene" uid="uid://cd5klpm2it0hh" path="res://Assets/Botones/buttonback.tscn" id="5_twbjo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_117hp"]
 
@@ -57,11 +58,9 @@ theme_override_fonts/font = ExtResource("3_585xl")
 text = "Lenguajes
 "
 
-[node name="Atras" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_fonts/font = ExtResource("3_585xl")
-text = "Volver"
-
 [node name="MarginContainer" type="MarginContainer" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="buttonback" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_twbjo")]
+unique_name_in_owner = true
 layout_mode = 2

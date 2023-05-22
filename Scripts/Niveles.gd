@@ -5,6 +5,7 @@ extends MarginContainer
 @onready var nivel_2 = %Nivel2
 #@export var main_scene: PackedScene 
 @onready var niveles = %Niveles
+@onready var buttonback = %buttonback
 
 
 func _ready():
@@ -15,6 +16,7 @@ func _ready():
 	practicar.text = tr("PRAC")
 	nivel_1.text = tr("NI1")
 	nivel_2.text = tr("NI2")
+	buttonback.pressed.connect(_on_buttonback_pressed)
 
 func _on_practicar_pressed():
 	#get_tree().change_scene_to_packed(main_scene)
@@ -26,3 +28,6 @@ func _on_nivel_1_pressed():
 	Global.level=1
 func _on_nivel_2_pressed():
 	pass
+	
+func _on_buttonback_pressed():
+	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
