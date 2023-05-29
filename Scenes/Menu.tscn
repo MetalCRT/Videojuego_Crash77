@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://y6q2b4qrobb2"]
+[gd_scene load_steps=10 format=3 uid="uid://y6q2b4qrobb2"]
 
 [ext_resource type="Theme" uid="uid://dykgfcqvxck4" path="res://Resources/theme.tres" id="1_ysv6b"]
 [ext_resource type="Texture2D" uid="uid://34h83nfji2os" path="res://Resources/pexels-photo-167636.webp" id="2_ilaga"]
 [ext_resource type="FontFile" uid="uid://b80x4uelj58oq" path="res://Fonts/CoupeurBricoleur-DOWN.otf" id="2_j7ill"]
 [ext_resource type="Texture2D" uid="uid://pl1alp3wx1h7" path="res://Resources/Ofi.png" id="4_dknj5"]
-[ext_resource type="Texture2D" uid="uid://cyesrjl3v3ve5" path="res://Resources/rojoofi.png" id="5_2562w"]
+[ext_resource type="Texture2D" uid="uid://crpqe31tqvurj" path="res://Resources/credits ofi.png" id="6_55dc3"]
+[ext_resource type="Texture2D" uid="uid://c65k5ktr2kl66" path="res://Resources/credits 2.png" id="6_ti0nq"]
+[ext_resource type="Texture2D" uid="uid://qw02vabct4cf" path="res://Resources/Ofi press.png" id="7_taaeu"]
 
 [sub_resource type="GDScript" id="GDScript_liecr"]
 script/source = "extends MarginContainer
@@ -53,6 +55,9 @@ func _on_exit_pressed():
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -51.0
+offset_right = 1.0
+offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ysv6b")
@@ -69,6 +74,10 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_pia17")
+
 [node name="Label" type="RichTextLabel" parent="VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 4
@@ -82,12 +91,13 @@ fit_content = true
 custom_minimum_size = Vector2(250, 300)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 8
 theme_override_constants/separation = 50
 alignment = 2
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 50
 theme_override_styles/separator = SubResource("StyleBoxEmpty_pia17")
 
 [node name="Inicio" type="Button" parent="VBoxContainer2/VBoxContainer" groups=["localized"]]
@@ -105,11 +115,27 @@ text = "Salir
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 
-[node name="Configuracion" type="TextureButton" parent="VBoxContainer2"]
-unique_name_in_owner = true
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+
+[node name="Configuracion" type="TextureButton" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
 texture_normal = ExtResource("4_dknj5")
-texture_pressed = ExtResource("5_2562w")
+texture_pressed = ExtResource("7_taaeu")
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+texture_normal = ExtResource("6_55dc3")
+texture_pressed = ExtResource("6_ti0nq")
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
