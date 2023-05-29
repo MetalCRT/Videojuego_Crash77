@@ -54,6 +54,7 @@ Nombre 3
 fit_content = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "credits"
 libraries = {
 "": SubResource("AnimationLibrary_vba7w")
 }

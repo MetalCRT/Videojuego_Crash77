@@ -14,8 +14,7 @@ script/source = "extends MarginContainer
 @onready var inicio = %Inicio
 @onready var exit = %Exit
 @onready var configuracion = %Configuracion
-
-
+@onready var credits = %Credits
 
 #@export var main_scene: PackedScene 
 
@@ -26,6 +25,7 @@ func _ready():
 	inicio.pressed.connect(_on_inicio_pressed)
 	exit.pressed.connect(_on_exit_pressed)
 	configuracion.pressed.connect(_on_configuracion_pressed)
+	credits.pressed.connect(_on_credits_pressed)
 	inicio.text= tr(\"IN\")
 	exit.text = tr(\"SALI\")
 
@@ -36,6 +36,10 @@ func _on_inicio_pressed():
 	
 func _on_configuracion_pressed():
 	get_tree().change_scene_to_file(\"res://Scenes/configuracion.tscn\")
+	
+func _on_credits_pressed():
+	get_tree().change_scene_to_file(\"res://Scenes/Creditos.tscn\")
+	
 
 func _on_exit_pressed():
 	# Se ejecuta cuando se presiona el botón \"Salir\"
@@ -130,7 +134,8 @@ size_flags_vertical = 4
 texture_normal = ExtResource("4_dknj5")
 texture_pressed = ExtResource("7_taaeu")
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+[node name="Credits" type="TextureButton" parent="VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 8
 texture_normal = ExtResource("6_55dc3")
