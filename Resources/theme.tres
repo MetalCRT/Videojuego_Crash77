@@ -90,3 +90,6 @@ Label/colors/font_outline_color = Color(0.27451, 0.301961, 0.623529, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)
 Label/font_sizes/font_size = 20
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_gwhnk")
+RichTextLabel/colors/default_color = Color(0.960784, 0.490196, 1, 1)
+RichTextLabel/font_sizes/normal_font_size = 140
+RichTextLabel/fonts/normal_font = ExtResource("1_che6l")

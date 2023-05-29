@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkhxm"]
 size = Vector2(16, 32)
 
-[node name="OverNode" type="Area2D"]
+[node name="puntoFinal" type="Area2D"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_dsbrp")

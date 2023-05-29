@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://y6q2b4qrobb2"]
+[gd_scene load_steps=8 format=3 uid="uid://y6q2b4qrobb2"]
 
 [ext_resource type="Theme" uid="uid://dykgfcqvxck4" path="res://Resources/theme.tres" id="1_ysv6b"]
 [ext_resource type="Texture2D" uid="uid://34h83nfji2os" path="res://Resources/pexels-photo-167636.webp" id="2_ilaga"]
 [ext_resource type="FontFile" uid="uid://b80x4uelj58oq" path="res://Fonts/CoupeurBricoleur-DOWN.otf" id="2_j7ill"]
+[ext_resource type="Texture2D" uid="uid://pl1alp3wx1h7" path="res://Resources/Ofi.png" id="4_dknj5"]
+[ext_resource type="Texture2D" uid="uid://cyesrjl3v3ve5" path="res://Resources/rojoofi.png" id="5_2562w"]
 
 [sub_resource type="GDScript" id="GDScript_liecr"]
 script/source = "extends MarginContainer
@@ -10,6 +12,7 @@ script/source = "extends MarginContainer
 @onready var inicio = %Inicio
 @onready var exit = %Exit
 @onready var configuracion = %Configuracion
+
 
 
 #@export var main_scene: PackedScene 
@@ -22,7 +25,6 @@ func _ready():
 	exit.pressed.connect(_on_exit_pressed)
 	configuracion.pressed.connect(_on_configuracion_pressed)
 	inicio.text= tr(\"IN\")
-	configuracion.text = tr(\"CONFIG\")
 	exit.text = tr(\"SALI\")
 
 func _on_inicio_pressed():
@@ -36,6 +38,10 @@ func _on_configuracion_pressed():
 func _on_exit_pressed():
 	# Se ejecuta cuando se presiona el botón \"Salir\"
 	get_tree().quit()
+	
+
+
+
 
 
 
@@ -59,44 +65,51 @@ texture = ExtResource("2_ilaga")
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
 
-[node name="MarginContainer" type="CenterContainer" parent="PanelContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 2
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="Label" type="RichTextLabel" parent="VBoxContainer2"]
 layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("1_ysv6b")
+bbcode_enabled = true
+text = "[center][shake]Jam Rush[/shake][/center]
+"
+fit_content = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(250, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 50
+alignment = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.329412, 0.576471, 0.658824, 1)
-theme_override_fonts/font = ExtResource("2_j7ill")
-theme_override_font_sizes/font_size = 70
-text = "Jam Rush"
-horizontal_alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxEmpty_pia17")
 
-[node name="Inicio" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer" groups=["localized"]]
+[node name="Inicio" type="Button" parent="VBoxContainer2/VBoxContainer" groups=["localized"]]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_j7ill")
 text = "Inicio"
 
-[node name="Configuracion" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Configuración
-"
-
-[node name="Exit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="VBoxContainer2/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_j7ill")
 text = "Salir
 "
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
+
+[node name="Configuracion" type="TextureButton" parent="VBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture_normal = ExtResource("4_dknj5")
+texture_pressed = ExtResource("5_2562w")
