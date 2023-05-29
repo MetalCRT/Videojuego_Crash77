@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct0btqxq7fpsq"]
+
+[ext_resource type="Script" path="res://Scripts/hold_arrow_d.gd" id="1_row3k"]
+[ext_resource type="Texture2D" uid="uid://cef5py6st5odc" path="res://Assets/flechasRescaladas/ArrowYellow.png" id="1_x2jj8"]
+[ext_resource type="Texture2D" uid="uid://bh781lvipeik4" path="res://Assets/flechasRescaladas/EstelaYellow.png" id="3_caqhf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcs3g"]
+size = Vector2(32, 64)
+
+[node name="Hold_Arrow_D" type="Area2D"]
+script = ExtResource("1_row3k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("RectangleShape2D_qcs3g")
+
+[node name="ArrowLast" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, -40)
+texture = ExtResource("1_x2jj8")
+
+[node name="ArrowFirst" type="Sprite2D" parent="."]
+texture = ExtResource("1_x2jj8")
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2(-8, -2.85715)
+scale = Vector2(1, 1.07143)
+points = PackedVector2Array(8, 8, 8, 8, 8, -40)
+width = 32.0
+texture = ExtResource("3_caqhf")
+texture_mode = 2

@@ -26,9 +26,9 @@ func _process(_delta):
 		read_enemy_spawn(Global.enemy_chart_level_1)
 		chart_read = true
 	if Global.shootqueue>0:
-		for character in contenedor.get_children():
-			if character.has_method("_on_hit_detected"):
-				character._on_hit_detected()
+		for nodo in contenedor.get_children():
+			if nodo.has_method("_on_hit_detected"):
+				nodo._on_hit_detected()
 		Global.shootqueue -= 1
 	
 	if Global.posicion_libre != null:
