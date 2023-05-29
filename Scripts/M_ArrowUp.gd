@@ -2,7 +2,7 @@ extends Area2D
 
 var speed = 1
 
-func _process(delta):
+func _process(_delta):
 	#Movement
 	position.y -= speed
 	

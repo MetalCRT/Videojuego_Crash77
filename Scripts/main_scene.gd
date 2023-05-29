@@ -20,7 +20,7 @@ var RNG = RandomNumberGenerator.new()
 
 	
 
-func _process(delta):
+func _process(_delta):
 	$Score/Label.text = str(Global.score)
 	if !chart_read:
 		read_chart(chart_level_1)
@@ -179,7 +179,6 @@ func create_note(lane):
 
 #Funcion lectora de sheets
 func read_chart(chart):
-	var delay = false
 	for i in chart:
 		if i is String:
 			create_note(i)

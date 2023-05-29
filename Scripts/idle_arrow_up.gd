@@ -4,7 +4,7 @@ extends Area2D
 var current_note = null
 var sec_note = []
 
-func _process(delta):
+func _process(_delta):
 	#Hit Note
 	if current_note == null && len(sec_note) != 0:
 		current_note = sec_note.pop_front()
@@ -22,12 +22,12 @@ func _process(delta):
 			anim.play("Miss")
 			anim.animation_set_next("Hit","RESET")
 
-func _on_area_shape_entered(area_rid, area, area_shape_index, local_shape_index):
+func _on_area_shape_entered(_area_rid, area, _area_shape_index, _local_shape_index):
 	if current_note == null:
 		current_note = area
 	else:
 		sec_note.push_back(area)
 		
 
-func _on_area_shape_exited(area_rid, area, area_shape_index, local_shape_index):
+func _on_area_shape_exited(_area_rid, _area, _area_shape_index, _local_shape_index):
 	current_note = null

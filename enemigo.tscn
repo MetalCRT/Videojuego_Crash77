@@ -12,7 +12,7 @@ script/source = "extends CharacterBody2D
 @onready var playback = animation_tree.get(\"parameters/playback\")
 var velocityInt = -20
 var velocityVect = Vector2(velocityInt,0)
-const HEALTH = 5
+const HEALTH = 10
 var health = HEALTH
 
 func _ready():
@@ -35,18 +35,18 @@ func _physics_process(delta):
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group(\"proyectiles\"):
-		health -= 1 # reduce la salud del enemigo en 1
+		health -= 2 # reduce la salud del enemigo en 1
 		modulate = Color(1,0,0)
 		await get_tree().create_timer(0.1).timeout
 		modulate = Color(1,1,1)
 		
 	elif area.is_in_group(\"muerteSegura\"):
-		health -= 5 # reduce la salud del enemigo en 1
+		health -= 10 # reduce la salud del enemigo en 1
 		modulate = Color(1,0,0)
 		await get_tree().create_timer(0.1).timeout
 		modulate = Color(1,1,1)
 	elif area.is_in_group(\"proyectiles2\"):
-		health -= 5 # reduce la salud del enemigo en 1
+		health -= 1 # reduce la salud del enemigo en 1
 		modulate = Color(1,0,0)
 		await get_tree().create_timer(0.1).timeout
 		modulate = Color(1,1,1)

@@ -17,7 +17,7 @@ func _ready():
 func on_timeout() :
 	disabled = false
 	
-func _process(delta):
+func _process(_delta):
 	progress_bar.value = cooldown - timer.time_left
 	
 func on_press():

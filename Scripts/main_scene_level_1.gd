@@ -19,7 +19,7 @@ func _ready():
 
 	
 
-func _process(delta):
+func _process(_delta):
 	$Score/Label.text = str(Global.score)
 	if !chart_read:
 		read_chart(Global.chart_level_1)
