@@ -101,7 +101,7 @@ alignment = 2
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 160
 theme_override_styles/separator = SubResource("StyleBoxEmpty_pia17")
 
 [node name="Inicio" type="Button" parent="VBoxContainer2/VBoxContainer" groups=["localized"]]
