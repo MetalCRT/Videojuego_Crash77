@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpm7arbpagoyd"]
+[gd_scene load_steps=16 format=3 uid="uid://cpm7arbpagoyd"]
 
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_6xsk1"]
 [ext_resource type="PackedScene" uid="uid://cc4n08ef4vcw4" path="res://Scenes/idle_arrow_up.tscn" id="1_22hfh"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dxtt6wfmx1lms" path="res://Assets/Personajes/guitarrista2/of_guitarrista_marcoazul_borroso.png" id="11_7knxh"]
 [ext_resource type="PackedScene" uid="uid://c3kylrkppt68q" path="res://characters/Parlante.tscn" id="13_dor7m"]
 [ext_resource type="PackedScene" uid="uid://ipbifc8eirvi" path="res://Scenes/OverNode.tscn" id="14_y5enm"]
+[ext_resource type="AudioStream" uid="uid://baqdqqom1ua3s" path="res://Assets/Songs/Training.wav" id="15_fdw56"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6xsk1")
@@ -64,11 +65,11 @@ position = Vector2(424, 176)
 position = Vector2(424, 208)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.9
+wait_time = 2.0
 autostart = true
 
 [node name="Timer2" type="Timer" parent="."]
-wait_time = 1.7
+wait_time = 5.0
 autostart = true
 
 [node name="tablero" parent="." instance=ExtResource("6_fxs38")]
@@ -154,8 +155,12 @@ position = Vector2(136, 176)
 [node name="puntoFinal4" parent="." instance=ExtResource("14_y5enm")]
 position = Vector2(136, 208)
 
+[node name="Training" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_fdw56")
+volume_db = -5.0
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="HBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]

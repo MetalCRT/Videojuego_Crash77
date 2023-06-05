@@ -14,9 +14,9 @@ var random = 0
 #var random2 = 0
 var RNG = RandomNumberGenerator.new()
 
-#func _ready() -> void:
-#	for character in contenedor.get_children():
-#		$character.character_died.connect(_on_character_died)
+func _ready():
+	await get_tree().create_timer(1.3).timeout
+	$Training.play()
 
 	
 
