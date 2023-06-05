@@ -148,12 +148,13 @@ func _on_timer_2_timeout():
 func _on_texture_button_2_pressed():
 	Global.focus_char = 'Gallardo'
 	Global.can_select = 1
-	
+	$Select_Gallardo.play(0.2)
 	
 
 func _on_texture_button_pressed():
 	Global.focus_char = 'Tynic'
 	Global.can_select = 1
+	$Select_Tynic.play(0.15)
 
 #Funcion para crear notas automaticamente
 func create_note(lane):

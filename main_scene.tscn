@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpm7arbpagoyd"]
+[gd_scene load_steps=18 format=3 uid="uid://cpm7arbpagoyd"]
 
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_6xsk1"]
 [ext_resource type="PackedScene" uid="uid://cc4n08ef4vcw4" path="res://Scenes/idle_arrow_up.tscn" id="1_22hfh"]
@@ -15,6 +15,8 @@
 [ext_resource type="PackedScene" uid="uid://c3kylrkppt68q" path="res://characters/Parlante.tscn" id="13_dor7m"]
 [ext_resource type="PackedScene" uid="uid://ipbifc8eirvi" path="res://Scenes/OverNode.tscn" id="14_y5enm"]
 [ext_resource type="AudioStream" uid="uid://baqdqqom1ua3s" path="res://Assets/Songs/Training.wav" id="15_fdw56"]
+[ext_resource type="AudioStream" uid="uid://cjnwawjtxyk4e" path="res://Assets/Songs/ReM.mp3" id="16_k7uxw"]
+[ext_resource type="AudioStream" uid="uid://cdqe7m0le05ne" path="res://Assets/Songs/FaM.mp3" id="17_cxv8j"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6xsk1")
@@ -158,6 +160,14 @@ position = Vector2(136, 208)
 [node name="Training" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("15_fdw56")
 volume_db = -5.0
+
+[node name="Select_Gallardo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_k7uxw")
+volume_db = -15.0
+
+[node name="Select_Tynic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_cxv8j")
+volume_db = -15.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
