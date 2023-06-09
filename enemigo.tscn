@@ -39,7 +39,6 @@ func _on_area_2d_area_entered(area):
 		modulate = Color(1,0,0)
 		await get_tree().create_timer(0.1).timeout
 		modulate = Color(1,1,1)
-		
 	elif area.is_in_group(\"muerteSegura\"):
 		health -= 10 # reduce la salud del enemigo en 1
 		modulate = Color(1,0,0)
@@ -50,8 +49,13 @@ func _on_area_2d_area_entered(area):
 		modulate = Color(1,0,0)
 		await get_tree().create_timer(0.1).timeout
 		modulate = Color(1,1,1)
-	
-
+	elif area.is_in_group(\"proy_tec\"):
+		health -= 1 # reduce la salud del enemigo en 1
+		modulate = Color(0,1,0)
+		velocityVect = Vector2(-5,0)
+		await get_tree().create_timer(0.5).timeout
+		modulate = Color(1,1,1)
+		velocityVect = Vector2(-20,0)
 
 func _damage(node):
 	if(health>0):
