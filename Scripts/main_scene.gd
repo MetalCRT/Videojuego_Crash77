@@ -14,9 +14,9 @@ var random = 0
 #var random2 = 0
 var RNG = RandomNumberGenerator.new()
 
-#func _ready() -> void:
-#	for character in contenedor.get_children():
-#		$character.character_died.connect(_on_character_died)
+func _ready():
+	await get_tree().create_timer(1.3).timeout
+	$Training.play()
 
 	
 
@@ -148,12 +148,13 @@ func _on_timer_2_timeout():
 func _on_texture_button_2_pressed():
 	Global.focus_char = 'Gallardo'
 	Global.can_select = 1
-	
+	$Select_Gallardo.play(0.2)
 	
 
 func _on_texture_button_pressed():
 	Global.focus_char = 'Tynic'
 	Global.can_select = 1
+	$Select_Tynic.play(0.15)
 
 #Funcion para crear notas automaticamente
 func create_note(lane):
