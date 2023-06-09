@@ -35,7 +35,7 @@ func death():
 func _on_body_entered(body):
 	if body.is_in_group("enemies"):
 		body._damage(self)
-		$AnimationPlayer.play("idle") #cambiar a daño
+		$AnimationPlayer.play("daño") #cambiar a daño
 	else:
 		$AnimationPlayer.play("idle")
 		

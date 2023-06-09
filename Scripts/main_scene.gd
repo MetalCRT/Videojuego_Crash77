@@ -15,8 +15,12 @@ var random = 0
 var RNG = RandomNumberGenerator.new()
 
 func _ready():
-	await get_tree().create_timer(1.3).timeout
-	$Training.play()
+	if Global.level==0:   
+		await get_tree().create_timer(1.3).timeout
+		$Training.play()
+	elif Global.level==1:
+		await get_tree().create_timer(3.8).timeout
+		$RockingNight.play()
 
 	
 
@@ -107,6 +111,8 @@ func _input(event):
 				character = preload("res://characters/Gallardo.tscn").instantiate()
 			elif Global.focus_char == 'Tynic':
 				character = preload("res://characters/Tynic.tscn").instantiate()
+			elif Global.focus_char == 'Gato':
+				character = preload("res://characters/gatoTom.tscn").instantiate()
 			character.position = tile_map.map_to_local(cell_pos)
 			contenedor.add_child(character)
 			tile_map.set_cell(0,cell_pos,0,Vector2i(0, 0))
@@ -156,6 +162,8 @@ func _on_texture_button_pressed():
 	Global.can_select = 1
 	$Select_Tynic.play(0.15)
 
+
+
 #Funcion para crear notas automaticamente
 func create_note(lane):
 	match lane:
@@ -185,3 +193,9 @@ func read_chart(chart):
 			create_note(i)
 		else:
 			await get_tree().create_timer(i).timeout
+
+
+func _on_texture_button_3_pressed():
+	Global.focus_char = 'Gato'
+	Global.can_select = 1
+	
