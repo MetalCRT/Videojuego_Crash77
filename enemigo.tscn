@@ -402,8 +402,6 @@ texture = ExtResource("2_vd4ru")
 flip_h = true
 hframes = 10
 
-[node name="RayCast2D" type="RayCast2D" parent="." groups=["enemies"]]
-
 [node name="AnimationTree" type="AnimationTree" parent="." groups=["enemies"]]
 tree_root = SubResource("AnimationNodeStateMachine_rnly8")
 anim_player = NodePath("../AnimationPlayer")

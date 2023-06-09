@@ -131,7 +131,7 @@ texture_normal = ExtResource("12_t8i8m")
 texture_pressed = ExtResource("13_kf41t")
 stretch_mode = 0
 color = Color(1, 0.490196, 0.301961, 1)
-cooldown = 2
+cooldown = 8
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
