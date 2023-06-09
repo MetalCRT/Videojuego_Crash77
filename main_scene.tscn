@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cpm7arbpagoyd"]
+[gd_scene load_steps=22 format=3 uid="uid://cpm7arbpagoyd"]
 
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_6xsk1"]
 [ext_resource type="PackedScene" uid="uid://cc4n08ef4vcw4" path="res://Scenes/idle_arrow_up.tscn" id="1_22hfh"]
@@ -12,11 +12,15 @@
 [ext_resource type="FontFile" uid="uid://boha1a2q027fo" path="res://Fonts/CoupeurBricoleur-UP.otf" id="10_jh6d5"]
 [ext_resource type="PackedScene" uid="uid://cujs3aew75hdb" path="res://Scenes/character_button.tscn" id="10_xrfm4"]
 [ext_resource type="Texture2D" uid="uid://dxtt6wfmx1lms" path="res://Assets/Personajes/guitarrista2/of_guitarrista_marcoazul_borroso.png" id="11_7knxh"]
+[ext_resource type="Texture2D" uid="uid://xr6w1qcaplnj" path="res://Assets/Personajes/gato/gatoSeleccion.png" id="12_t8i8m"]
 [ext_resource type="PackedScene" uid="uid://c3kylrkppt68q" path="res://characters/Parlante.tscn" id="13_dor7m"]
+[ext_resource type="Texture2D" uid="uid://crtviraaqxcpp" path="res://Assets/Personajes/gato/gatoSeleccionado.png" id="13_kf41t"]
 [ext_resource type="PackedScene" uid="uid://ipbifc8eirvi" path="res://Scenes/OverNode.tscn" id="14_y5enm"]
 [ext_resource type="AudioStream" uid="uid://baqdqqom1ua3s" path="res://Assets/Songs/Training.wav" id="15_fdw56"]
 [ext_resource type="AudioStream" uid="uid://cjnwawjtxyk4e" path="res://Assets/Songs/ReM.mp3" id="16_k7uxw"]
 [ext_resource type="AudioStream" uid="uid://cdqe7m0le05ne" path="res://Assets/Songs/FaM.mp3" id="17_cxv8j"]
+[ext_resource type="PackedScene" uid="uid://xfv7pb0elohw" path="res://limite.tscn" id="19_chct3"]
+[ext_resource type="AudioStream" uid="uid://ddvxtg0xgvxx3" path="res://Assets/Songs/Rocking Night.mp3" id="20_ea4ge"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6xsk1")
@@ -120,6 +124,15 @@ stretch_mode = 0
 color = Color(0, 0.12549, 1, 0.705882)
 cooldown = 4
 
+[node name="TextureButton3" parent="HBoxContainer" instance=ExtResource("10_xrfm4")]
+custom_minimum_size = Vector2(45, 45)
+layout_mode = 2
+texture_normal = ExtResource("12_t8i8m")
+texture_pressed = ExtResource("13_kf41t")
+stretch_mode = 0
+color = Color(1, 0.490196, 0.301961, 1)
+cooldown = 2
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Menu de pausa" parent="CanvasLayer" instance=ExtResource("9_0qvrh")]
@@ -169,8 +182,19 @@ volume_db = -15.0
 stream = ExtResource("17_cxv8j")
 volume_db = -15.0
 
+[node name="limite" parent="." instance=ExtResource("19_chct3")]
+position = Vector2(288, 80)
+
+[node name="RockingNight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_ea4ge")
+volume_db = -10.0
+
+[node name="limite2" parent="." instance=ExtResource("19_chct3")]
+position = Vector2(288, 240)
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="pressed" from="HBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
