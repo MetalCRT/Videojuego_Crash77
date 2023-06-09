@@ -9,7 +9,7 @@ func _process(_delta):
 	if current_note == null && len(sec_note) != 0:
 		current_note = sec_note.pop_front()
 	if current_note != null:
-		if Input.is_action_just_pressed("ui_down"):
+		if Input.is_action_just_pressed("down_arrow"):
 			anim.play("Hit")
 			anim.animation_set_next("Miss","RESET")
 			Global.score += 10
@@ -18,7 +18,7 @@ func _process(_delta):
 	
 	#Miss Note
 	if current_note == null:
-		if Input.is_action_just_pressed("ui_down"):
+		if Input.is_action_just_pressed("down_arrow"):
 			anim.play("Miss")
 			anim.animation_set_next("Hit","RESET")
 

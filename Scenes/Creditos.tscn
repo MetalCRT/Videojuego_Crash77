@@ -1,7 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://rkdh5km81l6c"]
+[gd_scene load_steps=12 format=3 uid="uid://rkdh5km81l6c"]
 
 [ext_resource type="FontFile" uid="uid://boha1a2q027fo" path="res://Fonts/CoupeurBricoleur-UP.otf" id="1_0lk13"]
+[ext_resource type="Script" path="res://Scripts/Creditos.gd" id="1_jrm33"]
 [ext_resource type="Texture2D" uid="uid://dvrj00sm26aqr" path="res://Resources/FotoCreditos.JPEG" id="1_re6do"]
+[ext_resource type="PackedScene" uid="uid://cd5klpm2it0hh" path="res://Assets/Botones/buttonback.tscn" id="4_bof3u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l8ph8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhq5b"]
+
+[sub_resource type="Theme" id="Theme_wmcpl"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_l8ph8")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_yhq5b")
 
 [sub_resource type="Theme" id="Theme_3m62t"]
 RichTextLabel/colors/default_color = Color(0.313726, 1, 1, 1)
@@ -11,6 +21,7 @@ RichTextLabel/fonts/normal_font = ExtResource("1_0lk13")
 
 [sub_resource type="Animation" id="Animation_x7213"]
 resource_name = "credits"
+length = 17.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -18,10 +29,10 @@ tracks/0/path = NodePath("ScrollContainer:scroll_vertical")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 17),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0, 264]
+"values": [0, 1500]
 }
 
 [sub_resource type="Animation" id="Animation_hgdfc"]
@@ -46,6 +57,7 @@ _data = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_jrm33")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = -144.0
@@ -70,6 +82,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_wmcpl")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer"]
 layout_mode = 2
@@ -85,25 +98,32 @@ text = "[center]
 
 
 
-Jam Rush
+[shake][font_size={96}]Jam Rush[/font_size][/shake]
 
 Gracias por jugar !
 
-Desarrolladores
 
-Nombre 1
-Nombre 2
-Nombre 3
 
+[font_size={50}]Desarrolladores[/font_size]
+
+Danny González
+
+Mario Jiménez
+
+Gustavo Medel
+
+[font_size={30}]
 Agradecimientos
 
 Nombre 1
+
 Nombre 2
+
 Nombre 3
+[/font_size]
 
 
-
-"
+[/center]"
 fit_content = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -111,3 +131,20 @@ autoplay = "credits"
 libraries = {
 "": SubResource("AnimationLibrary_vba7w")
 }
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="buttonback" parent="MarginContainer2" instance=ExtResource("4_bof3u")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8

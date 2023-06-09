@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cujs3aew75hdb"]
+[gd_scene load_steps=8 format=3 uid="uid://cujs3aew75hdb"]
 
 [ext_resource type="Shader" path="res://Resources/blur.gdshader" id="1_hj0sh"]
 [ext_resource type="Texture2D" uid="uid://drmu2cbl2cge2" path="res://Assets/Personajes/guitarrista1/of_guitarrista_marcoverde.png" id="2_b2qvx"]
 [ext_resource type="Script" path="res://Scripts/character_button.gd" id="3_2wayn"]
 [ext_resource type="Texture2D" uid="uid://dgbukvj81xu7y" path="res://Assets/Personajes/guitarrista1/of_guitarrista_marcoverde_borroso.png" id="3_lgb2m"]
-[ext_resource type="AudioStream" uid="uid://cjnwawjtxyk4e" path="res://Assets/Songs/ReM.mp3" id="5_w6ip5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mx8rm"]
 shader = ExtResource("1_hj0sh")
@@ -41,7 +40,3 @@ show_percentage = false
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
-
-[node name="Select" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_w6ip5")
-volume_db = -15.352
