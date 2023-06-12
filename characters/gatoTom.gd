@@ -3,8 +3,8 @@ signal hit
 @onready var animation_player = $AnimationPlayer
 @onready var posicion = position
 var enemies_center=[]
-var max_timer = 1
-var current_timer = 1
+var max_timer = 2
+var current_timer = 2
 # Añade esta línea en el método _ready() para conectar la señal con el método correspondiente
 func _ready():
 	$centro.body_entered.connect(_on_body_entered_center)
