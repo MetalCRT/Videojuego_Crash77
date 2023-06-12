@@ -25,6 +25,7 @@ func _on_hit_detected():
 
 func death():
 		$AnimationPlayer.play("rip")
+		$Boom.play()
 		await $AnimationPlayer.animation_finished
 		Global.posicion_libre = Vector2(posicion)
 		print(Global.posicion_libre)

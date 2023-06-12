@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfkfxy83hcqgr"]
+[gd_scene load_steps=14 format=3 uid="uid://cfkfxy83hcqgr"]
 
 [ext_resource type="Script" path="res://characters/Gallardo.gd" id="1_kuuyf"]
 [ext_resource type="Texture2D" uid="uid://b107qbfr1wxrk" path="res://Assets/Personajes/guitarrista1/monitomoviendoseDaño.png" id="2_2gdcm"]
 [ext_resource type="Texture2D" uid="uid://cxhubt8pdc2ay" path="res://Assets/Personajes/guitarrista1/monitomoviendose.png" id="2_gaht2"]
 [ext_resource type="Texture2D" uid="uid://c6pyroly45rno" path="res://Assets/Personajes/guitarrista1/monitodaÃ±ofinaldos.png" id="3_1gtjo"]
+[ext_resource type="AudioStream" uid="uid://kicy5goi8xq8" path="res://Assets/Songs/large-explosion-100420.mp3" id="5_kw6hu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30sdb"]
 size = Vector2(32, 32)
@@ -337,3 +338,8 @@ position = Vector2(48, 0)
 scale = Vector2(4, 1)
 shape = SubResource("RectangleShape2D_30sdb")
 debug_color = Color(0.921569, 0.192157, 0.521569, 0.419608)
+
+[node name="Boom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_kw6hu")
+volume_db = -15.0
+pitch_scale = 2.0
