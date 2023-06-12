@@ -49,34 +49,35 @@ func _process(_delta):
 
 
 func _on_timer_timeout():
-	$Timer.start()
-	RNG.randomize()
-	var random_int = RNG.randi_range(0,4)
-	#var random_int2 = RNG.randi_range(0,8)
-	random = random_int
-	#random2 = random_int2
-	
-	match random :
-		1:
-			var al = AL.instantiate()
-			get_tree().get_current_scene().add_child(al)
-			al.position = $Creator/Marker2D_AL.global_position
-			
-		2:
-			var ad = AD.instantiate()
-			get_tree().get_current_scene().add_child(ad)
-			ad.position = $Creator/Marker2D_AD.global_position
-			
+	if Global.level==0:
+		$Timer.start()
+		RNG.randomize()
+		var random_int = RNG.randi_range(0,4)
+		#var random_int2 = RNG.randi_range(0,8)
+		random = random_int
+		#random2 = random_int2
+		
+		match random :
+			1:
+				var al = AL.instantiate()
+				get_tree().get_current_scene().add_child(al)
+				al.position = $Creator/Marker2D_AL.global_position
+				
+			2:
+				var ad = AD.instantiate()
+				get_tree().get_current_scene().add_child(ad)
+				ad.position = $Creator/Marker2D_AD.global_position
+				
 
-		3:
-			var au = AU.instantiate()
-			get_tree().get_current_scene().add_child(au)
-			au.position = $Creator/Marker2D_AU.global_position
-			
-		4:
-			var ar = AR.instantiate()
-			get_tree().get_current_scene().add_child(ar)
-			ar.position = $Creator/Marker2D_AR.global_position
+			3:
+				var au = AU.instantiate()
+				get_tree().get_current_scene().add_child(au)
+				au.position = $Creator/Marker2D_AU.global_position
+				
+			4:
+				var ar = AR.instantiate()
+				get_tree().get_current_scene().add_child(ar)
+				ar.position = $Creator/Marker2D_AR.global_position
 			
 
 
