@@ -47,6 +47,7 @@ func fire():
 	
 func death():
 		$AnimationPlayer.play("muerte")
+		$Boom.play()
 		await $AnimationPlayer.animation_finished
 		#emit_signal("character_died")
 		Global.posicion_libre=posicion

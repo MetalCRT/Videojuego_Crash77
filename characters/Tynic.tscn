@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://celnndx66tmd4"]
+[gd_scene load_steps=14 format=3 uid="uid://celnndx66tmd4"]
 
 [ext_resource type="Script" path="res://characters/Tynic.gd" id="1_6orew"]
 [ext_resource type="Texture2D" uid="uid://duicneviug703" path="res://Assets/Personajes/guitarrista2/monitopuercoespin.png" id="2_s4hoc"]
 [ext_resource type="Texture2D" uid="uid://b25jnrljwu71i" path="res://Assets/explosion.png" id="3_g3bhe"]
 [ext_resource type="Texture2D" uid="uid://bprifloe2ojh0" path="res://Assets/Personajes/guitarrista2/monitopuercoespinDaño.png" id="4_84oiy"]
 [ext_resource type="Texture2D" uid="uid://biqvuhgydun2m" path="res://Assets/Personajes/guitarrista2/monitopuercoespinRip.png" id="5_kwv0k"]
+[ext_resource type="AudioStream" uid="uid://kicy5goi8xq8" path="res://Assets/Songs/large-explosion-100420.mp3" id="6_lsl3x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30sdb"]
 size = Vector2(32, 32)
@@ -392,5 +393,10 @@ vframes = 5
 libraries = {
 "": SubResource("AnimationLibrary_cvjug")
 }
+
+[node name="Boom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lsl3x")
+volume_db = -15.0
+pitch_scale = 2.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -27,7 +27,11 @@ func _ready():
 func _process(_delta):
 	$Score/Label.text = str(Global.score)
 	if !chart_read:
-		read_chart(chart_level_1)
+		if Global.level==0:
+			read_chart(chart_level_1)
+		elif Global.level==1:
+			read_chart(Global.chart_level_1)
+			read_enemy_spawn(Global.enemy_chart_level_1)
 		chart_read = true
 	if Global.shootqueue>0:
 		for nodo in contenedor.get_children():
@@ -45,34 +49,35 @@ func _process(_delta):
 
 
 func _on_timer_timeout():
-	$Timer.start()
-	RNG.randomize()
-	var random_int = RNG.randi_range(0,4)
-	#var random_int2 = RNG.randi_range(0,8)
-	random = random_int
-	#random2 = random_int2
-	
-	match random :
-		1:
-			var al = AL.instantiate()
-			get_tree().get_current_scene().add_child(al)
-			al.position = $Creator/Marker2D_AL.global_position
-			
-		2:
-			var ad = AD.instantiate()
-			get_tree().get_current_scene().add_child(ad)
-			ad.position = $Creator/Marker2D_AD.global_position
-			
+	if Global.level==0:
+		$Timer.start()
+		RNG.randomize()
+		var random_int = RNG.randi_range(0,4)
+		#var random_int2 = RNG.randi_range(0,8)
+		random = random_int
+		#random2 = random_int2
+		
+		match random :
+			1:
+				var al = AL.instantiate()
+				get_tree().get_current_scene().add_child(al)
+				al.position = $Creator/Marker2D_AL.global_position
+				
+			2:
+				var ad = AD.instantiate()
+				get_tree().get_current_scene().add_child(ad)
+				ad.position = $Creator/Marker2D_AD.global_position
+				
 
-		3:
-			var au = AU.instantiate()
-			get_tree().get_current_scene().add_child(au)
-			au.position = $Creator/Marker2D_AU.global_position
-			
-		4:
-			var ar = AR.instantiate()
-			get_tree().get_current_scene().add_child(ar)
-			ar.position = $Creator/Marker2D_AR.global_position
+			3:
+				var au = AU.instantiate()
+				get_tree().get_current_scene().add_child(au)
+				au.position = $Creator/Marker2D_AU.global_position
+				
+			4:
+				var ar = AR.instantiate()
+				get_tree().get_current_scene().add_child(ar)
+				ar.position = $Creator/Marker2D_AR.global_position
 			
 
 
@@ -130,24 +135,24 @@ func _on_timer_2_timeout():
 	#var random_int2 = RNG.randi_range(0,8)
 	random = random_int
 	#random2 = random_int2
-	
-	match random :
-		1:
-			var en1 = enemy.instantiate()
-			get_tree().get_current_scene().add_child(en1)
-			en1.position = $Creator/Marker2D_en1.global_position
-		2:
-			var en2 = enemy.instantiate()
-			get_tree().get_current_scene().add_child(en2)
-			en2.position = $Creator/Marker2D_en2.global_position
-		3:
-			var en3 = enemy.instantiate()
-			get_tree().get_current_scene().add_child(en3)
-			en3.position = $Creator/Marker2D_en3.global_position
-		4:
-			var en4 = enemy.instantiate()
-			get_tree().get_current_scene().add_child(en4)
-			en4.position = $Creator/Marker2D_en4.global_position
+	if Global.level==0:
+		match random :
+			1:
+				var en1 = enemy.instantiate()
+				get_tree().get_current_scene().add_child(en1)
+				en1.position = $Creator/Marker2D_en1.global_position
+			2:
+				var en2 = enemy.instantiate()
+				get_tree().get_current_scene().add_child(en2)
+				en2.position = $Creator/Marker2D_en2.global_position
+			3:
+				var en3 = enemy.instantiate()
+				get_tree().get_current_scene().add_child(en3)
+				en3.position = $Creator/Marker2D_en3.global_position
+			4:
+				var en4 = enemy.instantiate()
+				get_tree().get_current_scene().add_child(en4)
+				en4.position = $Creator/Marker2D_en4.global_position
 
 
 
@@ -199,3 +204,31 @@ func _on_texture_button_3_pressed():
 	Global.focus_char = 'Gato'
 	Global.can_select = 1
 	
+func create_enemy(lane):
+	match lane:
+		"a":
+			var en1 = enemy.instantiate()
+			get_tree().get_current_scene().add_child(en1)
+			en1.position = $Creator/Marker2D_en1.global_position
+		"b":
+			var en2 = enemy.instantiate()
+			get_tree().get_current_scene().add_child(en2)
+			en2.position = $Creator/Marker2D_en2.global_position
+		"c":
+			var en3 = enemy.instantiate()
+			get_tree().get_current_scene().add_child(en3)
+			en3.position = $Creator/Marker2D_en3.global_position
+		"d":
+			var en4 = enemy.instantiate()
+			get_tree().get_current_scene().add_child(en4)
+			en4.position = $Creator/Marker2D_en4.global_position
+
+func read_enemy_spawn(enemy_chart):
+	if Global.level==1:
+		for i in enemy_chart:
+			if i is String:
+				create_enemy(i)
+			else:
+				await get_tree().create_timer(i).timeout
+		await get_tree().create_timer(20).timeout
+		get_tree().change_scene_to_file("res://Scenes/WinLv1.tscn")
