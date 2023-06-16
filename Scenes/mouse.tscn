@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://8mgtkrveldlw"]
+
+[ext_resource type="Texture2D" uid="uid://o4qdurnp5vft" path="res://Assets/ArrowLight.png" id="1_pgc55"]
+[ext_resource type="Script" path="res://Scripts/mouse.gd" id="2_tf16i"]
+
+[node name="Mouse" type="Sprite2D"]
+texture = ExtResource("1_pgc55")
+centered = false
+offset = Vector2(-25, 0)
+script = ExtResource("2_tf16i")

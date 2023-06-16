@@ -4,3 +4,7 @@
 Button/constants/h_separation = 0
 Button/constants/outline_size = 0
 Button/font_sizes/font_size = 40
+RichTextLabel/colors/default_color = Color(0.905882, 0.113725, 0.568627, 1)
+RichTextLabel/colors/font_outline_color = Color(1, 1, 1, 1)
+RichTextLabel/font_sizes/normal_font_size = 80
+RichTextLabel/styles/focus = null

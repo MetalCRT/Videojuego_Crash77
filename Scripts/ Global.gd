@@ -1,6 +1,8 @@
 extends Node
 ## Global Sensor
 
+@export var mouse: Texture2D
+
 #Arrow sensors
 var sensor_ArrowUp = 0
 var sensor_ArrowLeft = 0
@@ -101,3 +103,7 @@ var enemy_chart_level_1 = ["a",7,"b",7,"c",7,"d",
 4,"c",0.1,"d",0.1,"c",0.1,"d",0.1,"c",0.1,"d",0.1,"c",0.1,"d",5,
 "d",0.1,"c",0.1,"d",0.1,"c",0.1,"d",0.1,"c",0.1,"d",0.1,"c",5
 ]
+
+func _ready():
+	if mouse: 
+		Input.set_custom_mouse_cursor(mouse,0,Vector2(54,54))

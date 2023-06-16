@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://daun0yyfx5t17"]
+
+[ext_resource type="Script" path="res://Scripts/ Global.gd" id="1_ttgl6"]
+[ext_resource type="Texture2D" uid="uid://crvlw3v4ms0yt" path="res://Assets/New Piskel.png" id="2_qjeo3"]
+
+[node name="Global" type="Node"]
+script = ExtResource("1_ttgl6")
+mouse = ExtResource("2_qjeo3")

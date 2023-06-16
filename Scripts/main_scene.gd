@@ -1,5 +1,6 @@
 extends Node2D
 
+
 const AL = preload("res://Scenes/m_arrow_left.tscn")
 const AD = preload("res://Scenes/m_arrow_down.tscn")
 const AU = preload("res://Scenes/m_arrow_up.tscn")
@@ -21,6 +22,7 @@ func _ready():
 	elif Global.level==1:
 		await get_tree().create_timer(3.8).timeout
 		$RockingNight.play()
+
 
 	
 
