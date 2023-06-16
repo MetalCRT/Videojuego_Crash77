@@ -26,6 +26,7 @@ func fire_center(y):
 
 func death():
 		$AnimationPlayer.play("explosion")
+		$Boom.play()
 		await $AnimationPlayer.animation_finished
 		Global.posicion_libre = Vector2(posicion)
 		print(Global.posicion_libre)

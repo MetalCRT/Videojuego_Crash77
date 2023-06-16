@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://dp36qlfj4j001"]
+[gd_scene load_steps=15 format=3 uid="uid://dp36qlfj4j001"]
 
 [ext_resource type="Script" path="res://characters/gatoTom.gd" id="1_xj1al"]
 [ext_resource type="Texture2D" uid="uid://dgxf5i45qerw4" path="res://Assets/Personajes/gato/gatoTeclado.png" id="2_j3ef7"]
 [ext_resource type="Texture2D" uid="uid://b25jnrljwu71i" path="res://Assets/explosion.png" id="3_4cp1t"]
 [ext_resource type="Texture2D" uid="uid://j8v40smv0jpa" path="res://Assets/Personajes/gato/gatoDaño.png" id="4_6me2y"]
 [ext_resource type="Texture2D" uid="uid://biqvuhgydun2m" path="res://Assets/Personajes/guitarrista2/monitopuercoespinRip.png" id="5_k3bpl"]
+[ext_resource type="AudioStream" uid="uid://kicy5goi8xq8" path="res://Assets/Songs/large-explosion-100420.mp3" id="6_j0bpc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_30sdb"]
 size = Vector2(32, 32)
@@ -380,3 +381,7 @@ position = Vector2(80, 0)
 scale = Vector2(6, 3)
 shape = SubResource("RectangleShape2D_6pyj7")
 debug_color = Color(0.921569, 0.192157, 0.521569, 0.419608)
+
+[node name="Boom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_j0bpc")
+volume_db = -15.0

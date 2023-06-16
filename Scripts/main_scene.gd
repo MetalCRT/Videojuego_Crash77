@@ -4,9 +4,10 @@ const AL = preload("res://Scenes/m_arrow_left.tscn")
 const AD = preload("res://Scenes/m_arrow_down.tscn")
 const AU = preload("res://Scenes/m_arrow_up.tscn")
 const AR = preload("res://Scenes/m_arrow_right.tscn")
+const HAL = preload("res://Scenes/Hidden_a_left.tscn")
 const enemy = preload("res://enemigo.tscn")
 var character
-var chart_level_1 = ["left",1.0,"down",1.0,"up",1.0,"right"]
+var chart_level_1 = ["left",1.0,"down",1.0,"up",1.0,"right",1.0,"hleft",1.0,"hleft"]
 var chart_read = false
 
 @onready var contenedor = $characters
@@ -188,6 +189,10 @@ func create_note(lane):
 			var ar = AR.instantiate()
 			get_tree().get_current_scene().add_child(ar)
 			ar.position = $Creator/Marker2D_AR.global_position
+		"hleft":
+			var hal = HAL.instantiate()
+			get_tree().get_current_scene().add_child(hal)
+			hal.position = $Creator/Marker2D_AL.global_position
 
 #Funcion para meter delay entre notas
 

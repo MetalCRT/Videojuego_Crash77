@@ -19,7 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://mnh5kq1f38gn" path="res://Assets/Songs/Training.wav" id="15_fdw56"]
 [ext_resource type="AudioStream" uid="uid://cjnwawjtxyk4e" path="res://Assets/Songs/ReM.mp3" id="16_k7uxw"]
 [ext_resource type="AudioStream" uid="uid://cdqe7m0le05ne" path="res://Assets/Songs/FaM.mp3" id="17_cxv8j"]
-[ext_resource type="PackedScene" path="res://limite.tscn" id="19_chct3"]
+[ext_resource type="PackedScene" uid="uid://xfv7pb0elohw" path="res://limite.tscn" id="19_chct3"]
 [ext_resource type="AudioStream" uid="uid://ddvxtg0xgvxx3" path="res://Assets/Songs/Rocking Night.mp3" id="20_ea4ge"]
 
 [node name="MainScene" type="Node2D"]
@@ -193,8 +193,8 @@ volume_db = -10.0
 position = Vector2(288, 240)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
 [connection signal="pressed" from="HBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]
