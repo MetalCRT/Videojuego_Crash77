@@ -7,6 +7,8 @@ extends MarginContainer
 @onready var niveles = %Niveles
 @onready var buttonback = %buttonback
 
+#mi duda es si un textrichlabeel sirve para cuando camvie el idioma 
+
 
 func _ready():
 	practicar.pressed.connect(_on_practicar_pressed)

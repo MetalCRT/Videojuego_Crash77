@@ -1,4 +1,6 @@
-[gd_resource type="Theme" format=3 uid="uid://c71ofdsw78ulc"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c71ofdsw78ulc"]
+
+[ext_resource type="FontFile" uid="uid://b80x4uelj58oq" path="res://Fonts/CoupeurBricoleur-DOWN.otf" id="1_o2m2e"]
 
 [resource]
 Button/constants/h_separation = 0
@@ -7,4 +9,6 @@ Button/font_sizes/font_size = 40
 RichTextLabel/colors/default_color = Color(0.905882, 0.113725, 0.568627, 1)
 RichTextLabel/colors/font_outline_color = Color(1, 1, 1, 1)
 RichTextLabel/font_sizes/normal_font_size = 80
+RichTextLabel/fonts/bold_font = null
+RichTextLabel/fonts/normal_font = ExtResource("1_o2m2e")
 RichTextLabel/styles/focus = null

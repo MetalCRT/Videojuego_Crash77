@@ -105,5 +105,5 @@ var enemy_chart_level_1 = ["a",7,"b",7,"c",7,"d",
 ]
 
 func _ready():
-	if mouse: 
+	if mouse:
 		Input.set_custom_mouse_cursor(mouse,0,Vector2(54,54))
