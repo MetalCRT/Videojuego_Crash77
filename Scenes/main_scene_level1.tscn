@@ -12,3 +12,6 @@ script = ExtResource("2_yst1i")
 [node name="RockingNight" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_nyy03")
 volume_db = -10.0
+
+[node name="noteDelay" type="Timer" parent="."]
+one_shot = true
