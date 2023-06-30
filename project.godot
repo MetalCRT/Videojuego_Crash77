@@ -18,7 +18,7 @@ config/main_scene="res://main_scene.tscn"
 
 [autoload]
 
-Global="*res://Scripts/ Global.gd"
+Global="*res://Scenes/global.tscn"
 
 [display]
 

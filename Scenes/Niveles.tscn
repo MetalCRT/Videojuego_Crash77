@@ -46,7 +46,7 @@ layout_mode = 2
 
 [node name="Niveles" type="RichTextLabel" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer2"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 600)
+custom_minimum_size = Vector2(0, 300)
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("1_wt52r")
@@ -60,7 +60,7 @@ theme_override_constants/separation = 50
 
 [node name="HSeparator" type="HSeparator" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 90
 theme_override_styles/separator = SubResource("StyleBoxEmpty_d0kse")
 
 [node name="Practicar" type="Button" parent="TextureRect/PanelContainer/MarginContainer/VBoxContainer" groups=["localized"]]
