@@ -204,7 +204,8 @@ func read_chart(chart):
 		if i is String:
 			create_note(i)
 		else:
-			await get_tree().create_timer(i).timeout
+			$NoteDelay.start(i)
+			await $NoteDelay.timeout
 
 
 func _on_texture_button_3_pressed():
@@ -236,6 +237,7 @@ func read_enemy_spawn(enemy_chart):
 			if i is String:
 				create_enemy(i)
 			else:
-				await get_tree().create_timer(i).timeout
+				$EnemyDelay.start(i)
+				await $EnemyDelay.timeout
 		await get_tree().create_timer(20).timeout
 		get_tree().change_scene_to_file("res://Scenes/WinLv1.tscn")

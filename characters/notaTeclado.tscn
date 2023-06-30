@@ -20,5 +20,8 @@ modulate = Color(0.180392, 1, 1, 1)
 self_modulate = Color(0.235294, 1, 1, 1)
 texture = ExtResource("2_r43ik")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

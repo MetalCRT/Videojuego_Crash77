@@ -14,6 +14,7 @@ var velocityInt = -20
 var velocityVect = Vector2(velocityInt,0)
 const HEALTH = 20
 var health = HEALTH
+var attack= false
 
 func _ready():
 	animation_tree.active = true
@@ -49,7 +50,7 @@ func _on_area_2d_area_entered(area):
 		modulate = Color(1,0,0)
 		await get_tree().create_timer(0.1).timeout
 		modulate = Color(1,1,1)
-	elif area.is_in_group(\"proy_tec\"):
+	elif area.is_in_group(\"proy_tec\") and not attack:
 		health -= 1  
 		modulate = Color(0,1,0)
 		velocityVect = Vector2(-10,0)
@@ -59,6 +60,7 @@ func _on_area_2d_area_entered(area):
 
 func _damage(node):
 	if(health>0):
+		attack=true
 		playback.travel(\"idle\")
 		velocityVect = Vector2(0,0)
 		modulate = Color(1,0,0.3)
@@ -71,8 +73,9 @@ func _damage(node):
 		velocityVect = Vector2(velocityInt,0)
 		playback.travel(\"caminando\")
 		if(health>0):
-			node.death()
-			
+			if is_instance_valid(node):
+				node.death()
+	attack=false
 			
 "
 
@@ -423,5 +426,10 @@ shape = SubResource("RectangleShape2D_tay4w")
 [node name="colision" type="CollisionShape2D" parent="." groups=["enemies"]]
 position = Vector2(-4, 0)
 shape = SubResource("RectangleShape2D_tay4w")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(-1, 13)
+target_position = Vector2(0, 7)
+collision_mask = 2
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

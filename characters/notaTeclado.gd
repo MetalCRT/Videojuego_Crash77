@@ -7,7 +7,9 @@ func _ready():
 	modulate = Color(0,0,0,0)
 	await get_tree().create_timer(0.1).timeout
 	modulate = Color(1,1,1,1)
-	get_tree().create_timer(2).timeout.connect(queue_free)
+	$Timer.timeout.connect(queue_free)
+	$Timer.start()
+	#get_tree().create_timer(2).timeout.connect(queue_free)
 
 func _physics_process(delta):
 	position += velocityVect*delta

@@ -118,7 +118,8 @@ func read_chart(chart):
 		if i is String:
 			create_note(i)
 		else:
-			await get_tree().create_timer(i).timeout
+			$"../noteDelay".start(i)
+			await $"../noteDelay".timeout
 
 func create_enemy(lane):
 	match lane:
