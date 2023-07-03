@@ -36,7 +36,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_x7213"]
 resource_name = "credits"
-length = 17.0
+length = 18.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -117,9 +117,7 @@ Agradecimientos
 
 никто (Diseño de personajes y sprites)
 
-Nombre 2
 
-Nombre 3
 [/font_size]
 
 

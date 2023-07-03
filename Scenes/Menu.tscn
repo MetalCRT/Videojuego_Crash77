@@ -15,6 +15,7 @@ script/source = "extends MarginContainer
 @onready var exit = %Exit
 @onready var configuracion = %Configuracion
 @onready var credits = %Credits
+@onready var per = %Per
 
 #@export var main_scene: PackedScene 
 
@@ -80,6 +81,7 @@ alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer2"]
 layout_mode = 2
+theme_override_constants/separation = 40
 theme_override_styles/separator = SubResource("StyleBoxEmpty_pia17")
 
 [node name="Label" type="RichTextLabel" parent="VBoxContainer2"]
@@ -96,12 +98,12 @@ custom_minimum_size = Vector2(250, 300)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-theme_override_constants/separation = 50
+theme_override_constants/separation = 30
 alignment = 2
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer2/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 160
+theme_override_constants/separation = 120
 theme_override_styles/separator = SubResource("StyleBoxEmpty_pia17")
 
 [node name="Inicio" type="Button" parent="VBoxContainer2/VBoxContainer" groups=["localized"]]
@@ -109,6 +111,11 @@ unique_name_in_owner = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_j7ill")
 text = "Inicio"
+
+[node name="Per" type="Button" parent="VBoxContainer2/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Personajes"
 
 [node name="Exit" type="Button" parent="VBoxContainer2/VBoxContainer"]
 unique_name_in_owner = true

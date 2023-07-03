@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cpm7arbpagoyd"]
+[gd_scene load_steps=23 format=3 uid="uid://cpm7arbpagoyd"]
 
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_6xsk1"]
 [ext_resource type="PackedScene" uid="uid://cc4n08ef4vcw4" path="res://Scenes/idle_arrow_up.tscn" id="1_22hfh"]
@@ -16,10 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://c3kylrkppt68q" path="res://characters/Parlante.tscn" id="13_dor7m"]
 [ext_resource type="Texture2D" uid="uid://crtviraaqxcpp" path="res://Assets/Personajes/gato/gatoSeleccionado.png" id="13_kf41t"]
 [ext_resource type="PackedScene" uid="uid://ipbifc8eirvi" path="res://Scenes/OverNode.tscn" id="14_y5enm"]
+[ext_resource type="PackedScene" uid="uid://ce5pdudpuni3c" path="res://Scenes/message.tscn" id="15_3de6h"]
 [ext_resource type="AudioStream" uid="uid://mnh5kq1f38gn" path="res://Assets/Songs/Training.wav" id="15_fdw56"]
 [ext_resource type="AudioStream" uid="uid://cjnwawjtxyk4e" path="res://Assets/Songs/ReM.mp3" id="16_k7uxw"]
 [ext_resource type="AudioStream" uid="uid://cdqe7m0le05ne" path="res://Assets/Songs/FaM.mp3" id="17_cxv8j"]
-[ext_resource type="PackedScene" uid="uid://xfv7pb0elohw" path="res://limite.tscn" id="19_chct3"]
+[ext_resource type="PackedScene" path="res://limite.tscn" id="19_chct3"]
 [ext_resource type="AudioStream" uid="uid://ddvxtg0xgvxx3" path="res://Assets/Songs/Rocking Night.mp3" id="20_ea4ge"]
 
 [node name="MainScene" type="Node2D"]
@@ -145,6 +146,8 @@ offset_bottom = -21.0
 [node name="Camera2D" type="Camera2D" parent="CanvasLayer"]
 anchor_mode = 0
 zoom = Vector2(2.8, 2.8)
+
+[node name="Message" parent="CanvasLayer" instance=ExtResource("15_3de6h")]
 
 [node name="Parlante" parent="." instance=ExtResource("13_dor7m")]
 position = Vector2(144, 112)

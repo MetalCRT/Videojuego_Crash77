@@ -11,19 +11,27 @@ var character
 var chart_level_1 = ["left",1.0,"down",1.0,"up",1.0,"right",1.0,"hleft",1.0,"hleft"]
 var chart_read = false
 
+@onready var message = $CanvasLayer/Message
+
+
+
 @onready var contenedor = $characters
 var random = 0
 #var random2 = 0
 var RNG = RandomNumberGenerator.new()
 
 func _ready():
+	#message.show_text("Bienvenido al Nivel %d" % Global.level, 3)
 	if Global.level==0:   
+		message.show_text("Bienvenido al Nivel de practica", 5)
 		await get_tree().create_timer(1.3).timeout
 		$Training.play()
+		await get_tree().create_timer(5).timeout
+		message.show_text("Selecciona las flechas al ritmo de la musica", 5)
 	elif Global.level==1:
+		message.show_text("Bienvenido al Nivel 1", 3)
 		await get_tree().create_timer(3.8).timeout
 		$RockingNight.play()
-
 
 	
 
