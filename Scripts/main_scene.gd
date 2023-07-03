@@ -18,7 +18,7 @@ var RNG = RandomNumberGenerator.new()
 
 func _ready():
 	if Global.level==0:   
-		await get_tree().create_timer(1.3).timeout
+		await get_tree().create_timer(1.2).timeout
 		$Training.play()
 	elif Global.level==1:
 		await get_tree().create_timer(3.8).timeout
@@ -211,6 +211,7 @@ func read_chart(chart):
 func _on_texture_button_3_pressed():
 	Global.focus_char = 'Gato'
 	Global.can_select = 1
+	$Select_Gato.play()
 	
 func create_enemy(lane):
 	match lane:
