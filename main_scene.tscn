@@ -73,11 +73,9 @@ position = Vector2(424, 208)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
-autostart = true
 
 [node name="Timer2" type="Timer" parent="."]
 wait_time = 5.0
-autostart = true
 
 [node name="tablero" parent="." instance=ExtResource("6_fxs38")]
 position = Vector2(288, 128)
