@@ -8,7 +8,7 @@ const AR = preload("res://Scenes/m_arrow_right.tscn")
 const HAL = preload("res://Scenes/Hidden_a_left.tscn")
 const enemy = preload("res://enemigo.tscn")
 var character
-var chart_level_1 = ["left",1.0,"down",1.0,"up",1.0,"right",1.0,"hleft",1.0,"hleft"]
+var chart_level_1 = []
 var chart_read = false
 
 @onready var message = $CanvasLayer/Message
@@ -28,6 +28,10 @@ func _ready():
 		$Training.play()
 		await get_tree().create_timer(5).timeout
 		message.show_text("Selecciona las flechas al ritmo de la musica", 5)
+		await get_tree().create_timer(10).timeout
+		$Training.play()
+		$Timer.start()
+		$Timer2.start()
 	elif Global.level==1:
 		message.show_text("Bienvenido al Nivel 1", 3)
 		await get_tree().create_timer(3.8).timeout
