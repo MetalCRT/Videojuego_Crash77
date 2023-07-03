@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://cdqe7m0le05ne" path="res://Assets/Songs/FaM.mp3" id="17_cxv8j"]
 [ext_resource type="PackedScene" path="res://limite.tscn" id="19_chct3"]
 [ext_resource type="AudioStream" uid="uid://ddvxtg0xgvxx3" path="res://Assets/Songs/Rocking Night.mp3" id="20_ea4ge"]
+[ext_resource type="AudioStream" uid="uid://daeyfpl8bm4tu" path="res://Assets/Songs/Gatosonido - 03-07-23, 10.44.mp3" id="22_os7e7"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6xsk1")
@@ -200,6 +201,10 @@ one_shot = true
 
 [node name="EnemyDelay" type="Timer" parent="."]
 one_shot = true
+
+[node name="Select_Gato" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_os7e7")
+volume_db = -16.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]

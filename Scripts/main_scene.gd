@@ -219,6 +219,7 @@ func read_chart(chart):
 func _on_texture_button_3_pressed():
 	Global.focus_char = 'Gato'
 	Global.can_select = 1
+	$Select_Gato.play()
 	
 func create_enemy(lane):
 	match lane:
