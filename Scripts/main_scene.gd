@@ -23,7 +23,7 @@ var RNG = RandomNumberGenerator.new()
 func _ready():
 	#message.show_text("Bienvenido al Nivel %d" % Global.level, 3)
 	if Global.level==0:   
-<<<<<<< HEAD
+
 		message.show_text(tr("TUTO"), 5)
 
 		await get_tree().create_timer(5).timeout
@@ -32,7 +32,7 @@ func _ready():
 		message.show_text(tr("TUTO2"), 4)
 		
 		$Training.play() 
-=======
+
 		message.show_text("Bienvenido al Nivel de practica", 5)
 		await get_tree().create_timer(1.3).timeout
 		$Training.play()
@@ -40,7 +40,7 @@ func _ready():
 		message.show_text("Selecciona las flechas al ritmo de la musica", 5)
 		await get_tree().create_timer(10).timeout
 		$Training.play()
->>>>>>> a946aeb3fc101a1a9ecf79c6673c3d8aa9b618b3
+
 		$Timer.start()
 		$Timer2.start()
 	elif Global.level==1:
