@@ -15,7 +15,6 @@ func _ready():
 	nivel_1.pressed.connect(_on_nivel_1_pressed)
 	nivel_2.pressed.connect(_on_nivel_2_pressed)
 	niveles.text = "[center][tornado]"+ tr("SEL")
-	practicar.text = tr("PRAC")
 	nivel_1.text = tr("NI1")
 	nivel_2.text = tr("NI2")
 	buttonback.pressed.connect(_on_buttonback_pressed)

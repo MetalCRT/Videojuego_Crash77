@@ -27,7 +27,9 @@ func _ready():
 	exit.pressed.connect(_on_exit_pressed)
 	configuracion.pressed.connect(_on_configuracion_pressed)
 	credits.pressed.connect(_on_credits_pressed)
+	per.pressed.connect(_on_per_pressed)
 	inicio.text= tr(\"IN\")
+	per.text = tr(\"CHA\")
 	exit.text = tr(\"SALI\")
 
 func _on_inicio_pressed():
@@ -37,6 +39,9 @@ func _on_inicio_pressed():
 	
 func _on_configuracion_pressed():
 	get_tree().change_scene_to_file(\"res://Scenes/configuracion.tscn\")
+	
+func _on_per_pressed():
+	get_tree().change_scene_to_file(\"res://Scenes/Characters.tscn\")
 	
 func _on_credits_pressed():
 	get_tree().change_scene_to_file(\"res://Scenes/Creditos.tscn\")

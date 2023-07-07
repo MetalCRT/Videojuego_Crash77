@@ -16,4 +16,13 @@ SELIDI,Seleccione Idioma,Select Languajes
 SEL,Seleccione nivel,Select Level
 PRAC,Practicar ,Practice
 NI1,Nivel 1,Level 1
+CHA, Personajes, Characters
 NI2,Nivel 2,Level 2
+TUTO,Bienvenido al nivel de practica ! , Welcome to the practice level !
+TUTO1, Selecciona las teclas WASD cuando las flechas esten en su casilla , Select the WASD keys when the arrows are in their box
+TUTO2, Coloca a Gallardo, Tynic y Tommy en el tablero para matar a los enemigos, Place Gallardo, Tynic and Tommy on the board to kill the enemies 
+LEVE1, Bienvenido al nivel 1 !, Welcome to level 1  !
+LEVE2, Bienvenido al nivel 2 !, Welcome to level 2 !
+Gallardo, Gallardo es un ser de color azul que pega sostenido 
+Tynic, Tynic es el personaje mas fuerte debido a que su habilidad es 
+Tommy, Tommy es un gato que toca el piano y su habilidad es atacar tres filas y ralentizar a los enemigo. 

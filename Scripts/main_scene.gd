@@ -23,19 +23,23 @@ var RNG = RandomNumberGenerator.new()
 func _ready():
 	#message.show_text("Bienvenido al Nivel %d" % Global.level, 3)
 	if Global.level==0:   
-		message.show_text("Bienvenido al Nivel de practica", 5)
+		message.show_text(tr("TUTO"), 5)
 
 		await get_tree().create_timer(5).timeout
-		message.show_text(nivel_1.text = tr("NI1"), 5)
-		$Training.play()
+		message.show_text(tr("TUTO1"), 4)
+		await get_tree().create_timer(6).timeout
+		message.show_text(tr("TUTO2"), 4)
+		
+		$Training.play() 
 		$Timer.start()
 		$Timer2.start()
 	elif Global.level==1:
-		message.show_text("Bienvenido al Nivel 1", 3)
+		message.show_text(tr("LEVE1"), 3)
 		await get_tree().create_timer(3.8).timeout
 		$RockingNight.play()
+	elif Global.level == 2:
+		message.show_text(tr("LEVE2"), 3)
 
-	
 
 func _process(_delta):
 	$Score/Label.text = str(Global.score)

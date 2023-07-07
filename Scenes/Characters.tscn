@@ -1,69 +1,72 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyooanhcddsa0"]
+[gd_scene load_steps=9 format=3 uid="uid://dyooanhcddsa0"]
 
 [ext_resource type="Theme" uid="uid://dykgfcqvxck4" path="res://Resources/theme.tres" id="1_r2xc0"]
 [ext_resource type="Texture2D" uid="uid://34h83nfji2os" path="res://Resources/pexels-photo-167636.webp" id="2_4h2ds"]
-
-[sub_resource type="GDScript" id="GDScript_liecr"]
-script/source = "extends MarginContainer
-
-@onready var inicio = %Inicio
-@onready var exit = %Exit
-@onready var configuracion = %Configuracion
-@onready var credits = %Credits
-@onready var per = %Per
-
-#@export var main_scene: PackedScene 
-
-func _ready():
-	# Se ejecuta al inicio de la escena
-	var config = preload(\"res://Scripts/Lenguajes.gd\").new()
-	config.load_config()
-	inicio.pressed.connect(_on_inicio_pressed)
-	exit.pressed.connect(_on_exit_pressed)
-	configuracion.pressed.connect(_on_configuracion_pressed)
-	credits.pressed.connect(_on_credits_pressed)
-	inicio.text= tr(\"IN\")
-	exit.text = tr(\"SALI\")
-
-func _on_inicio_pressed():
-	# Se ejecuta cuando se presiona el botón \"Iniciar\"
-	# get_tree().change_scene_to_file(\"res://main_scene.tscn\")
-	get_tree().change_scene_to_file(\"res://Scenes/Niveles.tscn\")
-	
-func _on_configuracion_pressed():
-	get_tree().change_scene_to_file(\"res://Scenes/configuracion.tscn\")
-	
-func _on_credits_pressed():
-	get_tree().change_scene_to_file(\"res://Scenes/Creditos.tscn\")
-	
-
-func _on_exit_pressed():
-	# Se ejecuta cuando se presiona el botón \"Salir\"
-	get_tree().quit()
-	
-
-
-
-
-
-
-"
+[ext_resource type="Script" path="res://Scenes/LORECharacters.gd" id="2_sa0m0"]
+[ext_resource type="PackedScene" uid="uid://cujs3aew75hdb" path="res://Scenes/character_button.tscn" id="3_4r2ho"]
+[ext_resource type="Texture2D" uid="uid://dckxne1a0dgu8" path="res://Assets/Personajes/guitarrista2/of_guitarrista_marcoazul.png" id="4_my3uw"]
+[ext_resource type="Texture2D" uid="uid://dxtt6wfmx1lms" path="res://Assets/Personajes/guitarrista2/of_guitarrista_marcoazul_borroso.png" id="5_l5too"]
+[ext_resource type="Texture2D" uid="uid://xr6w1qcaplnj" path="res://Assets/Personajes/gato/gatoSeleccion.png" id="6_xt4es"]
+[ext_resource type="Texture2D" uid="uid://crtviraaqxcpp" path="res://Assets/Personajes/gato/gatoSeleccionado.png" id="7_jmj5e"]
 
 [node name="Menu Principal" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -51.0
-offset_right = 1.0
-offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_r2xc0")
-script = SubResource("GDScript_liecr")
+script = ExtResource("2_sa0m0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("2_4h2ds")
+expand_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 120
+
+[node name="TextureButton2" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_4r2ho")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 32)
+layout_mode = 2
+stretch_mode = 0
+script = null
+
+[node name="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_4r2ho")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 45)
+layout_mode = 2
+texture_normal = ExtResource("4_my3uw")
+texture_pressed = ExtResource("5_l5too")
+stretch_mode = 0
+script = null
+
+[node name="TextureButton3" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_4r2ho")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 45)
+layout_mode = 2
+texture_normal = ExtResource("6_xt4es")
+texture_pressed = ExtResource("7_jmj5e")
+stretch_mode = 0
+script = null
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "ftuftuftu"
+fit_content = true
