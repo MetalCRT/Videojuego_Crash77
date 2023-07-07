@@ -38,7 +38,7 @@ theme_override_constants/separation = 25
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 120
+theme_override_constants/separation = 80
 
 [node name="TextureButton2" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_4r2ho")]
 unique_name_in_owner = true
@@ -62,6 +62,13 @@ custom_minimum_size = Vector2(200, 45)
 layout_mode = 2
 texture_normal = ExtResource("6_xt4es")
 texture_pressed = ExtResource("7_jmj5e")
+stretch_mode = 0
+script = null
+
+[node name="TextureButton4" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_4r2ho")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 32)
+layout_mode = 2
 stretch_mode = 0
 script = null
 

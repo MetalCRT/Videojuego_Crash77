@@ -24,21 +24,16 @@ func _ready():
 	#message.show_text("Bienvenido al Nivel %d" % Global.level, 3)
 	if Global.level==0:   
 
-		message.show_text(tr("TUTO"), 5)
+		message.show_text(tr("TUTO"), 3.5)
 
-		await get_tree().create_timer(5).timeout
+		await get_tree().create_timer(3.8).timeout
 		message.show_text(tr("TUTO1"), 4)
-		await get_tree().create_timer(6).timeout
+		await get_tree().create_timer(4).timeout
 		message.show_text(tr("TUTO2"), 4)
-		
+
 		$Training.play() 
 
-		message.show_text("Bienvenido al Nivel de practica", 5)
-		await get_tree().create_timer(1.3).timeout
 		$Training.play()
-		await get_tree().create_timer(5).timeout
-		message.show_text("Selecciona las flechas al ritmo de la musica", 5)
-		await get_tree().create_timer(10).timeout
 		$Training.play()
 
 		$Timer.start()
