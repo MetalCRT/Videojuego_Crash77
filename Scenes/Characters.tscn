@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyooanhcddsa0"]
+[gd_scene load_steps=13 format=3 uid="uid://dyooanhcddsa0"]
 
 [ext_resource type="Theme" uid="uid://dykgfcqvxck4" path="res://Resources/theme.tres" id="1_r2xc0"]
 [ext_resource type="Texture2D" uid="uid://34h83nfji2os" path="res://Resources/pexels-photo-167636.webp" id="2_4h2ds"]
 [ext_resource type="Script" path="res://Scenes/LORECharacters.gd" id="2_sa0m0"]
 [ext_resource type="PackedScene" uid="uid://cujs3aew75hdb" path="res://Scenes/character_button.tscn" id="3_4r2ho"]
-[ext_resource type="Texture2D" uid="uid://dckxne1a0dgu8" path="res://Assets/Personajes/guitarrista2/of_guitarrista_marcoazul.png" id="4_my3uw"]
+[ext_resource type="Texture2D" uid="uid://caaohdu65hllw" path="res://Assets/Personajes/guitarrista1/GALLARDOLORE.png" id="5_a46vl"]
 [ext_resource type="Texture2D" uid="uid://dxtt6wfmx1lms" path="res://Assets/Personajes/guitarrista2/of_guitarrista_marcoazul_borroso.png" id="5_l5too"]
-[ext_resource type="Texture2D" uid="uid://xr6w1qcaplnj" path="res://Assets/Personajes/gato/gatoSeleccion.png" id="6_xt4es"]
+[ext_resource type="Texture2D" uid="uid://clny02qnnxfe8" path="res://Assets/Personajes/guitarrista2/TYNICLORE.png" id="6_rscja"]
 [ext_resource type="Texture2D" uid="uid://crtviraaqxcpp" path="res://Assets/Personajes/gato/gatoSeleccionado.png" id="7_jmj5e"]
+[ext_resource type="Texture2D" uid="uid://b45237d6r06s3" path="res://Assets/Personajes/gato/GATOLORE.png" id="7_ofv1r"]
+[ext_resource type="PackedScene" uid="uid://cd5klpm2it0hh" path="res://Assets/Botones/buttonback.tscn" id="9_my20q"]
+[ext_resource type="Texture2D" uid="uid://bfgtbe5bfh1is" path="res://Assets/Personajes/parlante/PARLATINLOREE.png" id="10_poxkr"]
+[ext_resource type="Texture2D" uid="uid://b11tcyxtcm3xx" path="res://Assets/Personajes/parlante/parlantePixel.png" id="11_0yhxa"]
 
 [node name="Menu Principal" type="MarginContainer"]
 anchors_preset = 15
@@ -40,40 +44,48 @@ layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 80
 
-[node name="TextureButton2" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_4r2ho")]
+[node name="Gallardoo" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_4r2ho")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 32)
 layout_mode = 2
+texture_normal = ExtResource("5_a46vl")
 stretch_mode = 0
 script = null
 
-[node name="TextureButton" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_4r2ho")]
+[node name="Tynicc" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_4r2ho")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 45)
 layout_mode = 2
-texture_normal = ExtResource("4_my3uw")
+texture_normal = ExtResource("6_rscja")
 texture_pressed = ExtResource("5_l5too")
 stretch_mode = 0
 script = null
 
-[node name="TextureButton3" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_4r2ho")]
+[node name="Tomyy" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_4r2ho")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 45)
 layout_mode = 2
-texture_normal = ExtResource("6_xt4es")
+texture_normal = ExtResource("7_ofv1r")
 texture_pressed = ExtResource("7_jmj5e")
 stretch_mode = 0
 script = null
 
-[node name="TextureButton4" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_4r2ho")]
+[node name="Parlantinn" parent="MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_4r2ho")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 32)
 layout_mode = 2
+texture_normal = ExtResource("10_poxkr")
+texture_pressed = ExtResource("11_0yhxa")
 stretch_mode = 0
 script = null
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="Loree" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "ftuftuftu"
 fit_content = true
+
+[node name="buttonback" parent="MarginContainer" instance=ExtResource("9_my20q")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 8

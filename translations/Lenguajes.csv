@@ -19,10 +19,11 @@ NI1,Nivel 1,Level 1
 CHA, Personajes, Characters
 NI2,Nivel 2,Level 2
 TUTO,Bienvenido al nivel de practica ! , Welcome to the practice level !
-TUTO1, Selecciona las teclas WASD cuando las flechas esten en su casilla , Select the WASD keys when the arrows are in their box
+TUTO1, Selecciona las teclas WASD al ritmo de la musica , Select the WASD keys when the arrows are in their box
 TUTO2, Coloca a Gallardo Tynic y Tommy en el tablero para matar a los enemigos, Place Gallardo Tynic and Tommy on the board to kill the enemies 
 LEVE1, Bienvenido al nivel 1 !, Welcome to level 1  !
+LEVEEE1, No dejes que los enemigos lleguen al final de la pista !, Don't let the enemies reach the end of the track!
 LEVE2, Bienvenido al nivel 2 !, Welcome to level 2 !
-Gallardo, Gallardo es un ser de color azul que pega sostenido, dsg
-Tynic, Tynic es el personaje mas fuerte debido a que su habilidad es ,sdv
-Tommy, Tommy es un gato que toca el piano y su habilidad es atacar tres filas y ralentizar a los enemigo., aesdg
+GALLARDO, Gallardo es un ser de color azul  que tiene la habilidad de disparar notas musicales sostenidas, Gallardo is a blue being that has the ability to shoot sustained musical notes
+TYNIC, Tynic es el personaje mas fuerte debido a que su habilidad es disparar al ritmo de las flechas musicales, Tynic is the strongest character because his ability is to shoot to the rhythm of the musical arrows
+TOMMY, Tommy es un gato travieso que toca el piano y su habilidad es atacar tres filas aunque con poco daño, Tommy es un gato travieso que toca el piano y su habilidad es atacar tres filas aunque con poco daño
