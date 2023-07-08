@@ -13,27 +13,24 @@ func _ready():
 	tynicc.pressed.connect(_on_tynicc_pressed)
 	tomyy.pressed.connect(_on_tomyy_pressed)
 	parlantinn.pressed.connect(_on_parlantinn_pressed)
+	loree.text = "[center]" + "[tornado]" + tr("LOREEE")
 	
 func _on_buttonback_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
 	
 func _on_gallardoo_pressed():
-	loree.show_text(tr("GALLARDO"))
-	update_rich_text(tr("GALLARDO"))
+	loree.text = "[center]"+ tr("GALLARDO")
 	
 func _on_tynicc_pressed():
-	loree.show_text(tr("TYNIC"))
-	update_rich_text(tr("TYNIC"))
+	loree.text = "[center]"+ tr("TYNIC")
+	
 	
 func _on_tomyy_pressed():
-	loree.show_text(tr("TOMMY"))
-	update_rich_text(tr("TOMMY"))
+	loree.text = "[center]"+ tr("TOMMY")
 	
 func _on_parlantinn_pressed():
-	loree.show_text(tr("GALLARDO"))
-	update_rich_text(tr("GALLARDO"))
+	loree.text = "[center]"+ tr("PARLANTIN")
 	
 func update_rich_text(text: String):
 	loree.bbcode_text = text
-	
-	
+

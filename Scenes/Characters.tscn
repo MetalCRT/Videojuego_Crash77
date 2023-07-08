@@ -1,17 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://dyooanhcddsa0"]
+[gd_scene load_steps=14 format=3 uid="uid://dyooanhcddsa0"]
 
 [ext_resource type="Theme" uid="uid://dykgfcqvxck4" path="res://Resources/theme.tres" id="1_r2xc0"]
 [ext_resource type="Texture2D" uid="uid://34h83nfji2os" path="res://Resources/pexels-photo-167636.webp" id="2_4h2ds"]
 [ext_resource type="Script" path="res://Scenes/LORECharacters.gd" id="2_sa0m0"]
 [ext_resource type="PackedScene" uid="uid://cujs3aew75hdb" path="res://Scenes/character_button.tscn" id="3_4r2ho"]
 [ext_resource type="Texture2D" uid="uid://caaohdu65hllw" path="res://Assets/Personajes/guitarrista1/GALLARDOLORE.png" id="5_a46vl"]
-[ext_resource type="Texture2D" uid="uid://dxtt6wfmx1lms" path="res://Assets/Personajes/guitarrista2/of_guitarrista_marcoazul_borroso.png" id="5_l5too"]
+[ext_resource type="Texture2D" uid="uid://c2kyq6wcqjxfd" path="res://Assets/Personajes/guitarrista1/GALLARDOLORE_BORROSO.png" id="6_qudl1"]
 [ext_resource type="Texture2D" uid="uid://clny02qnnxfe8" path="res://Assets/Personajes/guitarrista2/TYNICLORE.png" id="6_rscja"]
-[ext_resource type="Texture2D" uid="uid://crtviraaqxcpp" path="res://Assets/Personajes/gato/gatoSeleccionado.png" id="7_jmj5e"]
+[ext_resource type="Texture2D" uid="uid://buom02yy6uts5" path="res://Assets/Personajes/guitarrista2/TYNICLORE_BORROSO.png" id="7_d3xxp"]
 [ext_resource type="Texture2D" uid="uid://b45237d6r06s3" path="res://Assets/Personajes/gato/GATOLORE.png" id="7_ofv1r"]
+[ext_resource type="Texture2D" uid="uid://b86q511m3rhl7" path="res://Assets/Personajes/gato/GATOLOREBORROSO.png" id="9_28xte"]
 [ext_resource type="PackedScene" uid="uid://cd5klpm2it0hh" path="res://Assets/Botones/buttonback.tscn" id="9_my20q"]
 [ext_resource type="Texture2D" uid="uid://bfgtbe5bfh1is" path="res://Assets/Personajes/parlante/PARLATINLOREE.png" id="10_poxkr"]
-[ext_resource type="Texture2D" uid="uid://b11tcyxtcm3xx" path="res://Assets/Personajes/parlante/parlantePixel.png" id="11_0yhxa"]
+[ext_resource type="Texture2D" uid="uid://cehtqgf3omu88" path="res://Assets/Personajes/parlante/PARLATINLOREE_BORROSO.png" id="11_osgau"]
 
 [node name="Menu Principal" type="MarginContainer"]
 anchors_preset = 15
@@ -49,6 +50,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 32)
 layout_mode = 2
 texture_normal = ExtResource("5_a46vl")
+texture_pressed = ExtResource("6_qudl1")
 stretch_mode = 0
 script = null
 
@@ -57,7 +59,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 45)
 layout_mode = 2
 texture_normal = ExtResource("6_rscja")
-texture_pressed = ExtResource("5_l5too")
+texture_pressed = ExtResource("7_d3xxp")
 stretch_mode = 0
 script = null
 
@@ -66,7 +68,7 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 45)
 layout_mode = 2
 texture_normal = ExtResource("7_ofv1r")
-texture_pressed = ExtResource("7_jmj5e")
+texture_pressed = ExtResource("9_28xte")
 stretch_mode = 0
 script = null
 
@@ -75,14 +77,21 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 32)
 layout_mode = 2
 texture_normal = ExtResource("10_poxkr")
-texture_pressed = ExtResource("11_0yhxa")
+texture_pressed = ExtResource("11_osgau")
 stretch_mode = 0
 script = null
 
-[node name="Loree" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+[node name="Panel" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Loree" type="RichTextLabel" parent="MarginContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "ftuftuftu"
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "[center] [tornado]SELECCIONA       UN        PERSONAJE       PARA CONOCERLO"
 fit_content = true
 
 [node name="buttonback" parent="MarginContainer" instance=ExtResource("9_my20q")]
