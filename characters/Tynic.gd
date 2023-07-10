@@ -7,6 +7,8 @@ signal hit
 @onready var posicion = position
 # Añade esta línea en el método _ready() para conectar la señal con el método correspondiente
 func _ready():
+	$AnimationPlayer.play("spawn")
+	await $AnimationPlayer.animation_finished
 	$AnimationPlayer.play("idle")
 	
 func _on_body_entered(body):

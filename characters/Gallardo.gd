@@ -15,6 +15,8 @@ func _ready():
 	$Area2D.body_entered.connect(_on_body_entered)
 	$Area2D.body_exited.connect(_on_body_exited)
 	body_entered.connect(_on_enemy_body_entered)
+	$AnimationPlayer.play("spawn")
+	await $AnimationPlayer.animation_finished
 	$AnimationPlayer.play("idle")
 	
 func _physics_process(delta):

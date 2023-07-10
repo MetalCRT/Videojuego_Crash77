@@ -1,9 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://q531sotadec"]
+[gd_scene load_steps=22 format=3 uid="uid://q531sotadec"]
 
-[ext_resource type="Texture2D" uid="uid://brpkw7lfebq4b" path="res://Assets/Personajes/monosMoviendose/Player Sword Idle/Player Sword Idle 48x48.png" id="2_vd4ru"]
-[ext_resource type="Texture2D" uid="uid://b8apqlqqq1r4l" path="res://Assets/Personajes/monosMoviendose/Player Sword Run/Player Sword Run 48x48.png" id="3_umgds"]
-[ext_resource type="Texture2D" uid="uid://cuu1xnsguo3x0" path="res://Assets/Personajes/monosMoviendose/Player Death/Player Death 64x64.png" id="4_q67as"]
-[ext_resource type="Texture2D" uid="uid://bkywghifu1k37" path="res://Assets/Personajes/monosMoviendose/Player Hurt-Damaged/Player Hurt 48x48.png" id="5_6teur"]
+[ext_resource type="Texture2D" uid="uid://c4v8a0bewmt6l" path="res://Assets/Personajes/enemigos/punk/punketacorriendoBORDE.png" id="1_d2i2b"]
+[ext_resource type="Texture2D" uid="uid://cn2g6xtiaokh8" path="res://Assets/Personajes/enemigos/punk/punketafelizBORDE2fr.png" id="2_rqekc"]
+[ext_resource type="Texture2D" uid="uid://d35833a6odhah" path="res://Assets/vfx/Magic Pack 9 files/spritesheets/spark.png" id="3_1lbka"]
 
 [sub_resource type="GDScript" id="GDScript_cwxhu"]
 script/source = "extends CharacterBody2D
@@ -23,14 +22,14 @@ func _physics_process(delta):
 	position += velocityVect*delta
 	#move_and_slide()
 	if abs(velocityInt) > 5:
-		playback.travel(\"caminando\")
+		$AnimationPlayer.play(\"caminando\")
 #	else:
 #		playback.travel(\"idle\")
 	if health <= 0:
 		velocityInt=0
 		velocityVect = Vector2(0,0)
-		playback.travel(\"rip\")
-		await $AnimationTree.animation_finished
+		$AnimationPlayer.play(\"rip\")
+		await $AnimationPlayer.animation_finished
 		queue_free() # destruye el enemigo si su salud es igual o menor que 0
 
 
@@ -61,7 +60,7 @@ func _on_area_2d_area_entered(area):
 func _damage(node):
 	if(health>0):
 		attack=true
-		playback.travel(\"idle\")
+		#playback.travel(\"idle\")
 		velocityVect = Vector2(0,0)
 		modulate = Color(1,0,0.3)
 		await get_tree().create_timer(0.25).timeout
@@ -71,7 +70,7 @@ func _damage(node):
 		await get_tree().create_timer(0.25).timeout
 		modulate = Color(1,1,1)
 		velocityVect = Vector2(velocityInt,0)
-		playback.travel(\"caminando\")
+		$AnimationPlayer.play(\"caminando\")
 		if(health>0):
 			if is_instance_valid(node):
 				node.death()
@@ -84,72 +83,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("maloCaminando:hframes")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("maloCaminando:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_vd4ru")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("maloCaminando:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("maloCaminando:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("maloCaminando:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_bkho6"]
-resource_name = "caminando"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("maloCaminando:hframes")
+tracks/0/path = NodePath("PunketacorriendoBorde:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -161,7 +95,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("maloCaminando:vframes")
+tracks/1/path = NodePath("PunketacorriendoBorde:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -173,7 +107,120 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("maloCaminando:frame")
+tracks/2/path = NodePath("PunketacorriendoBorde:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PunketacorriendoBorde:texture")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_d2i2b")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Spark:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PunketacorriendoBorde:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Spark:frame_coords")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(6, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Area2D/colision:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("colision:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bkho6"]
+resource_name = "caminando"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PunketacorriendoBorde:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PunketacorriendoBorde:vframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PunketacorriendoBorde:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -185,169 +232,158 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("maloCaminando:texture")
+tracks/3/path = NodePath("PunketacorriendoBorde:texture")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_umgds")]
+"values": [ExtResource("1_d2i2b")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PunketacorriendoBorde:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("colision:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Area2D/colision:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_wb2fr"]
 resource_name = "daño"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("maloCaminando:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_6teur")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("maloCaminando:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("maloCaminando:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("maloCaminando:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3]
-}
 
 [sub_resource type="Animation" id="Animation_llipy"]
 resource_name = "idle"
 length = 0.8
 loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("maloCaminando:hframes")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [10]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("maloCaminando:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_vd4ru")]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("maloCaminando:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("maloCaminando:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 8]
-}
 
 [sub_resource type="Animation" id="Animation_qg2l4"]
 resource_name = "rip"
+length = 1.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("maloCaminando:vframes")
+tracks/0/path = NodePath("Spark:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.9),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.6, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [1]
+"values": [false, true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("maloCaminando:frame")
+tracks/1/path = NodePath("PunketacorriendoBorde:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+"values": [true, false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("maloCaminando:texture")
+tracks/2/path = NodePath("PunketacorriendoBorde:texture")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_q67as")]
+"values": [ExtResource("2_rqekc")]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("maloCaminando:hframes")
+tracks/3/path = NodePath("PunketacorriendoBorde:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 1, 0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PunketacorriendoBorde:hframes")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [10]
+"values": [2]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Spark:frame_coords")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(6, 0), Vector2i(5, 0), Vector2i(4, 0), Vector2i(3, 0), Vector2i(2, 0), Vector2i(1, 0), Vector2i(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Area2D/colision:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("colision:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bsuet"]
@@ -399,15 +435,14 @@ collision_layer = 2
 collision_mask = 2
 script = SubResource("GDScript_cwxhu")
 
+[node name="PunketacorriendoBorde" type="Sprite2D" parent="."]
+texture = ExtResource("1_d2i2b")
+hframes = 8
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["enemies"]]
 libraries = {
 "": SubResource("AnimationLibrary_bsuet")
 }
-
-[node name="maloCaminando" type="Sprite2D" parent="." groups=["enemies"]]
-texture = ExtResource("2_vd4ru")
-flip_h = true
-hframes = 10
 
 [node name="AnimationTree" type="AnimationTree" parent="." groups=["enemies"]]
 tree_root = SubResource("AnimationNodeStateMachine_rnly8")
@@ -420,16 +455,19 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="colision" type="CollisionShape2D" parent="Area2D" groups=["enemies"]]
-position = Vector2(-4, 0)
+position = Vector2(-6, 0)
 shape = SubResource("RectangleShape2D_tay4w")
 
 [node name="colision" type="CollisionShape2D" parent="." groups=["enemies"]]
-position = Vector2(-4, 0)
+position = Vector2(-6, 0)
 shape = SubResource("RectangleShape2D_tay4w")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-1, 13)
-target_position = Vector2(0, 7)
-collision_mask = 2
+[node name="Spark" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 0.25098, 1, 1)
+position = Vector2(-6, 0)
+texture = ExtResource("3_1lbka")
+hframes = 7
+frame = 6
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

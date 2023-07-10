@@ -13,14 +13,14 @@ func _ready():
 	menu_principal.pressed.connect(_on_menu_principal_pressed)
 
 func _on_reintentar_pressed():
-	if Global.level==0:
-		get_tree().change_scene_to_file("res://main_scene.tscn")
-		get_tree().paused = false
-		Global.score = 0
-	elif Global.level==1:
-		get_tree().change_scene_to_file("res://Scenes/main_scene_level1.tscn")
-		get_tree().paused = false
-		Global.score = 0
+#	if Global.level==0:
+	get_tree().change_scene_to_file("res://main_scene.tscn")
+	get_tree().paused = false
+	Global.score = 0
+#	elif Global.level==1:
+#		get_tree().change_scene_to_file("res://Scenes/main_scene_level1.tscn")
+#		get_tree().paused = false
+#		Global.score = 0
 	
 func _on_selector_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Niveles.tscn")
