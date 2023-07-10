@@ -104,6 +104,20 @@ var enemy_chart_level_1 = ["a",7,"b",7,"c",7,"d",
 "d",0.1,"c",0.1,"d",0.1,"c",0.1,
 ]
 
+#Lofi es 102 bpm = 1.7 bps = 0.58 diferencia
+var chart_level_2 = [0.65,"hleft",0.4,"hdown",0.4,"hright",
+	0.4, "hup"
+	
+	
+]
+
+var enemy_chart_level_2 = ["a",7,"b",7,"c"
+	
+	
+	
+]
+
+
 func _ready():
 	if mouse:
 		Input.set_custom_mouse_cursor(mouse,0,Vector2(54,54))

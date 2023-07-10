@@ -6,6 +6,9 @@ const AD = preload("res://Scenes/m_arrow_down.tscn")
 const AU = preload("res://Scenes/m_arrow_up.tscn")
 const AR = preload("res://Scenes/m_arrow_right.tscn")
 const HAL = preload("res://Scenes/Hidden_a_left.tscn")
+const HAD = preload("res://Scenes/Hidden_a_down.tscn")
+const HAU = preload("res://Scenes/Hidden_a_up.tscn")
+const HAR = preload("res://Scenes/Hidden_a_right.tscn")
 const enemy = preload("res://enemigo.tscn")
 var character
 var chart_level_1 = []
@@ -32,7 +35,6 @@ func _ready():
 		message.show_text(tr("TUTO2"), 4)
 
 		$Training.play() 
-
 		$Training.play()
 		$Training.play()
 
@@ -44,6 +46,8 @@ func _ready():
 		$RockingNight.play()
 	elif Global.level == 2:
 		message.show_text(tr("LEVE2"), 3)
+		await get_tree().create_timer(2.0).timeout
+		$SlowLofi.play()
 
 
 func _process(_delta):
@@ -54,6 +58,9 @@ func _process(_delta):
 		elif Global.level==1:
 			read_chart(Global.chart_level_1)
 			read_enemy_spawn(Global.enemy_chart_level_1)
+		elif Global.level ==2:
+			read_chart(Global.chart_level_2)
+			read_enemy_spawn(Global.enemy_chart_level_2)
 		chart_read = true
 	if Global.shootqueue>0:
 		for nodo in contenedor.get_children():
@@ -214,6 +221,18 @@ func create_note(lane):
 			var hal = HAL.instantiate()
 			get_tree().get_current_scene().add_child(hal)
 			hal.position = $Creator/Marker2D_AL.global_position
+		"hright":
+			var har = HAR.instantiate()
+			get_tree().get_current_scene().add_child(har)
+			har.position = $Creator/Marker2D_AR.global_position
+		"hup":
+			var hau = HAU.instantiate()
+			get_tree().get_current_scene().add_child(hau)
+			hau.position = $Creator/Marker2D_AU.global_position
+		"hdown":
+			var had = HAD.instantiate()
+			get_tree().get_current_scene().add_child(had)
+			had.position = $Creator/Marker2D_AD.global_position
 
 #Funcion para meter delay entre notas
 
