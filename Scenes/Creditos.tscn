@@ -39,7 +39,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_x7213"]
 resource_name = "credits"
-length = 18.0
+length = 28.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -47,10 +47,10 @@ tracks/0/path = NodePath("ScrollContainer:scroll_vertical")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 18),
+"times": PackedFloat32Array(0, 28),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0, 1700]
+"values": [0, 2000]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vba7w"]
@@ -100,10 +100,10 @@ text = "[center]
 
 
 
-
 [shake][font_size={96}][rainbow] Jam Rush [/rainbow] [/font_size][/shake] 
 
 [wave] Gracias por jugar ! [/wave]
+
 
 
 
@@ -111,30 +111,78 @@ text = "[center]
 
  [color=gold] [wave] Danny González [/wave] [/color]
 
+
+
  [color=gold] [wave] Mario Jiménez [/wave] [/color]
+
+
 
  [color=gold] [wave]Gustavo Medel [/wave] [/color]
 
-[font_size={30}]
-
-[shake]Agradecimientos[/shake]
-
-[wave]HNKTO(Diseño de personajes y sprites) [/wave]
-
-Gustavo Trotta (Imagenes de fondo)
-
-[wave]Valentint (Logo creditos) [/wave]
-
-Daniel Nouri (Imagen de victoria) 
-
-NYKNCK (sprite de explosión)
 
 
-[rainbow] [wave]  [/wave] [/rainbow]
-[/font_size]
 
 
-[/center]"
+[font_size={45}] [shake]Agradecimientos[/shake] [/font_size]
+
+
+[font_size={30}] [wave] HNKTO [/wave]  [/font_size] 
+[font_size={25}] [wave] (Diseño de personajes y sprites) [/wave]  [/font_size] 
+
+
+[font_size={30}]  Gustavo Trotta  [/font_size] 
+[font_size={25}]   (Imagen de fondo derrota)) [/font_size] 
+
+
+[font_size={30}] [wave] Valentint [/wave]  [/font_size] 
+[font_size={25}] [wave] (Logo creditos) [/wave]  [/font_size] 
+
+
+[font_size={30}] [wave] NYKNCK [/wave]  [/font_size] 
+[font_size={25}] [wave]  (sprite de explosión) [/wave]  [/font_size] 
+
+
+[font_size={30}] [wave] Daniel Nouri [/wave]  [/font_size] 
+[font_size={25}] [wave]   (Imagen de fondo victoria)  [/wave]  [/font_size] 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[/center]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
 fit_content = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
