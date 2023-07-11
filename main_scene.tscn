@@ -17,10 +17,10 @@
 [ext_resource type="Texture2D" uid="uid://crtviraaqxcpp" path="res://Assets/Personajes/gato/gatoSeleccionado.png" id="13_kf41t"]
 [ext_resource type="PackedScene" uid="uid://ipbifc8eirvi" path="res://Scenes/OverNode.tscn" id="14_y5enm"]
 [ext_resource type="PackedScene" uid="uid://ce5pdudpuni3c" path="res://Scenes/message.tscn" id="15_3de6h"]
-[ext_resource type="AudioStream" uid="uid://mnh5kq1f38gn" path="res://Assets/Songs/Training.wav" id="15_fdw56"]
+[ext_resource type="AudioStream" uid="uid://baqdqqom1ua3s" path="res://Assets/Songs/Training.wav" id="15_fdw56"]
 [ext_resource type="AudioStream" uid="uid://cjnwawjtxyk4e" path="res://Assets/Songs/ReM.mp3" id="16_k7uxw"]
 [ext_resource type="AudioStream" uid="uid://cdqe7m0le05ne" path="res://Assets/Songs/FaM.mp3" id="17_cxv8j"]
-[ext_resource type="PackedScene" path="res://limite.tscn" id="19_chct3"]
+[ext_resource type="PackedScene" uid="uid://xfv7pb0elohw" path="res://limite.tscn" id="19_chct3"]
 [ext_resource type="AudioStream" uid="uid://ddvxtg0xgvxx3" path="res://Assets/Songs/Rocking Night.mp3" id="20_ea4ge"]
 [ext_resource type="AudioStream" uid="uid://daeyfpl8bm4tu" path="res://Assets/Songs/Gatosonido - 03-07-23, 10.44.mp3" id="22_os7e7"]
 [ext_resource type="AudioStream" uid="uid://c2uivxnpgmu4e" path="res://Assets/Songs/Slow Lofi.mp3" id="24_r3ijb"]
@@ -207,6 +207,14 @@ volume_db = -16.0
 
 [node name="SlowLofi" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("24_r3ijb")
+
+[node name="TimerLv1" type="Timer" parent="."]
+wait_time = 3.8
+
+[node name="TimerLv2" type="Timer" parent="."]
+
+[node name="TimerOut" type="Timer" parent="."]
+wait_time = 24.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

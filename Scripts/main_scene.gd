@@ -42,13 +42,18 @@ func _ready():
 
 		$Timer.start()
 		$Timer2.start()
+		
+		
+		
 	elif Global.level==1:
+		$TimerLv1.start()
 		message.show_text(tr("LEVE1"), 3)
-		await get_tree().create_timer(3.8).timeout
+		await $TimerLv1.timeout
 		$RockingNight.play()
 	elif Global.level == 2:
+		$TimerLv2.start()
 		message.show_text(tr("LEVE2"), 3)
-		await get_tree().create_timer(2.0).timeout
+		await $TimerLv2.timeout
 		$SlowLofi.play()
 
 
@@ -306,11 +311,12 @@ func create_enemy(lane):
 
 func read_enemy_spawn(enemy_chart):
 	if Global.level==1 or Global.level==2:
+		$TimerOut.start()
 		for i in enemy_chart:
 			if i is String:
 				create_enemy(i)
 			else:
 				$EnemyDelay.start(i)
 				await $EnemyDelay.timeout
-		await get_tree().create_timer(24).timeout
+		await $TimerOut.timeout
 		get_tree().change_scene_to_file("res://Scenes/WinLv1.tscn")

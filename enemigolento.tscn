@@ -11,7 +11,7 @@ script/source = "extends CharacterBody2D
 @onready var playback = animation_tree.get(\"parameters/playback\")
 var velocityInt = -10
 var velocityVect = Vector2(velocityInt,0)
-const HEALTH = 40
+const HEALTH = 50
 var health = HEALTH
 var attack= false
 
