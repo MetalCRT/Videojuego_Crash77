@@ -1,17 +1,17 @@
-[gd_scene load_steps=22 format=3 uid="uid://crtvbged31wkx"]
+[gd_scene load_steps=22 format=3 uid="uid://q531sotadec"]
 
-[ext_resource type="Texture2D" uid="uid://dccbtqpubwu6f" path="res://Assets/Personajes/enemigos/country/countrymfcaminandoBORDE.png" id="1_b2rd6"]
-[ext_resource type="Texture2D" uid="uid://btjjvqo7yysbw" path="res://Assets/Personajes/enemigos/country/countrymffelizBORDE.png" id="2_6wpr0"]
-[ext_resource type="Texture2D" uid="uid://d35833a6odhah" path="res://Assets/vfx/Magic Pack 9 files/spritesheets/spark.png" id="3_1lbka"]
+[ext_resource type="Texture2D" uid="uid://dnrbptfqkdsbi" path="res://Assets/Personajes/enemigos/metal/metalerocorriendoBORDE.png" id="1_y0vx1"]
+[ext_resource type="Texture2D" uid="uid://bxrvit3b72abq" path="res://Assets/Personajes/enemigos/metal/metalerofelizBORDE.png" id="2_76s6n"]
+[ext_resource type="Texture2D" uid="uid://d35833a6odhah" path="res://Assets/vfx/Magic Pack 9 files/spritesheets/spark.png" id="3_714dd"]
 
 [sub_resource type="GDScript" id="GDScript_cwxhu"]
 script/source = "extends CharacterBody2D
 @onready var animation_player = $AnimationPlayer
 @onready var animation_tree = $AnimationTree
 @onready var playback = animation_tree.get(\"parameters/playback\")
-var velocityInt = -20
+var velocityInt = -10
 var velocityVect = Vector2(velocityInt,0)
-const HEALTH = 20
+const HEALTH = 40
 var health = HEALTH
 var attack= false
 
@@ -52,10 +52,10 @@ func _on_area_2d_area_entered(area):
 	elif area.is_in_group(\"proy_tec\") and not attack:
 		health -= 1  
 		modulate = Color(0,1,0)
-		velocityVect = Vector2(-10,0)
+		velocityVect = Vector2(-5,0)
 		await get_tree().create_timer(0.5).timeout
 		modulate = Color(1,1,1)
-		velocityVect = Vector2(-20,0)
+		velocityVect = Vector2(-10,0)
 
 func _damage(node):
 	if(health>0):
@@ -83,79 +83,79 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PunketacorriendoBorde:vframes")
+tracks/0/path = NodePath("PunketacorriendoBorde:hframes")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [8]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("PunketacorriendoBorde:frame")
+tracks/1/path = NodePath("PunketacorriendoBorde:vframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [1]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Spark:visible")
+tracks/2/path = NodePath("PunketacorriendoBorde:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PunketacorriendoBorde:visible")
+tracks/3/path = NodePath("Spark:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Spark:frame_coords")
+tracks/4/path = NodePath("PunketacorriendoBorde:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [Vector2i(6, 0)]
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Area2D/colision:disabled")
+tracks/5/path = NodePath("Spark:frame_coords")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [Vector2i(6, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("colision:disabled")
+tracks/6/path = NodePath("Area2D/colision:disabled")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -167,31 +167,31 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("PunketacorriendoBorde:texture")
+tracks/7/path = NodePath("colision:disabled")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("1_b2rd6")]
+"values": [false]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("PunketacorriendoBorde:hframes")
+tracks/8/path = NodePath("PunketacorriendoBorde:texture")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [ExtResource("1_y0vx1")]
 }
 
 [sub_resource type="Animation" id="Animation_bkho6"]
 resource_name = "caminando"
-length = 0.8
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -256,26 +256,26 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PunketacorriendoBorde:texture")
+tracks/5/path = NodePath("PunketacorriendoBorde:hframes")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.447418),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.0192424, 0.4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("1_b2rd6")]
+"values": [4, 4]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("PunketacorriendoBorde:hframes")
+tracks/6/path = NodePath("PunketacorriendoBorde:texture")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.329226),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [8]
+"values": [ExtResource("1_y0vx1")]
 }
 
 [sub_resource type="Animation" id="Animation_wb2fr"]
@@ -371,7 +371,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_6wpr0")]
+"values": [ExtResource("2_76s6n")]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
@@ -383,7 +383,7 @@ tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [7]
+"values": [2]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bsuet"]
@@ -436,7 +436,7 @@ collision_mask = 2
 script = SubResource("GDScript_cwxhu")
 
 [node name="PunketacorriendoBorde" type="Sprite2D" parent="."]
-texture = ExtResource("1_b2rd6")
+texture = ExtResource("1_y0vx1")
 hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." groups=["enemies"]]
@@ -464,9 +464,9 @@ shape = SubResource("RectangleShape2D_tay4w")
 
 [node name="Spark" type="Sprite2D" parent="."]
 visible = false
-modulate = Color(0.513726, 0.768627, 0, 1)
+modulate = Color(1, 0.25098, 0, 1)
 position = Vector2(-6, 0)
-texture = ExtResource("3_1lbka")
+texture = ExtResource("3_714dd")
 hframes = 7
 frame = 6
 

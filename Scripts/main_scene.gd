@@ -10,6 +10,8 @@ const HAD = preload("res://Scenes/Hidden_a_down.tscn")
 const HAU = preload("res://Scenes/Hidden_a_up.tscn")
 const HAR = preload("res://Scenes/Hidden_a_right.tscn")
 const enemy = preload("res://enemigo.tscn")
+const enemylento = preload("res://enemigolento.tscn")
+const enemyrapido = preload("res://enemigorapido.tscn")
 var character
 var chart_level_1 = []
 var chart_read = false
@@ -269,6 +271,38 @@ func create_enemy(lane):
 			var en4 = enemy.instantiate()
 			get_tree().get_current_scene().add_child(en4)
 			en4.position = $Creator/Marker2D_en4.global_position
+		"e":
+			var enL1 = enemylento.instantiate()
+			get_tree().get_current_scene().add_child(enL1)
+			enL1.position = $Creator/Marker2D_en1.global_position
+		"f":
+			var enL2 = enemylento.instantiate()
+			get_tree().get_current_scene().add_child(enL2)
+			enL2.position = $Creator/Marker2D_en2.global_position
+		"g":
+			var enL3 = enemylento.instantiate()
+			get_tree().get_current_scene().add_child(enL3)
+			enL3.position = $Creator/Marker2D_en3.global_position
+		"h":
+			var enL4 = enemylento.instantiate()
+			get_tree().get_current_scene().add_child(enL4)
+			enL4.position = $Creator/Marker2D_en4.global_position
+		"i":
+			var enR1 = enemyrapido.instantiate()
+			get_tree().get_current_scene().add_child(enR1)
+			enR1.position = $Creator/Marker2D_en1.global_position
+		"j":
+			var enR2 = enemyrapido.instantiate()
+			get_tree().get_current_scene().add_child(enR2)
+			enR2.position = $Creator/Marker2D_en2.global_position
+		"k":
+			var enR3 = enemyrapido.instantiate()
+			get_tree().get_current_scene().add_child(enR3)
+			enR3.position = $Creator/Marker2D_en3.global_position
+		"l":
+			var enR4 = enemyrapido.instantiate()
+			get_tree().get_current_scene().add_child(enR4)
+			enR4.position = $Creator/Marker2D_en4.global_position
 
 func read_enemy_spawn(enemy_chart):
 	if Global.level==1:
@@ -278,5 +312,5 @@ func read_enemy_spawn(enemy_chart):
 			else:
 				$EnemyDelay.start(i)
 				await $EnemyDelay.timeout
-		await get_tree().create_timer(20).timeout
+		await get_tree().create_timer(25).timeout
 		get_tree().change_scene_to_file("res://Scenes/WinLv1.tscn")
