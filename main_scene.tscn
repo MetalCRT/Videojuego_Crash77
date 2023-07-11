@@ -20,7 +20,7 @@
 [ext_resource type="AudioStream" uid="uid://mnh5kq1f38gn" path="res://Assets/Songs/Training.wav" id="15_fdw56"]
 [ext_resource type="AudioStream" uid="uid://cjnwawjtxyk4e" path="res://Assets/Songs/ReM.mp3" id="16_k7uxw"]
 [ext_resource type="AudioStream" uid="uid://cdqe7m0le05ne" path="res://Assets/Songs/FaM.mp3" id="17_cxv8j"]
-[ext_resource type="PackedScene" uid="uid://xfv7pb0elohw" path="res://limite.tscn" id="19_chct3"]
+[ext_resource type="PackedScene" path="res://limite.tscn" id="19_chct3"]
 [ext_resource type="AudioStream" uid="uid://ddvxtg0xgvxx3" path="res://Assets/Songs/Rocking Night.mp3" id="20_ea4ge"]
 [ext_resource type="AudioStream" uid="uid://daeyfpl8bm4tu" path="res://Assets/Songs/Gatosonido - 03-07-23, 10.44.mp3" id="22_os7e7"]
 [ext_resource type="AudioStream" uid="uid://c2uivxnpgmu4e" path="res://Assets/Songs/Slow Lofi.mp3" id="24_r3ijb"]
