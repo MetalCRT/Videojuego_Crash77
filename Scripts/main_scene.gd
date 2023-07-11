@@ -312,5 +312,5 @@ func read_enemy_spawn(enemy_chart):
 			else:
 				$EnemyDelay.start(i)
 				await $EnemyDelay.timeout
-		await get_tree().create_timer(25).timeout
+		await get_tree().create_timer(24).timeout
 		get_tree().change_scene_to_file("res://Scenes/WinLv1.tscn")
