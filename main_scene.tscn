@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://crtviraaqxcpp" path="res://Assets/Personajes/gato/gatoSeleccionado.png" id="13_kf41t"]
 [ext_resource type="PackedScene" uid="uid://ipbifc8eirvi" path="res://Scenes/OverNode.tscn" id="14_y5enm"]
 [ext_resource type="PackedScene" uid="uid://ce5pdudpuni3c" path="res://Scenes/message.tscn" id="15_3de6h"]
-[ext_resource type="AudioStream" uid="uid://baqdqqom1ua3s" path="res://Assets/Songs/Training.wav" id="15_fdw56"]
+[ext_resource type="AudioStream" uid="uid://mnh5kq1f38gn" path="res://Assets/Songs/Training.wav" id="15_fdw56"]
 [ext_resource type="AudioStream" uid="uid://cjnwawjtxyk4e" path="res://Assets/Songs/ReM.mp3" id="16_k7uxw"]
 [ext_resource type="AudioStream" uid="uid://cdqe7m0le05ne" path="res://Assets/Songs/FaM.mp3" id="17_cxv8j"]
 [ext_resource type="PackedScene" uid="uid://xfv7pb0elohw" path="res://limite.tscn" id="19_chct3"]
@@ -209,8 +209,8 @@ volume_db = -16.0
 stream = ExtResource("24_r3ijb")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="HBoxContainer/TextureButton2" to="." method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/TextureButton3" to="." method="_on_texture_button_3_pressed"]

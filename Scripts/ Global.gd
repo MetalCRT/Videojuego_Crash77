@@ -105,17 +105,51 @@ var enemy_chart_level_1 = ["a",7,"b",7,"c",7,"d",
 ]
 
 #Lofi es 102 bpm = 1.7 bps = 0.58 diferencia
-var chart_level_2 = [0.65,"hleft",0.4,"hdown",0.4,"hright",
-	0.4, "hup"
+var chart_level_2 = [3.0,"left",0.58,"down",0.58,"hup",
+	0.58, "right", 0.58, "hleft", 1.16, "down", 1.16, "up",
+	0.58,"down","up",0.58,"hleft",0.58,"left","right",0.58,"hup",
+	0.58,"down",0.58,"right",0.58,"down",0.58,"right",1.16,
+	"left",0.58,"hup",0.58,"down",0.58,"hright",0.58,
+	"left",0.6,"hup",0.6,"right", 0.54, "hleft", "right",
+	0.58,"up",0.58,"down",0.58,"right", 1.16,
+	"left",0.58,"right",0.58,"hleft",0.58,"right",0.58,"hleft",1.36,
+	"right",0.4,"down",0.3,"hup",0.58,1.16,"down",1.16,"hleft",0.58,
+	"right",0.58,"hup",0.4,"down",0.70,"hleft", 1.46,"down",0.96,"up",1.16,
+	"hdown",1.16,"left",1.16,"hright",1.16,"up","down",0.58,"left",0.58,"hright",0.22, #A tiempo
+	0.4, "down","left",0.47,"up","hright",0.58,"hup",0.64,"down","left",0.29,"left",
+	0.29,"down",0.29,"up",0.29,"right",0.29,"hleft",0.29,"hdown",0.29,"hup",0.29,"hright",0.29,
+	"left",0.29,"hdown",0.29,"up",0.29,"hright",1.16,"hleft",0.29,"down",0.29,"hup",0.29,"right",
+	1.16, "up","down",0.59,"down",0.59,"hup",1.0,"left","right",1.16,"hup","hdown",1.0,"left",
+	0.58,"right",0.58,"down",0.58,"up",0.58,"left",0.90,"hup",0.58,"down",0.58,"hleft",0.58,
+	"hright",0.58,"down",0.58,"hleft",0.58,"hright", 0.9,"down","left", 1.1,"right","up",
+	1.1,"left","right",1.1,"down","up",1.1,"hright","hup",1.1,"left","right",1.1,"hdown","hup",
+	0.55,"right",0.55,"hleft",0.55,"up",0.55,"hdown",3.0,"up",0.29,"left",0.29,"hup",0.29,
+	"hdown","right",1.16,"left","up","right",1.16,"hleft","hright",1.16,"up","hdown",
+	1.16,"right","hdown",1.16,"hright","up",1.16,"hup","down",1.16,"hright","down",1.16,
+	"left","up",1.16,"hdown","left",1.16,"hleft","right",1.16,"up","hdown",1.16,"hdown",
+	"left",1.16,"up","hright",0.58,"up",0.29,"down",0.58,"left",0.29,"right",
+	0.29,"left",0.29,"hdown",0.29,"up",0.29,"right",0.29,"left",1.58,"hdown",0.4,
+	"left",0.29,"right",0.35,"down",0.29,"hup",0.35,"left",0.29,"hdown",0.35,"right",1.16,
+	"left","up",1.16,"hdown","left",1.16,"hleft","right",1.16,"left","down","up","right",1.16,
+	1.16,"left",0.5,"up",0.4,"hright",0.7,"down",0.29,"up","left",0.29,0.58,"hleft",0.29,"right",0.58,
+	"hdown",0.58,"hup","right",0.6,"up","hdown",0.58,"left",0.29,"right",0.29,"down",0.29,"up",0.58,
+	"hup","down",0.29,"left",0.29,"up",0.58,"hright",0.58,"hup",0.58,"hdown",0.58,"hleft",1.16,"up","left",
+	1.16,"hup","hleft",1.16,"down","right",0.58,"left",0.58,"hdown","hright",0.29,"up",
+	0.29,"down",0.4,"left",0.29,"right",0.5,"up",0.5,"hdown",0.3,"left",1.16,"hup","hdown","hright",
+	1,"up","down","left",1.16,"up","down",1.16,"left","right"
+	
 	
 	
 ]
 
-var enemy_chart_level_2 = ["a",7,"b",7,"c"
-	
-	
+var enemy_chart_level_2 = ["a",7,"b",7,"c",7,"d",10,"a","b",5,"b","d",2,"a","c",8,
+	"b","c",7,"a","d",8,"b",1,"b",5,"a",1,"a",5,"d","b",1,"d","b",5,"a","b","c","d",
+	5,"a","b","c","d", 4,"a","b","c","d","a",5,
+4,"g","h",2,"g","h",2,"d",5,"b","c",6,"a","d",5,
+"a","d",3,"f",4,"a","b"
 	
 ]
+
 
 
 func _ready():

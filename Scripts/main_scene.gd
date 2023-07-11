@@ -305,7 +305,7 @@ func create_enemy(lane):
 			enR4.position = $Creator/Marker2D_en4.global_position
 
 func read_enemy_spawn(enemy_chart):
-	if Global.level==1:
+	if Global.level==1 or Global.level==2:
 		for i in enemy_chart:
 			if i is String:
 				create_enemy(i)
