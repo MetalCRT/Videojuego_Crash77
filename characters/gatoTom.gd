@@ -9,6 +9,8 @@ var current_timer = 2
 func _ready():
 	$centro.body_entered.connect(_on_body_entered_center)
 	body_entered.connect(_on_body_entered)
+	$AnimationPlayer.play("spawn")
+	await $AnimationPlayer.animation_finished
 	$AnimationPlayer.play("idle")
 	
 func _physics_process(delta):

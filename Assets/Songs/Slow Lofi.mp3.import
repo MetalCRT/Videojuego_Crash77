@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c2uivxnpgmu4e"
+path="res://.godot/imported/Slow Lofi.mp3-e50fd3a70a03f29f72ca37f6958d4775.mp3str"
+
+[deps]
+
+source_file="res://Assets/Songs/Slow Lofi.mp3"
+dest_files=["res://.godot/imported/Slow Lofi.mp3-e50fd3a70a03f29f72ca37f6958d4775.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
