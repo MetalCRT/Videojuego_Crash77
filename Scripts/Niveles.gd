@@ -28,7 +28,8 @@ func _on_nivel_1_pressed():
 	get_tree().change_scene_to_file("res://main_scene.tscn")
 	Global.level=1
 func _on_nivel_2_pressed():
-	pass
+	get_tree().change_scene_to_file("res://main_scene.tscn")
+	Global.level=2
 	
 func _on_buttonback_pressed():
 	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
