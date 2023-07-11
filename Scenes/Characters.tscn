@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dyooanhcddsa0"]
+[gd_scene load_steps=15 format=3 uid="uid://dyooanhcddsa0"]
 
 [ext_resource type="Theme" uid="uid://dykgfcqvxck4" path="res://Resources/theme.tres" id="1_r2xc0"]
 [ext_resource type="Texture2D" uid="uid://34h83nfji2os" path="res://Resources/pexels-photo-167636.webp" id="2_4h2ds"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://cd5klpm2it0hh" path="res://Assets/Botones/buttonback.tscn" id="9_my20q"]
 [ext_resource type="Texture2D" uid="uid://bfgtbe5bfh1is" path="res://Assets/Personajes/parlante/PARLATINLOREE.png" id="10_poxkr"]
 [ext_resource type="Texture2D" uid="uid://cehtqgf3omu88" path="res://Assets/Personajes/parlante/PARLATINLOREE_BORROSO.png" id="11_osgau"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6jhs"]
+bg_color = Color(0.454902, 0.494118, 0.654902, 0.866667)
 
 [node name="Menu Principal" type="MarginContainer"]
 anchors_preset = 15
@@ -40,7 +43,7 @@ layout_mode = 2
 theme_override_constants/separation = 25
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 200)
+custom_minimum_size = Vector2(0, 250)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 80
@@ -81,20 +84,29 @@ texture_pressed = ExtResource("11_osgau")
 stretch_mode = 0
 script = null
 
-[node name="Panel" type="PanelContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(0, 250)
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Panel" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+modulate = Color(0.941176, 0.886275, 0.756863, 1)
+self_modulate = Color(0.858824, 1, 1, 1)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_f6jhs")
 
-[node name="Loree" type="RichTextLabel" parent="MarginContainer/Panel"]
+[node name="Loree" type="RichTextLabel" parent="MarginContainer/HBoxContainer/Panel"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-text = "[center] [tornado]SELECCIONA       UN        PERSONAJE       PARA CONOCERLO"
+text = "[center] [tornado]SELECCIONA       UN        PERSONAJE       PARA CONOCERLO "
 fit_content = true
 
-[node name="buttonback" parent="MarginContainer" instance=ExtResource("9_my20q")]
+[node name="buttonback" parent="." instance=ExtResource("9_my20q")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 8

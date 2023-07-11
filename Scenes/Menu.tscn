@@ -94,7 +94,7 @@ layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("1_ysv6b")
 bbcode_enabled = true
-text = "[center][wave]Jam Rush[/wave][/center]
+text = "[center][wave][rainbow] Jam Rush [/rainbow] [/wave][/center]
 "
 fit_content = true
 
